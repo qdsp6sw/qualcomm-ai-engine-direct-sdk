@@ -1,0 +1,219 @@
+#!/usr/bin/env bash
+#==============================================================================
+#
+#  Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+#  All rights reserved.
+#  Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+#==============================================================================
+
+# This script checks the various environment variables needed to run sdk binaries and scripts
+
+_usage()
+{
+cat << EOF
+Usage: $(basename ${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]}) [-h] [-a] [-n] [-c] [-t] [-l] [-o] [-p]
+
+Checks if the environment is properly setup for supported toolchains and ml-frameworks.
+
+optional arguments:
+
+ -h Shows the help content.
+ -n Checks if environment is set for using Android NDK
+ -c Checks if environment is set for clang++ version 14.
+ -t Checks if environment is set for using TensorFlow.
+ -l Checks if environment is set for using TFLite.
+ -o Checks if environment is set for using ONNX.
+ -p Checks if environment is set for using PyTorch.
+ -a Checks if environment is set for all supported toolchains and ml-frameworks.
+ -v Enable verbose logs to help get more logs.
+EOF
+}
+
+function _check_ndk()
+{
+  # check NDK in path
+  local ndkDir=$(which ndk-build)
+  if [ ! -s "${ndkDir}" ]; then
+    if [[ -d "${ANDROID_NDK_ROOT}" ]]; then
+      echo "[ERROR] Can't find ndk-build. But ANDROID_NDK_ROOT is set"
+      echo "[INFO] Please add the ANDROID_NDK_ROOT to env variable PATH to work seamlessly."
+      echo "Use the following command to update the same: export PATH=\${ANDROID_NDK_ROOT}:\${PATH}"
+    fi
+  else
+    if [[ -d "${ANDROID_NDK_ROOT}" ]]; then
+      echo "[INFO] Found ndk-build at "${ndkDir}" and ANDROID_NDK_ROOT is also set."
+    else
+      echo "[ERROR] Found ndk-build. But ANDROID_NDK_ROOT is not set"
+      echo "[INFO] Please set the ANDROID_NDK_ROOT and add it to env variable PATH to work seamlessly."
+      echo "Use the following command to update the same: export PATH=\${ANDROID_NDK_ROOT}:\${PATH}"
+    fi
+  fi
+}
+
+function _check_clang()
+{
+  # check clang++-9 for Ubuntu-20
+  if [ $(lsb_release -sr) == 20.04 ]; then
+    clangDir=$(which clang++-9)
+    if [ -s "${clangDir}" ]; then
+      echo "[INFO] Found clang++-9 at "${clangDir}
+      return 0
+    fi
+    echo "[WARNING] Recommended clang++-9 not found. Checking for default clang++"
+  fi
+
+  # check default clang++
+  clangDir=$(which clang++)
+  if [ -s "${clangDir}" ]; then
+    echo "[INFO] Found clang++ at "${clangDir}
+  else
+    echo "[ERROR] Unable to find clang++"
+    echo "[INFO] Run check-linux-dependency.sh script to install missing dependencies"
+  fi
+}
+
+function _check_tensorflow()
+{
+  if $enableVerbose
+  then
+    python3 -c "import tensorflow"
+  else
+    python3 -c "import tensorflow" &>/dev/null
+  fi
+  if [[ $? -ne 0 ]]; then
+    echo "[ERROR] Unable to import tensorflow using python3".
+  else
+    echo "TensorFlow is set-up successfully"
+  fi
+}
+
+function _check_tflite()
+{
+  if $enableVerbose
+  then
+    python3 -c "import tflite"
+  else
+    python3 -c "import tflite" &>/dev/null
+  fi
+  if [[ $? -ne 0 ]]; then
+    echo "[ERROR] Unable to import tflite using python3".
+  else
+    echo "TFLite is set-up successfully"
+  fi
+}
+
+function _check_onnx()
+{
+  if $enableVerbose
+  then
+    python3 -c "import onnx"
+  else
+    python3 -c "import onnx" &>/dev/null
+  fi
+  if [[ $? -ne 0 ]]; then
+    echo "[ERROR] Unable to import onnx using python3".
+  else
+    echo "ONNX is set-up successfully"
+  fi
+}
+
+function _check_pytorch()
+{
+  if $enableVerbose
+  then
+    python3 -c "import torch"
+  else
+    python3 -c "import torch" &>/dev/null
+  fi
+  if [[ $? -ne 0 ]]; then
+    echo "[ERROR] Unable to import torch using python3".
+  else
+    echo "PyTorch is set-up successfully"
+  fi
+}
+
+checkNdk=false
+checkClang=false
+checkTensorflow=false
+checkTfLite=false
+checkOnnx=false
+checkPyTorch=false
+enableVerbose=false
+
+if [ $# -eq 0 ]
+  then
+  _usage; exit 0 ;
+else
+  # parse arguments
+  while getopts "hnctlopav?" opt; do
+    case ${opt} in
+      h  ) _usage; exit 0 ;;
+      n  ) checkNdk=true ;;
+      c  ) checkClang=true ;;
+      t  ) checkTensorflow=true ;;
+      l  ) checkTfLite=true ;;
+      o  ) checkOnnx=true ;;
+      p  ) checkPyTorch=true ;;
+      a  ) checkNdk=true checkClang=true checkTensorflow=true checkTfLite=true checkOnnx=true checkPyTorch=true ;;
+      v  ) enableVerbose=true;;
+      \? ) _usage; exit 0 ;;
+      *  ) echo "Unknown option: -$opt" >&2; exit 1;;
+    esac
+  done
+fi
+
+if $checkNdk
+then
+  echo "Checking Android NDK Environment"
+  echo "--------------------------------------------------------------"
+  _check_ndk
+  echo "--------------------------------------------------------------"
+  echo ''
+fi
+
+
+if $checkClang
+then
+  echo "Checking Clang Environment"
+  echo "--------------------------------------------------------------"
+  _check_clang
+  echo "--------------------------------------------------------------"
+  echo ''
+fi
+
+if $checkTensorflow
+then
+  echo "Checking TensorFlow Environment"
+  echo "--------------------------------------------------------------"
+  _check_tensorflow
+  echo "--------------------------------------------------------------"
+  echo ''
+fi
+
+if $checkTfLite
+then
+  echo "Checking TFLite Environment"
+  echo "--------------------------------------------------------------"
+  _check_tflite
+  echo "--------------------------------------------------------------"
+  echo ''
+fi
+
+if $checkOnnx
+then
+  echo "Checking ONNX Environment"
+  echo "--------------------------------------------------------------"
+  _check_onnx
+  echo "--------------------------------------------------------------"
+  echo ''
+fi
+
+if $checkPyTorch
+then
+  echo "Checking PyTorch Environment"
+  echo "--------------------------------------------------------------"
+  _check_pytorch
+  echo "--------------------------------------------------------------"
+  echo ''
+fi

@@ -1,0 +1,58 @@
+/*
+ * Copyright (c) 2019-2023 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+apply plugin: 'com.android.application'
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+    tasks.withType(JavaCompile).tap {
+        configureEach {
+            options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+        }
+    }
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "30.0.2"
+    ndkVersion "25.2.9519653"
+
+    defaultConfig {
+        applicationId "com.qualcomm.qti.psnpedemo"
+        minSdkVersion 29
+        //noinspection ExpiredTargetSdkVersion
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        externalNativeBuild {
+            cmake {
+                cppFlags ''
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging true
+        }
+    }
+}
+
+dependencies {
+    implementation files('libs/psnpe-release.aar')
+    testImplementation 'junit:junit:4.12'
+}

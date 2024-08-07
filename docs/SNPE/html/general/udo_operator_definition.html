@@ -1,0 +1,962 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Defining a UDO &mdash; Snapdragon Neural Processing Engine SDK</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_css.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Defining a UDO Package" href="udo_package_definition.html" />
+    <link rel="prev" title="Overview of UDO" href="udo_overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qualcomm® Neural Processing SDK
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v2.25.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="revision_history.html">Revision History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revision_history_windows.html">Revision History - Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="usergroup1.html">Network Models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="network_layers.html">Supported Network Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_onnx_ops.html">Supported ONNX Ops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantized_models.html">Quantized vs Non-Quantized Models</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="usergroup2.html">User-defined Operations</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="udo_overview.html">Overview of UDO</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Defining a UDO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="udo_package_definition.html">Defining a UDO Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating_udo_package.html">Creating a UDO Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compiling_udo_package.html">Compiling a UDO package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compiling_udo_package_for_windows.html">Compiling a UDO package for Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="preparing_model_with_udo.html">Preparing a model with UDO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running_model_with_udo.html">Running a model with UDO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="usergroup3.html">Model Conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usergroup5.html">Input Data and Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usergroup6.html">Tutorials and Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usergroup10.html">Benchmarking and Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usergroup11.html">Debug Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="limitations.html">Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appx_ref.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qualcomm® Neural Processing SDK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="usergroup1.html">Network Models</a> &raquo;</li>
+        
+          <li><a href="usergroup2.html">User-defined Operations</a> &raquo;</li>
+        
+      <li>Defining a UDO</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="defining-a-udo">
+<h1>Defining a UDO<a class="headerlink" href="#defining-a-udo" title="Permalink to this heading">¶</a></h1>
+<div class="ui-resizable side-nav-resizable docutils container" id="side-nav">
+<div class="docutils container" id="nav-tree">
+<div class="docutils container" id="nav-tree-contents">
+</div>
+</div>
+</div>
+<div class="docutils container" id="doc-content">
+<div class="header docutils container">
+</div>
+<div class="contents docutils container">
+<div class="textblock docutils container">
+<p>A User-Defined Operation (UDO) allows users to integrate their
+custom operations with Qualcomm® Neural Processing SDK to enable execution on any
+supported hardware accelerator. The UDO mechanism accepts a
+specification of a custom operation (defined below), and
+processes that information to process a model containing that
+custom operation. This section explains how such a UDO can be
+specified. See <a class="reference external" href="udo_overview.html">Overview of UDO</a> for more
+details about UDO and <a class="reference external" href="preparing_model_with_udo.html">Preparing a model with
+UDO</a> for details on how to
+convert a model that contains a UDO into a Qualcomm® Neural Processing SDK DLC for
+supported frameworks.</p>
+<p class="rubric" id="the-udo-configuration-specification">The UDO Configuration Specification</p>
+<p>As described in the <a class="reference external" href="udo_overview.html">Overview of UDO</a>
+section, a user can express the attributes of their custom
+operation with a configuration specification file. This UDO
+configuration (henceforth known as UDO config) is a description
+of the operation that can be created using the Extensible Markup
+Language (XML) (henceforth known as XML OpDef Config) or the
+Javascript Object Notation (JSON) syntax and formatting
+(henceforth known as JSON UDO Config). The configuration file syntax
+defines fields that describe the UDO Operation information.
+The fields are pre-determined and will ultimately be
+parsed into the required information that constitutes a UDO.
+The information provided should be generic and independent of a
+particular model, meaning model-specific parameters or names
+need not be part of the configuration. The information will be
+used to identify the op within a framework model, and then
+ultimately serialized into the DLC model. This implies that any
+changes in the config would require re-generation of the DLC
+model to ensure the correct information is serialized.
+The following sections describe the configuration file specification.</p>
+<p class="rubric" id="the-xml-opdef-config-description">The XML OpDef Config Description</p>
+<p>The XML OpDef Config describes the operations the package contains as well as the package
+information such as the package name, version, and domain. Package information and
+operations are described with respect to a predefined XML schema (described below), that
+requires information about operation inputs, outputs, and parameters.</p>
+<p class="rubric" id="the-xml-opdef-schema-breakdown">The XML OpDef Schema Breakdown</p>
+<p>This section provides an overview of the schema used to define
+Operation Definitions (Op Defs) in the XML OpDef Config. Op Defs
+specify the inputs, outputs, parameters, and descriptive metadata
+that constitute an operation. The schema is formalized using
+Extensible Markup Language (XML) and XML Schema Definition (XSD).</p>
+<p class="rubric" id="operation-definition-schema">Operation Definition Schema</p>
+<p>The following diagram describes the relationship between these Op Def entities.</p>
+<div class="docutils container">
+<div class="figure align-default">
+<img alt="../images/OpDefUml.png" src="../images/OpDefUml.png" />
+</div>
+</div>
+<p>In the above OpDef Schema diagram members prefixed by &#64; are XML attributes and those with
+no prefix are XML elements.</p>
+<p class="rubric" id="opdef">OpDef</p>
+<p>An OpDef is an XML element that describes an operation at thehighest level. It contains
+the following elements. Elements with content are required and elements that are empty are
+optional.</p>
+<div class="highlight-fragment notranslate"><div class="highlight"><pre><span></span>&lt;OpDef&gt;
+     &lt;Name&gt;OpName&lt;/Name&gt;
+
+     &lt;Description&gt;
+         &lt;Content&gt;&lt;/Content&gt;
+         &lt;Code&gt;&lt;/Code&gt;
+     &lt;/Description&gt;
+
+     &lt;Reference Source=&quot;&quot; Url=&quot;&quot;&gt;&lt;/Reference&gt;
+
+     &lt;!--Requires at least one input--&gt;
+     &lt;Input&gt;
+         &lt;Name&gt;in[0]&lt;/Name&gt;
+         &lt;Mandatory&gt;true&lt;/Mandatory&gt;
+         &lt;Constraint id=&quot;&quot; Type=&quot;&quot;&gt;&lt;/Constraint&gt;
+         &lt;Datatype&gt;FLOAT_32&lt;/Datatype&gt;
+         &lt;Shape&gt;
+             &lt;Rank&gt;1D&lt;/Rank&gt;
+             &lt;Layout&gt;&lt;/Layout&gt;
+             &lt;Text&gt;&lt;/Text&gt;
+         &lt;/Shape&gt;
+         &lt;Default&gt;&lt;/Default&gt;
+         &lt;Repeated&gt;&lt;/Repeated&gt;
+         &lt;IsStaticTensor&gt;&lt;/IsStaticTensor&gt;
+     &lt;/Input&gt;
+
+     &lt;!--Requires at least one output--&gt;
+     &lt;Output&gt;
+         &lt;Name&gt;out[0]&lt;/Name&gt;
+         &lt;Mandatory&gt;true&lt;/Mandatory&gt;
+         &lt;Constraint id=&quot;&quot; Type=&quot;&quot;&gt;&lt;/Constraint&gt;
+         &lt;Datatype&gt;FLOAT_32&lt;/Datatype&gt;
+         &lt;Shape&gt;
+             &lt;Rank&gt;1D&lt;/Rank&gt;
+             &lt;Layout&gt;&lt;/Layout&gt;
+             &lt;Text&gt;&lt;/Text&gt;
+         &lt;/Shape&gt;
+         &lt;Repeated&gt;&lt;/Repeated&gt;
+     &lt;/Output&gt;
+
+     &lt;!--Parameters are optional--&gt;
+     &lt;Parameter&gt;
+         &lt;Name&gt;param&lt;/Name&gt;
+         &lt;Mandatory&gt;false&lt;/Mandatory&gt;
+         &lt;Constraint id=&quot;&quot; Type=&quot;&quot;&gt;&lt;/Constraint&gt;
+         &lt;Datatype&gt;INT_32&lt;/Datatype&gt;
+         &lt;Shape&gt;
+             &lt;Rank&gt;1D&lt;/Rank&gt;
+             &lt;Layout&gt;&lt;/Layout&gt;
+             &lt;Text&gt;&lt;/Text&gt;
+         &lt;/Shape&gt;
+         &lt;Default&gt;&lt;/Default&gt;
+         &lt;Enumeration&gt;
+             &lt;Enum&gt;&lt;/Enum&gt;
+         &lt;/Enumeration&gt;
+     &lt;/Parameter&gt;
+
+     &lt;UseDefaultTranslation&gt;&lt;/UseDefaultTranslation&gt;
+     &lt;SupportedBackend&gt;DSP_V68&lt;/SupportedBackend&gt;
+ &lt;/OpDef&gt;
+</pre></div>
+</div>
+<ul>
+<li><p><strong>Name:</strong> The name of the operation.</p></li>
+<li><p><strong>Description:</strong> Optional; describes the operation through sequences of content and code.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Content:</strong> String describing the operation.</p></li>
+<li><p><strong>Code:</strong> String that represents code describing the operation,
+e.g., output_height = input_height - crop_top - crop_bottom</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Reference:</strong> Optional; defines one or more references for the operation.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Source:</strong> Attribute for the source of operation.
+E.g. Tensorflow, ONNX, etc.</p></li>
+<li><p><strong>Url:</strong> Attribute for the URL of the source.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Input:</strong> Defines one or more inputs to the operation.
+Inputs are extensions of <a class="reference external" href="#op-def-tensor">Tensors</a> that have
+the following additional field(s):.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>IsStaticTensor:</strong> Optional boolean flag that if set
+to True, indicates that an input tensor is a parameter
+which contains or references static data. If unset,
+the tensor is treated as a dynamic input.</p></li>
+<li><p><strong>Repeated:</strong> Optional boolean that specifies whether
+this input is repeated. Used for operations which have
+variadic inputs, such as Concat. <sup>7</sup></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Output:</strong> Defines one or more outputs to the operation. Outputs
+are extensions of <a class="reference external" href="#op-def-tensor">Tensors</a>  that have the
+following additional field(s):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Repeated:</strong> Optional boolean that specifies whether this
+output is repeated. Used for operations which have variadic
+outputs, such as MultiClassNms. <sup>7</sup></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Parameter:</strong> Optional; defines one or more parameters for
+the operation. Parameters are extensions of <a class="reference external" href="#op-def-tensor">Tensors</a> that
+additionally define.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Enumeration:</strong> Optional field for enumerated params.
+Enumerations are composed of subfields called Enum whose
+content gives the name of the enum representing a given value.
+Values are assigned in the order in which the Enum is specified.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>SupportedBackend:</strong> Field(s) that specify one or more backends
+on which this operation is supported. Used when backends share a
+common definition of an operation. If fields vary across backend
+for the same operation use <a class="reference external" href="#supplemental-opdef">SupplementalOpDef</a>
+and mark the field with BACKEND_SPECIFIC.</p></li>
+<li><p><strong>UseDefaultTranslation:</strong> Boolean field that if set to true,
+indicates that a custom operation overrides a QNN native operation.
+The custom operation type must match the type of the QNN native
+operation for accurate conversion. When set to false, a custom
+operation is converted as a generic user defined operation. In the
+false mode, the custom op type must match the source framework type.</p></li>
+</ul>
+<p>A key component of creating an OpDef are Inputs, Outputs, and
+Parameters, all of which are extensions of Tensors. A Tensor
+element is defined as follows:</p>
+<ul id="op-def-tensor">
+<li><p><strong>Name:</strong> The name of the tensor.</p></li>
+<li><p><strong>Description:</strong> Optional: describes the operation through sequences of content and code:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Content:</strong> String describing the operation.</p></li>
+<li><p><strong>Code:</strong> String that represents code describing the tensor.
+e.g. output_height = input_height - crop_top - crop_bottom</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Constraint:</strong> Optional: defines one or more constraints
+on the given tensor. The constraint is given as a string in the body
+of the element. <sup>8</sup></p>
+<blockquote>
+<div><ul>
+<li><p><strong>id:</strong> Specifies the ID of the constraint. Used to override constraints for
+supplemental operation definitions.</p></li>
+<li><p><strong>Type:</strong> The type of the constraint. Valid types are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Number:</strong> a constraint characterized by cardinality,
+e.g., Number of inputs &gt;= 1</p></li>
+<li><p><strong>Shape:</strong> a constraint characterized by a restriction
+on dimension of the tensor, e.g., Rank &gt;= 1</p></li>
+<li><p><strong>Value:</strong> a constraint characterized by the value of
+the tensor, e.g., Tensor is only positive.</p></li>
+<li><p><strong>Datatype:</strong> a constraint characterized by a restriction
+on datatype. Typically used for tensors which can be of several
+datatypes but must be of the same datatype as another tensor.</p></li>
+<li><p><strong>Description:</strong> a constraint which does not conform to any
+other category of constraint.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Mandatory:</strong> Boolean; indicates if the tensor must be provided/defined. <sup>9</sup></p></li>
+<li><p><strong>Datatype:</strong> Defines the allowable datatypes for the tensor.
+Must be one of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>FLOAT_16</p></li>
+<li><p>FLOAT_32</p></li>
+<li><p>FIXED_4</p></li>
+<li><p>FIXED_8</p></li>
+<li><p>FIXED_16</p></li>
+<li><p>UINT_8</p></li>
+<li><p>UINT_16</p></li>
+<li><p>UINT_32</p></li>
+<li><p>STRING</p></li>
+<li><p>BACKEND_SPECIFIC used to indicate that the datatype is
+dependent on the Backend. Must be used in conjunction
+with a <a class="reference external" href="#supplemental-opdef">SupplementalOpDef</a> to specify a concrete datatype.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Shape:</strong> Specifies the shape of the tensor.</p>
+<blockquote>
+<div><ul>
+<li><p><strong>Rank:</strong> The rank of the tensor as an enumeration with the following values:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>SCALAR: Scalar</p></li>
+<li><p>1D: Vector</p></li>
+<li><p>2D: Matrix</p></li>
+<li><p>3D: 3D Tensor or Image</p></li>
+<li><p>4D: 4D Tensor or Batched Image</p></li>
+<li><p>ND: Generic N-D Tensor N &gt;= 0</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Layout:</strong> Optional; specifies the layout of the tensor. Must be one of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>NHWC</p></li>
+<li><p>NHCW</p></li>
+<li><p>UNDEFINED used to identify that the layout is neither NHCW or NHWC</p></li>
+<li><p>BACKEND_SPECIFIC used to indicate that the layout is dependent
+on the Backend. Must be used in conjunction with a
+<a class="reference external" href="#supplemental-opdef">SupplementalOpDef</a> to specify a concrete layout.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Text:</strong> Optional; string description for the shape of the tensor.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Default:</strong> Optional; string representing the default value for the tensor. Can be one of</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Tensor: use braces or brackets to create list e.g. [[1, 2], [3, 4]]</p></li>
+<li><p>Scalar: provide scalar value e.g. 1, 1.1, -1</p></li>
+<li><p>Boolean: provide either 0 (false) or 1 (true)</p></li>
+<li><p>String: any other string. If text cannot be resolved into one of
+above categories it will be stored as string.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p class="rubric" id="supplemental-opdef">SupplementalOpDef</p>
+<p>SupplementalOpDef’s are XML elements which define content that is variable
+across backend(s). SupplementalOpDef’s extend the content defined in
+OpDefs, but limits the fields that can be overridden. The SupplementalOpDef
+is structured as follows. Elements with content are required, and elements
+that are empty are optional.</p>
+<div class="highlight-fragment notranslate"><div class="highlight"><pre><span></span>&lt;SupplementalOpDef&gt;
+
+      &lt;Name&gt;OpName&lt;/Name&gt;
+
+     &lt;!--Only supplemented Inputs are required--&gt;
+      &lt;Input&gt;
+          &lt;Name&gt;in[0]&lt;/Name&gt;
+          &lt;Constraint id=&quot;&quot; Type=&quot;&quot;&gt;&lt;/Constraint&gt;
+          &lt;Datatype&gt;&lt;/Datatype&gt;
+          &lt;Shape&gt;
+              &lt;Layout&gt;&lt;/Layout&gt;
+              &lt;Text&gt;&lt;/Text&gt;
+          &lt;/Shape&gt;
+          &lt;OnlyDefaultSupported&gt;&lt;/OnlyDefaultSupported&gt;
+      &lt;/Input&gt;
+
+       &lt;!--Only supplemented Outputs are required--&gt;
+      &lt;Output&gt;
+          &lt;Name&gt;out[0]&lt;/Name&gt;
+          &lt;Constraint id=&quot;&quot; Type=&quot;&quot;&gt;&lt;/Constraint&gt;
+          &lt;Datatype&gt;&lt;/Datatype&gt;
+          &lt;Shape&gt;
+              &lt;Layout&gt;&lt;/Layout&gt;
+              &lt;Text&gt;&lt;/Text&gt;
+          &lt;/Shape&gt;
+          &lt;OnlyDefaultSupported&gt;&lt;/OnlyDefaultSupported&gt;
+      &lt;/Output&gt;
+
+       &lt;!--Only supplemented Params are required--&gt;
+      &lt;Parameter&gt;
+          &lt;Name&gt;param&lt;/Name&gt;
+          &lt;Constraint id=&quot;&quot; Type=&quot;&quot;&gt;&lt;/Constraint&gt;
+          &lt;Datatype&gt;&lt;/Datatype&gt;
+          &lt;Shape&gt;
+              &lt;Layout&gt;&lt;/Layout&gt;
+              &lt;Text&gt;&lt;/Text&gt;
+          &lt;/Shape&gt;
+          &lt;OnlyDefaultSupported&gt;&lt;/OnlyDefaultSupported&gt;
+      &lt;/Parameter&gt;
+
+&lt;/SupplementalOpDef&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Name:</strong> The name of the operation.</p></li>
+<li><p><strong>Input:</strong> Optional; extends one or more inputs to the
+operation. Supplemental inputs are <a class="reference external" href="#supplemental-tensor">Supplemental Tensors</a>.</p></li>
+<li><p><strong>Output:</strong> Optional; extends one or more outputs to the
+operation. Supplemental outputs are <a class="reference external" href="#supplemental-tensor">Supplemental Tensors</a>.</p></li>
+<li><p><strong>Parameter:</strong> Optional; extends one or more parameters for
+the operation. Supplemental parameters are
+<a class="reference external" href="#supplemental-tensor">Supplemental Tensors</a>.</p></li>
+</ul>
+<p>Inputs, outputs, and parameters are all Supplemental Tensors,
+which can only specify certain fields. All fields, except name,
+in a supplemental tensor are optional.</p>
+<ul id="supplemental-tensor">
+<li><p><strong>Name:</strong> The name of the tensor. Must correspond to the name
+of the tensor in the original OpDef that is being extended.</p></li>
+<li><p><strong>Constraint:</strong> Optional; defines one or more
+constraints on the given tensor. The constraint is given
+as a string in the body of the element. <sup>8</sup></p>
+<blockquote>
+<div><ul>
+<li><p><strong>id:</strong> Specifies the ID of the constraint. Used
+to override constraints for supplemental operation definitions.</p></li>
+<li><p><strong>Type:</strong> The type of the constraint. Valid types are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Number:</strong> a constraint characterized by cardinality.
+e.g. Number of inputs &gt;= 1</p></li>
+<li><p><strong>Shape:</strong> a constraint characterized by a restriction
+on dimension of the tensor. e.g. Rank &gt;= 1</p></li>
+<li><p><strong>Value:</strong> a constraint characterized by the value of
+the tensor. e.g. Tensor is only positive.</p></li>
+<li><p><strong>Datatype:</strong> a constraint characterized by a restriction
+on datatype. Typically used for tensors which can be of several
+datatypes but must be of the same datatype as another tensor.</p></li>
+<li><p><strong>Description:</strong> a constraint which does not conform to any
+other category of constraint.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Datatype:</strong> Defines the allowable datatypes for the tensor.
+Must be one of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>FLOAT_16</p></li>
+<li><p>FLOAT_32</p></li>
+<li><p>FIXED_4</p></li>
+<li><p>FIXED_8</p></li>
+<li><p>FIXED_16</p></li>
+<li><p>UINT_8</p></li>
+<li><p>UINT_16</p></li>
+<li><p>UINT_32</p></li>
+<li><p>STRING</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Shape:</strong> Specifies the shape of the tensor.</p>
+<blockquote>
+<div><ul>
+<li><p><strong>Layout:</strong> Optional; specifies the layout of the tensor. Must be one of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>NHWC</p></li>
+<li><p>NHCW</p></li>
+<li><p>UNDEFINED used to identify that the layout is neither NHCW or NHWC</p></li>
+<li><p>BACKEND_SPECIFIC used to indicate that the layout is dependent
+on the Backend. Must be used in conjunction with a SupplementalOpDef
+to specify a concrete layout.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Text:</strong> Optional; string description for the shape of the tensor.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>OnlyDefaultSupported:</strong> Optional; boolean that indicates if the backend only
+supports the default value defined in the corresponding OpDef for this tensor.</p></li>
+</ul>
+<p class="rubric" id="opdef-list">OpDefList</p>
+<p>An OpDefList is an XML element composed of a sequence of <a class="reference external" href="#opdef">OpDef</a>
+elements. OpDefLists are backend agnostic and only serve as a wrapper
+around multiple OpDefs.</p>
+<div class="highlight-fragment notranslate"><div class="highlight"><pre><span></span>&lt;OpDefList&gt;
+
+    &lt;!--One or more OpDef--&gt;
+    &lt;OpDef&gt;
+      &lt;!--OpDef defined above --&gt;
+    &lt;/OpDef&gt;
+
+&lt;/OpDefList&gt;
+</pre></div>
+</div>
+<p class="rubric" id="supplemental-opdef-list">SupplementalOpDefList</p>
+<p>A SupplementalOpDefList is an XML element composed of a sequence of
+<a class="reference external" href="#supplemental-opdef">SupplementalOpDef</a> elements. In addition,
+SupplementalOpDefLists contain the following fields.</p>
+<div class="highlight-fragment notranslate"><div class="highlight"><pre><span></span>&lt;SupplementalOpDefList Backend=&quot;HTP&quot;&gt;
+
+   &lt;SupportedOps&gt;
+      &lt;OpName&gt;&lt;/OpName&gt;
+   &lt;/SupportedOps&gt;
+
+   &lt;SupplementalOpDef&gt;
+      &lt;!--SupplementalOpDef defined above--&gt;
+   &lt;/SupplementalOpDef&gt;
+
+&lt;/SupplementalOpDefList&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Backend:</strong> Specifies which backend the SupplementalOpDef’s are supplementing.</p></li>
+<li><p><strong>SupportedOps:</strong> Sequence of OpName elements.
+Each OpName corresponds to an operation defined in the corresponding
+OpDefList and indicates the backend supports the operation. This information
+may be redundant with the SupportedBackend field of the OpDef element.</p></li>
+</ul>
+<p class="rubric" id="opdef-collection">OpDefCollection</p>
+<p>The OpDefCollection is the root XML element of the configuration file meant to
+be used with the snpe-udo-package-generator. It contains all the information needed
+to specify all of a users packages. The OpDefCollection contains the following</p>
+<div class="highlight-fragment notranslate"><div class="highlight"><pre><span></span>&lt;OpDefCollection
+     xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+     xs:noNamespaceSchemaLocation=&quot;OpDef.xsd&quot;
+     PackageName=&quot;ExamplePackage&quot;
+     Domain=&quot;example&quot;
+     Version=&quot;1.0&quot;
+&gt;
+
+   &lt;!--One OpDefList--&gt;
+   &lt;OpDefList&gt;
+      &lt;!--OpDefList defined above--&gt;
+   &lt;/OpDefList&gt;
+
+   &lt;!--SupplementalOpDefLists are not required--&gt;
+   &lt;SupplementalOpDefList Backend=&quot;HTP&quot;&gt;
+      &lt;!--SupplementalOpDefList defined above--&gt;
+   &lt;/SupplementalOpDefList&gt;
+
+&lt;/OpDefCollection&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>PackageName:</strong> Specifies the name for the user’s OpPackage.
+Because packages are per backend, the actual package name will be the
+value specified here appended with &lt;Backend&gt; e.g. MyPackageNameHtp.</p></li>
+<li><p><strong>Domain:</strong> Specifies the domain of the package.</p></li>
+<li><p><strong>Version:</strong> Specifies the version of the package.</p></li>
+<li><p><strong>OpDefList:</strong> One <a class="reference external" href="#opdef-list">OpDefList</a> specifying all operations for the package(s).</p></li>
+<li><p><strong>SupplementalOpDefList:</strong> Optional; specifies one or more <a class="reference external" href="#supplemental-opdef-list">SupplementalOpDefList</a>
+to specify per-backend information.</p></li>
+</ul>
+<p>One OpDefCollection element can be used to produce multiple per-backend packages.</p>
+<p class="rubric" id="the-json-udo-config-description">The JSON UDO Config Description</p>
+<p>The details of the aforementioned UDO config file can be
+described below.</p>
+<div class="highlight-fragment notranslate"><div class="highlight"><pre><span></span>{
+    &quot;UdoPackage_0&quot;:
+    {
+        &quot;Operators&quot;: [
+            {
+                &quot;type&quot;: &quot;&quot;,
+                &quot;inputs&quot;:[
+                    {&quot;name&quot;:&quot;&quot;, &quot;per_core_data_types&quot;:{&quot;CPU&quot;:&quot;FLOAT_32&quot;, &quot;GPU&quot;:&quot;FLOAT_32&quot;, &quot;DSP&quot;:&quot;UINT_8&quot;},
+                    &quot;static&quot;: true, &quot;tensor_layout&quot;: &quot;NHWC&quot;},
+                    {&quot;name&quot;:&quot;&quot;, &quot;data_type&quot;: &quot;FLOAT_32&quot;,
+                    &quot;static&quot;: true, &quot;tensor_layout&quot;: &quot;NHWC&quot;},
+                ],
+                &quot;outputs&quot;:[
+                    {&quot;name&quot;:&quot;&quot;, &quot;per_core_data_types&quot;:{&quot;CPU&quot;:&quot;FLOAT_32&quot;, &quot;GPU&quot;:&quot;FLOAT_32&quot;, &quot;DSP&quot;:&quot;UINT_8&quot;}},
+                    {&quot;name&quot;:&quot;&quot;, &quot;data_type&quot;: &quot;FLOAT_32&quot;}
+                ],
+                &quot;scalar_params&quot;: [
+                    {&quot;name&quot;:&quot;scalar_param_1&quot;, &quot;data_type&quot;: &quot;INT_32&quot;}
+                ],
+                &quot;tensor_params&quot;: [
+                    {&quot;name&quot;:&quot;tensor_param_1&quot;, &quot;data_type&quot;: &quot;FLOAT_32&quot;, &quot;tensor_layout&quot;: &quot;NHWC&quot;},
+                ],
+                &quot;core_types&quot;: [&quot;CPU&quot;, &quot;GPU&quot;, &quot;DSP&quot;],
+                &quot;dsp_arch_types&quot;: [&quot;v66&quot;, &quot;v68&quot;, &quot;v69&quot;, &quot;v73&quot;]
+            }
+        ],
+        &quot;UDO_PACKAGE_NAME&quot;: &quot;MyCustomUdoPackage&quot;
+    }
+}
+</pre></div>
+</div>
+<p>The above description is simply a generic configuration file to
+aid the definition of the fields that the user can fill.
+Required fields are provided with a specific value, while
+optional fields are denoted with empty strings. Note that an
+optional field only implies that there is either a default
+value if it is not provided, or that an empty string will be
+used. The full details of each available field is described
+hierarchically below:</p>
+<ul class="simple">
+<li><p><strong>UdoPackage:</strong> Every UDO package can be described as
+<em>“UdoPackage_i”</em> where <em>i</em> indicates the order in which the
+packages will be generated. The user is also free to use
+empty strings but the dictionary structure is
+necessary.<sup>1</sup></p></li>
+<li><p><strong>Operators:</strong> This is a child node of a particular
+UdoPackage indicating the number of operators present.
+<sup>5</sup></p>
+<ul>
+<li><p><strong>type:</strong> defines the type of the operation.</p></li>
+<li><p><strong>inputs:</strong> a list of input tensors to the operation.
+Each input is a dictionary object. <sup>2</sup></p>
+<ul>
+<li><p><strong>name:</strong> An optional field that describes the name of
+the input tensor. Since the name of the input tensor
+is variable, the user is not required to provide this.</p></li>
+<li><p><strong>per_core_data_type:</strong> A dictionary object specifying
+the data-type of this input tensor in each core.
+Alternatively, if the user wishes to have the same
+data-type across all specified cores, then the user
+can specify the option “data_type” followed by the
+data-type. The supported data-types are:</p>
+<ul>
+<li><p>FLOAT_16</p></li>
+<li><p>FLOAT_32</p></li>
+<li><p>FIXED_4</p></li>
+<li><p>FIXED_8</p></li>
+<li><p>FIXED_16</p></li>
+<li><p>UINT_8</p></li>
+<li><p>UINT_16</p></li>
+<li><p>UINT_32</p></li>
+<li><p>STRING</p></li>
+</ul>
+</li>
+<li><p><strong>static:</strong> A boolean field that is required if the
+input data is static, i.e data is provided in the
+model. This field needs to be set if the input tensor
+will contain data, otherwise the input will be treated
+dynamically, and the data will not be serialized.</p></li>
+<li><p><strong>tensor_layout:</strong> A string field that describes the
+canonical dimension format of the input tensor. The
+supported values are: <sup>4</sup></p>
+<ul>
+<li><p>NCHW</p></li>
+<li><p>NHWC</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>outputs:</strong> A list of output tensors to the
+operation.<sup>2</sup></p></li>
+<li><p><strong>scalar_params:</strong> A list of scalar-valued
+attributes.<sup>3</sup></p>
+<ul>
+<li><p><strong>name:</strong> A required field that describes the name of
+the scalar parameter.</p></li>
+<li><p><strong>data_type:</strong> A required field that describes the
+data-type supported by this scalar parameter.</p></li>
+</ul>
+</li>
+<li><p><strong>tensor_params:</strong> A list of tensor-valued
+attributes.<sup>2</sup> <sup>3</sup></p></li>
+<li><p><strong>core_types:</strong> The intended IP cores for this particular
+operation. The supported core_types:</p>
+<ul>
+<li><p>CPU</p></li>
+<li><p>GPU</p></li>
+<li><p>DSP</p></li>
+</ul>
+</li>
+<li><p><strong>dsp_arch_types:</strong> The intended DSP architecture types
+for DSP core type. The supported dsp_arch_types:</p>
+<ul>
+<li><p>v65</p></li>
+<li><p>v66</p></li>
+<li><p>v68</p></li>
+<li><p>v69</p></li>
+<li><p>v73</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>UDO_PACKAGE_NAME:</strong> The name of the UDO Package, which can
+be any valid string.<sup>1</sup></p></li>
+</ul>
+<p class="rubric" id="creating-a-udo-config">Creating a UDO config</p>
+<p>The user should aim to fill out the fields described in the
+config above to adequately describe a UDO. In some cases, the
+information required in this config could be easily obtained
+from framework documentation about the operation. However,
+there may be subtle caveats, therefore the user is encouraged
+to ensure that inputs, outputs and params are properly
+categorized and described. A potential caveat is that inputs
+can be mis-categorized as parameters and vice versa, if the
+config is written only according to documentation. In this
+scenario, a useful tip is to visualize the model using an open
+source tool such as Netron (found here:
+<a class="reference external" href="https://github.com/lutzroeder/netron">https://github.com/lutzroeder/netron</a>) to assist with crafting
+the UDO config correctly.</p>
+<p>Once an adequately descriptive config has been created, it can
+be used as an argument to the framework converters as described
+in <a class="reference external" href="preparing_model_with_udo.html">Preparing a model with
+UDO</a>.</p>
+<p><strong>Notes:</strong></p>
+<ol class="arabic simple">
+<li><p>More than one UDO package can be defined in a single config
+file. Users should note that the package name specified here
+must match the package name used in creating the
+corresponding package.</p></li>
+<li><p>Each input, output and tensor parameter is categorized as
+the same kind of tensor object, meaning that all the fields
+are shared. The names of inputs and outputs are not required
+since the config is a generic description of an operation.
+An operator must have at least one input and output.</p></li>
+<li><p>In the case of the parameters, the name field is always
+required.</p></li>
+<li><p>The tensor layout is a convention to indicate the
+arrangement of data within the tensor. Therefore a tensor
+layout of <strong>NHWC</strong> means that the data is organized in
+<code class="docutils literal notranslate"><span class="pre">(batch</span> <span class="pre">x</span> <span class="pre">height</span> <span class="pre">x</span> <span class="pre">width</span> <span class="pre">x</span> <span class="pre">channel)</span></code>, where channel is the
+fastest changing dimension. Note this is the default
+arrangement for Qualcomm® Neural Processing SDK, and that
+may have implications on a model containing a UDO if other
+tensor layouts are selected. Notably, if a tensor layout of
+<strong>NCHW</strong> is selected, then the data and/or tensor parameters
+may need to be reshaped to the Qualcomm® Neural Processing
+SDK default to maintain dimensional understanding. Should the
+user encounter this scenario, they may notice the introduction
+of intermediary permute layers prior to the UDO layer which
+will ultimately feed the tensors in question.
+These caveats should be visible as either converter
+warnings, debug messages or through outputs of the
+visualization tools described in <a class="reference external" href="tools.html">Tools</a>. For
+more details on tensor layouts, the user can consult the
+section: <a class="reference external" href="image_input.html">Input Image Formatting</a> of
+the documentation.</p></li>
+<li><p>For CPU, GPU and DSP coretypes, there can be an arbitrary
+number of operators defined per UDO package. However the
+provided skeleton code is tailored to define only one
+operation in one package. One subtle distinction is that the
+generated DSP V65 or DSP V66 implementation source code
+expects one operation per implementation library. While in
+the CPU, GPU, and DSP V68 or later cases, there may be an
+arbitrary number of operations in a library.</p></li>
+<li><p>The data-type of a tensor determines both how the data
+contained in the tensor will be stored in the DLC, and the
+type of memory handed over by Qualcomm® Neural
+Processing SDK during runtime execution. While tensors
+get stored within the DLC in the exact data-type specified
+by the UDO definition, there may be runtime restrictions
+on the type of memory users can expect to receive depending
+on the chosen core-type. Users should visit the following
+section: <a class="reference external" href="compiling_udo_package.html">Compiling a UDO package</a>
+for more details.</p></li>
+<li><p>Operations with an unknown number of inputs/outputs are
+currently not supported on the DSP and HTP backend.</p></li>
+<li><p>Constraints are purely a descriptive field and do not require
+mathematical expression. Constraints are currently not enforced.</p></li>
+<li><p>Outputs are not mandatory, but cannot have default values and
+are assumed to be NULL if not provided.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="udo_package_definition.html" class="btn btn-neutral float-right" title="Defining a UDO Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="udo_overview.html" class="btn btn-neutral float-left" title="Overview of UDO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020-2023, Qualcomm Technologies, Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

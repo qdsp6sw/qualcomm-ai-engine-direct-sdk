@@ -1,0 +1,306 @@
+#!/usr/bin/env python3
+# =============================================================================
+#
+# Copyright (c) 2019-2023 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+# =============================================================================
+
+# This helper python script makes it easier to run the binary executable on device
+# by pushing all of the necessary files, setting up the environment, running the
+# executable and gathering results.
+
+import argparse
+import os
+import logging
+
+# setting logger
+logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+from common_utils.adb import Adb
+from common_utils.tshell_server import TShellRunner
+
+def prepare_and_push_data_android(adb, sdk_path, buildVariant, device_path, device_id, dsp_type, remote_host):
+
+    UNIFIED_SDK = False
+    if 'aisw-v' in sdk_path:
+        UNIFIED_SDK = True
+
+    if adb.check_file_exists(device_path):
+        (ret_code, output, _) = adb.shell("rm -rf %s" % device_path)
+        logger.warning(" Deleting path {} on device!".format(device_path))
+        if ret_code != 0:
+            message = "Unable to remove directory " + device_path + " on the device.\n"
+            for msg in output:
+                message = message + msg
+            raise ValueError(message)
+
+    (ret_code, output, _) = adb.shell("mkdir -p %s" % device_path)
+    if ret_code != 0:
+        message = "Unable to create directory " + device_path + " on the device.\n"
+        for msg in output:
+            message = message + msg
+        raise ValueError(message)
+
+    (ret_code, output, _) = adb.shell("mkdir -p %s" % (device_path + "/bin"))
+    if ret_code != 0:
+        message = "Unable to create directory " + device_path + "/bin" + " on the device.\n"
+        for msg in output:
+            message = message + msg
+        raise ValueError(message)
+
+    # Push the qnn-platform-validator of the proper variant to device
+    if UNIFIED_SDK:
+        path_to_push = os.path.join(sdk_path, "bin", buildVariant, "qnn-platform-validator")
+    else:
+        path_to_push = os.path.join(sdk_path, "target", buildVariant, "bin", "qnn-platform-validator")
+    (ret_code, output, _) = adb.push(src=path_to_push, dst=device_path + "/bin/")
+    if ret_code != 0 and ret_code != 1:
+        message = "couldn't push " + path_to_push + " to device.\n"
+        for msg in output:
+            message = message + msg
+        raise ValueError(message)
+
+    change_to_exec_command = "chmod a+x "
+    change_to_exec_command += device_path + "/bin/*"
+    (ret_code, output, _) = adb.shell(change_to_exec_command)
+    if ret_code != 0:
+        message = "couldn't change permissions for " + change_to_exec_command + " on the device.\n"
+        for msg in output:
+            message = message + msg
+        raise ValueError(message)
+
+    (ret_code, output, _) = adb.shell("mkdir -p %s" % (device_path + "/lib"))
+    if ret_code != 0:
+        message = "Unable to create directory " + device_path + "/lib" + " on the device.\n"
+        for msg in output:
+            message = message + msg
+        raise ValueError(message)
+
+    # Push the libraries to device
+    if UNIFIED_SDK:
+        path_to_push = os.path.join(sdk_path, "lib", buildVariant)
+    else:
+        path_to_push = os.path.join(sdk_path, "target", buildVariant, "lib")
+    lib_files = os.listdir(path_to_push)
+    for lib_name in lib_files:
+        (ret_code, output, _) = adb.push(src=os.path.join(path_to_push, lib_name), dst=(device_path + "/lib/"))
+        if ret_code != 0 and ret_code != 1:
+            message = "couldn't push " + path_to_push + " to device.\n"
+            for msg in output:
+                message = message + msg
+            raise ValueError(message)
+
+    (ret_code, output, _) = adb.shell("mkdir -p %s" % (device_path + "/dsp/"))
+    if ret_code != 0:
+        message = "Unable to create directory " + device_path + "/dsp" + " on the device.\n"
+        for msg in output:
+            message = message + msg
+        raise ValueError(message)
+
+    # Push the dsp libraries to device
+    if UNIFIED_SDK:
+        path_to_push = os.path.join(sdk_path, "lib", "hexagon-" + dsp_type ,"unsigned")
+    else:
+        path_to_push = os.path.join(sdk_path, "target", "hexagon-" + dsp_type ,"lib", "unsigned")
+
+    dsp_lib_files = os.listdir(path_to_push)
+    for dsp_lib_name in dsp_lib_files:
+        (ret_code, output, _) = adb.push(src=os.path.join(path_to_push, dsp_lib_name), dst=(device_path + "/dsp/"))
+        if ret_code != 0 and ret_code != 1:
+            message = "couldn't push " + path_to_push + " to device.\n"
+            for msg in output:
+                message = message + msg
+            raise ValueError(message)
+
+def prepare_and_push_data_windows(tshell, sdk_path, buildVariant, device_path, device_id, dsp_type):
+
+    UNIFIED_SDK = False
+    if 'aisw-v' in sdk_path:
+        UNIFIED_SDK = True
+
+    # Remove existing dir on device
+    result = tshell.run("rmdird /s {0}".format(device_path))
+    if not result.return_code:
+        result = tshell.run("mkdird {0}".format(device_path))
+
+    # Push the qnn-platform-validator of the proper variant to device
+    if UNIFIED_SDK:
+        path_to_push = os.path.join(sdk_path, "bin", buildVariant)
+    else:
+        path_to_push = os.path.join(sdk_path, "target", buildVariant, "bin")
+    result = tshell.run("putd -Recurse {0} {1}".format(path_to_push, device_path ))
+    if result.return_code:
+        logger.error(result.output)
+
+    # Push the libraries to device
+    if UNIFIED_SDK:
+        path_to_push = os.path.join(sdk_path, "lib", buildVariant)
+    else:
+        path_to_push = os.path.join(sdk_path, "target", buildVariant, "lib")
+    result = tshell.run("putd -Recurse {0} {1}".format(path_to_push, device_path ))
+    if result.return_code:
+        logger.error(result.output)
+
+    # Push the dsp skel libraries to device
+    if UNIFIED_SDK:
+        path_to_push = os.path.join(sdk_path, "lib", "hexagon-" + dsp_type ,"unsigned")
+    else:
+        path_to_push = os.path.join(sdk_path, "target", "hexagon-" + dsp_type ,"lib", "unsigned")
+    result = tshell.run("putd -Recurse {0} {1}".format(path_to_push, device_path ))
+    if result.return_code:
+        logger.error(result.output)
+
+
+def platform_validator():
+    parser = argparse.ArgumentParser(description='Helper script to set up the environment for '
+                                                 'and launch the qnn-platform-validator executable.')
+    required = parser.add_argument_group('required arguments')
+    optional = parser.add_argument_group('optional arguments')
+    required.add_argument('--backend', dest='backend'
+                          , help='Specify the backend to validate. <BACKEND> : gpu, dsp, all'
+                          , required=True)
+    required.add_argument('--sdk_path', dest='sdk_path'
+                          , help='Path to the root of the unzipped SDK folder'
+                          , required=True)
+    required.add_argument('--dsp_type', dest='dsp_type', help='Specify DSP variant', required=True,
+                        choices=['v65', 'v66', 'v68', 'v69', 'v73', 'v75', 'v79'], default=None)
+    optional.add_argument('--buildVariant', dest='buildVariant', default="aarch64-android",
+                          help='Specify the build variant (e.g: aarch64-android, aarch64-windows-msvc) to be validated.'
+                          , required=False)
+    optional.add_argument('--testBackend', dest='test_backend', action='store_true'
+                          , help='Runs a small program on the runtime and Checks if QNN is supported for backend'
+                          , required=False)
+    optional.add_argument('--deviceId', dest='device_id'
+                          , help='The serial number of the device to use. If not available, '
+                                 'the first in a list of queried devices will be used for validation.'
+                          , required=False)
+    optional.add_argument('--coreVersion', dest='backend_version', action='store_true'
+                          , help='Outputs the version of the runtime that is present on the target. ', required=False)
+    optional.add_argument('--libVersion', dest='lib_version', action='store_true'
+                          , help='Outputs the library version of the runtime that is present on the target. ', required=False)
+    optional.add_argument('--targetPath', dest='location', default="/data/local/tmp/platformValidator"
+                          , help='The path to the location on device from which to run the platform validator.'
+                                 ' NOTE that this directory will be deleted before proceeding with validation.',
+                          required=False)
+    optional.add_argument('--remoteHost', dest='remote_host', default='localhost'
+                          , help='Run on remote host through remote adb server', required=False)
+    optional.add_argument('--debug', dest='debug', action='store_true'
+                          , help='Set to turn on verbose logging.', required=False)
+    optional.add_argument('--socName', dest='socName'
+                          , required=False, help=argparse.SUPPRESS)
+    optional.add_argument('--socId', dest='socId'
+                          , required=False, help=argparse.SUPPRESS)
+
+    # Parse the arguments and set the variables
+    args = parser.parse_args()
+    buildVariant = args.buildVariant
+    device_path = args.location
+    if buildVariant == 'aarch64-windows-msvc':
+        device_path = "C:\\tmp\\platformValidator"
+    sdk_path = args.sdk_path
+    dsp_type = args.dsp_type
+    backend = args.backend.lower()
+    test_backend = args.test_backend
+    backend_version = args.backend_version
+    lib_version = args.lib_version
+    remote_host = args.remote_host
+    debug = args.debug
+    device_id = args.device_id
+    output_dir = device_path + "/output"
+    socName = args.socName
+    socId = args.socId
+    # Prepare and Push the artifacts to the device
+
+    if buildVariant == 'aarch64-windows-msvc':
+        tshell = TShellRunner()
+        tshell.start()
+        tshell.run('open-device ' + device_id , no_exception=True)
+        prepare_and_push_data_windows(tshell, sdk_path, buildVariant, device_path, device_id, dsp_type)
+    else:
+        adb = Adb(adb_executable='adb', device=device_id, master_id=None, hostname=remote_host)
+        prepare_and_push_data_android(adb, sdk_path, buildVariant, device_path, device_id, dsp_type, remote_host)
+
+    # Prepare Platform-Validator Test Command
+
+    if buildVariant == 'aarch64-windows-msvc':
+        command = "qnn-platform-validator "
+    else:
+        command = "export LD_LIBRARY_PATH=" + device_path + "/lib/:/usr/lib ;"
+        command += "export ADSP_LIBRARY_PATH='/system/lib/rfsa/adsp;/system/vendor/lib/rfsa/adsp;" + device_path + "/dsp/' ;"
+        command += device_path + "/bin/qnn-platform-validator "
+
+    if backend is not None:
+        command += "--backend "
+        command += backend
+        command += " "
+    if output_dir is not None:
+        command += "--targetPath "
+        command += output_dir
+        command += " "
+    if test_backend is not False:
+        command += "--testBackend "
+    if backend_version is not False:
+        command += "--coreVersion "
+    if lib_version is not False:
+        command += "--libVersion "
+    if debug is not False:
+        command += "--debug "
+        logger.setLevel(logging.DEBUG)
+    if socName is not None:
+        command += "--socName "
+        command += socName
+        command += " "
+    if socId is not None:
+        command += "--socId "
+        command += socId
+        command += " "
+    logger.info(command)
+
+    # Execute Platform Validator Test Command on device
+
+    if buildVariant == 'aarch64-windows-msvc':
+        result = tshell.run("cdd {0}; cmdd {1}".format(device_path, command))
+        if result.return_code:
+            logger.error(result.output)
+
+    else:
+        (ret_code, output, err) = adb.shell(command)
+        for msg in output:
+            logger.error(msg)
+
+    # Collect the results
+
+    results_dir = 'output'
+    if not os.path.exists(results_dir):
+        try:
+            os.mkdir(results_dir)
+        except OSError as e:
+            logger.error(e.strerror)
+    results_file = 'Result_' + device_id + '.csv'
+    result_csv_path = os.path.join(results_dir, results_file)
+
+    if buildVariant == 'aarch64-windows-msvc':
+        result = tshell.run("getd -Recurse {0} {1}".format(output_dir + '\Result.csv', result_csv_path))
+        if result.return_code:
+            logger.error("Error in extracting results from device.\n")
+            logger.error(result.output)
+            exit(-1)
+        tshell.end()
+    else:
+        (ret_code, output, err) = adb.pull(output_dir + '/Result.csv', result_csv_path)
+        if ret_code != 0:
+            logger.error("Error in extracting results from device.\n")
+            logger.error(err)
+            exit(-1)
+        del adb
+    logger.info(f'QNN Platform Validator App ran successfully,'\
+                f'Result file available at:{os.path.join(os.getcwd(),result_csv_path)}')
+    exit(0)
+
+if __name__ == "__main__":
+    platform_validator()
+

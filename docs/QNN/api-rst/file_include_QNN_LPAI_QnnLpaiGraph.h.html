@@ -1,0 +1,629 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>File QnnLpaiGraph.h &mdash; Qualcomm® AI Engine Direct</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_css.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qualcomm® AI Engine Direct
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v2.25.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/backend.html">Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/op_packages.html">Op Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/converters.html">Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/benchmarking.html">Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/operations.html">Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qualcomm® AI Engine Direct</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>File QnnLpaiGraph.h</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="file-qnnlpaigraph-h">
+<span id="file-include-qnn-lpai-qnnlpaigraph-h"></span><h1>File QnnLpaiGraph.h<a class="headerlink" href="#file-qnnlpaigraph-h" title="Permalink to this heading">¶</a></h1>
+<p>↰ <a class="reference internal" href="dir_include_QNN_LPAI.html#dir-include-qnn-lpai"><span class="std std-ref">Parent directory</span></a> (<code class="docutils literal notranslate"><span class="pre">include/QNN/LPAI</span></code>)</p>
+<p>QNN LPAI Graph components.</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#definition-include-qnn-lpai-qnnlpaigraph-h" id="id1">Definition (<code class="docutils literal notranslate"><span class="pre">include/QNN/LPAI/QnnLpaiGraph.h</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#includes" id="id2">Includes</a></p></li>
+<li><p><a class="reference internal" href="#classes" id="id3">Classes</a></p></li>
+<li><p><a class="reference internal" href="#enums" id="id4">Enums</a></p></li>
+<li><p><a class="reference internal" href="#defines" id="id5">Defines</a></p></li>
+<li><p><a class="reference internal" href="#full-file-listing" id="id6">Full File Listing</a></p></li>
+</ul>
+</div>
+<div class="section" id="definition-include-qnn-lpai-qnnlpaigraph-h">
+<h2>Definition (<code class="docutils literal notranslate"><span class="pre">include/QNN/LPAI/QnnLpaiGraph.h</span></code>)<a class="headerlink" href="#definition-include-qnn-lpai-qnnlpaigraph-h" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="program_listing_file_include_QNN_LPAI_QnnLpaiGraph.h.html">Program Listing for File QnnLpaiGraph.h</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="includes">
+<h2>Includes<a class="headerlink" href="#includes" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">QnnLpaiGraphInternal.h</span></code> (<a class="reference internal" href="file_include_QNN_LPAI_QnnLpaiGraphInternal.h.html#file-include-qnn-lpai-qnnlpaigraphinternal-h"><span class="std std-ref">File QnnLpaiGraphInternal.h</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stdint.h</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="structQnnLpaiGraph__CoreAffinity__t.html#exhale-struct-structqnnlpaigraph-coreaffinity-t"><span class="std std-ref">Struct QnnLpaiGraph_CoreAffinity_t</span></a></p></li>
+<li><p><a class="reference internal" href="structQnnLpaiGraph__CustomConfig__t.html#exhale-struct-structqnnlpaigraph-customconfig-t"><span class="std std-ref">Struct QnnLpaiGraph_CustomConfig_t</span></a></p></li>
+<li><p><a class="reference internal" href="structQnnLpaiGraph__CustomProperty__t.html#exhale-struct-structqnnlpaigraph-customproperty-t"><span class="std std-ref">Struct QnnLpaiGraph_CustomProperty_t</span></a></p></li>
+<li><p><a class="reference internal" href="structQnnLpaiGraph__Mem__t.html#exhale-struct-structqnnlpaigraph-mem-t"><span class="std std-ref">Struct QnnLpaiGraph_Mem_t</span></a></p></li>
+<li><p><a class="reference internal" href="structQnnLpaiGraph__PerfCfg__t.html#exhale-struct-structqnnlpaigraph-perfcfg-t"><span class="std std-ref">Struct QnnLpaiGraph_PerfCfg_t</span></a></p></li>
+<li><p><a class="reference internal" href="structQnnLpaiGraph__TensorInfo__t.html#exhale-struct-structqnnlpaigraph-tensorinfo-t"><span class="std std-ref">Struct QnnLpaiGraph_TensorInfo_t</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="enums">
+<h2>Enums<a class="headerlink" href="#enums" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="enum_QnnLpaiGraph_8h_1af55a209351b48422d7f393d809fa9642.html#exhale-enum-qnnlpaigraph-8h-1af55a209351b48422d7f393d809fa9642"><span class="std std-ref">Enum QnnLpaiGraph_ClientPerfType_t</span></a></p></li>
+<li><p><a class="reference internal" href="enum_QnnLpaiGraph_8h_1a5fbf1ddfad05194d573a3f7201729485.html#exhale-enum-qnnlpaigraph-8h-1a5fbf1ddfad05194d573a3f7201729485"><span class="std std-ref">Enum QnnLpaiGraph_CoreAffinityType_t</span></a></p></li>
+<li><p><a class="reference internal" href="enum_QnnLpaiGraph_8h_1a3be865aa5d48ba6ffe1bc823d3604583.html#exhale-enum-qnnlpaigraph-8h-1a3be865aa5d48ba6ffe1bc823d3604583"><span class="std std-ref">Enum QnnLpaiGraph_GetPropertyOption_t</span></a></p></li>
+<li><p><a class="reference internal" href="enum_QnnLpaiGraph_8h_1abaf59123014fc85e3cfc415ea0288dcb.html#exhale-enum-qnnlpaigraph-8h-1abaf59123014fc85e3cfc415ea0288dcb"><span class="std std-ref">Enum QnnLpaiGraph_MemType_t</span></a></p></li>
+<li><p><a class="reference internal" href="enum_QnnLpaiGraph_8h_1a20b7b5bccca61e514036f6ef521714f5.html#exhale-enum-qnnlpaigraph-8h-1a20b7b5bccca61e514036f6ef521714f5"><span class="std std-ref">Enum QnnLpaiGraph_SetConfigOption_t</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="defines">
+<h2>Defines<a class="headerlink" href="#defines" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="define_QnnLpaiGraph_8h_1ad6206340c646a1c991fcb30650b22c46.html#exhale-define-qnnlpaigraph-8h-1ad6206340c646a1c991fcb30650b22c46"><span class="std std-ref">Define QNN_LPAI_GRAPH_CORE_AFFINITY_INIT</span></a></p></li>
+<li><p><a class="reference internal" href="define_QnnLpaiGraph_8h_1a5f14c1c4a12c790cbde12bbfb66f01f6.html#exhale-define-qnnlpaigraph-8h-1a5f14c1c4a12c790cbde12bbfb66f01f6"><span class="std std-ref">Define QNN_LPAI_GRAPH_CUSTOM_CONFIG_INIT</span></a></p></li>
+<li><p><a class="reference internal" href="define_QnnLpaiGraph_8h_1aea1a49d27d9025490f391aea69bd8fbb.html#exhale-define-qnnlpaigraph-8h-1aea1a49d27d9025490f391aea69bd8fbb"><span class="std std-ref">Define QNN_LPAI_GRAPH_CUSTOM_PROPERTY_INIT</span></a></p></li>
+<li><p><a class="reference internal" href="define_QnnLpaiGraph_8h_1a9a1f063161c08fbc568e2952369f706e.html#exhale-define-qnnlpaigraph-8h-1a9a1f063161c08fbc568e2952369f706e"><span class="std std-ref">Define QNN_LPAI_GRAPH_MEM_INIT</span></a></p></li>
+<li><p><a class="reference internal" href="define_QnnLpaiGraph_8h_1aed1748aa6eea652cb34a0c7a7304094a.html#exhale-define-qnnlpaigraph-8h-1aed1748aa6eea652cb34a0c7a7304094a"><span class="std std-ref">Define QNN_LPAI_GRAPH_PERF_CFG_INIT</span></a></p></li>
+<li><p><a class="reference internal" href="define_QnnLpaiGraph_8h_1ac1d918b29c38f713ee5b7c289818c724.html#exhale-define-qnnlpaigraph-8h-1ac1d918b29c38f713ee5b7c289818c724"><span class="std std-ref">Define QNN_LPAI_GRAPH_TENSOR_INFO_INIT</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="full-file-listing">
+<h2>Full File Listing<a class="headerlink" href="#full-file-listing" title="Permalink to this heading">¶</a></h2>
+<p>QNN LPAI Graph components. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.QNN_LPAI_GRAPH_PERF_CFG_INIT">
+<span class="target" id="QnnLpaiGraph_8h_1aed1748aa6eea652cb34a0c7a7304094a"></span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_PERF_CFG_INIT</span></span></span> <p><span class="pre">{</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">1u,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/*fps*/</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">10u,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/*ftrtRatio*/</span>&#160;&#160;&#160;&#160; <span class="pre">\</span></p>
+<a class="reference internal" href="#QnnLpaiGraph_8h_1af55a209351b48422d7f393d809fa9642aa95be3f58500a682f1bab27afc227572"><span class="std std-ref"><span class="pre">QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_REAL_TIME</span></span></a><p><span class="pre">/*clientType*/</span>&#160;&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">}</span></p>
+<br /></dt>
+<dd><p><a class="reference internal" href="#structQnnLpaiGraph__PerfCfg__t"><span class="std std-ref">QnnLpaiGraph_PerfCfg_t</span></a> initializer macro. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.QNN_LPAI_GRAPH_CORE_AFFINITY_INIT">
+<span class="target" id="QnnLpaiGraph_8h_1ad6206340c646a1c991fcb30650b22c46"></span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_CORE_AFFINITY_INIT</span></span></span> &#160; <span class="pre">{</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">\</span>
+&#160;&#160;&#160; <a class="reference internal" href="#QnnLpaiGraph_8h_1a5fbf1ddfad05194d573a3f7201729485a538c7e7666c6837ac11a2ac8f5ff5cd2"><span class="std std-ref"><span class="pre">QNN_LPAI_GRAPH_CORE_AFFINITY_SOFT</span></span></a><p><span class="pre">,</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/*affinity*/</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">0u</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/*core_selection*/</span>&#160;&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">}</span></p>
+<br /></dt>
+<dd><p><a class="reference internal" href="#structQnnLpaiGraph__CoreAffinity__t"><span class="std std-ref">QnnLpaiGraph_CoreAffinity_t</span></a> initializer macro. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.QNN_LPAI_GRAPH_MEM_INIT">
+<span class="target" id="QnnLpaiGraph_8h_1a9a1f063161c08fbc568e2952369f706e"></span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_MEM_INIT</span></span></span> &#160; <span class="pre">{</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">\</span>
+&#160;&#160;&#160; <a class="reference internal" href="#QnnLpaiGraph_8h_1abaf59123014fc85e3cfc415ea0288dcbabe79646bf04c118f7a439a8be172e288"><span class="std std-ref"><span class="pre">QNN_LPAI_GRAPH_MEM_TYPE_UNDEFINED</span></span></a><p><span class="pre">,</span>&#160;&#160; <span class="pre">/*memType*/</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">0u,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/*size*/</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">NULL</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/*addr*/</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">}</span></p>
+<br /></dt>
+<dd><p><a class="reference internal" href="#structQnnLpaiGraph__Mem__t"><span class="std std-ref">QnnLpaiGraph_Mem_t</span></a> initializer macro. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.QNN_LPAI_GRAPH_TENSOR_INFO_INIT">
+<span class="target" id="QnnLpaiGraph_8h_1ac1d918b29c38f713ee5b7c289818c724"></span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_TENSOR_INFO_INIT</span></span></span> <p><span class="pre">{</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">0u,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/*id*/</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">NULL,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/*addr*/</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">0u,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/*tensor_size*/</span>&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">0u,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/*aligned_size*/</span>&#160; <span class="pre">\</span></p>
+<p><span class="pre">0u</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/*alignment*/</span>&#160;&#160;&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">}</span></p>
+<br /></dt>
+<dd><p><a class="reference internal" href="#structQnnLpaiGraph__TensorInfo__t"><span class="std std-ref">QnnLpaiGraph_TensorInfo_t</span></a> initializer macro. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.QNN_LPAI_GRAPH_CUSTOM_CONFIG_INIT">
+<span class="target" id="QnnLpaiGraph_8h_1a5f14c1c4a12c790cbde12bbfb66f01f6"></span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_CUSTOM_CONFIG_INIT</span></span></span> &#160; <span class="pre">{</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">\</span>
+&#160;&#160;&#160; <a class="reference internal" href="#QnnLpaiGraph_8h_1a20b7b5bccca61e514036f6ef521714f5a3876c0fba35accf145cdbae94fdb184b"><span class="std std-ref"><span class="pre">QNN_LPAI_GRAPH_SET_CFG_UNDEFINED</span></span></a><p><span class="pre">,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/*option*/</span>&#160;&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">NULL</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/*config*/</span>&#160;&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">}</span></p>
+<br /></dt>
+<dd><p><a class="reference internal" href="#structQnnLpaiGraph__CustomConfig__t"><span class="std std-ref">QnnLpaiGraph_CustomConfig_t</span></a> initializer macro. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.QNN_LPAI_GRAPH_CUSTOM_PROPERTY_INIT">
+<span class="target" id="QnnLpaiGraph_8h_1aea1a49d27d9025490f391aea69bd8fbb"></span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_CUSTOM_PROPERTY_INIT</span></span></span> &#160; <span class="pre">{</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">\</span>
+&#160;&#160;&#160; <a class="reference internal" href="#QnnLpaiGraph_8h_1a3be865aa5d48ba6ffe1bc823d3604583ae8b9884002532778530a243707ccbc57"><span class="std std-ref"><span class="pre">QNN_LPAI_GRAPH_GET_PROP_UNDEFINED</span></span></a><p><span class="pre">,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/*option*/</span>&#160;&#160;&#160; <span class="pre">\</span></p>
+<p><span class="pre">NULL</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/*property*/</span>&#160; <span class="pre">\</span></p>
+<p><span class="pre">}</span></p>
+<br /></dt>
+<dd><p><a class="reference internal" href="#structQnnLpaiGraph__CustomProperty__t"><span class="std std-ref">QnnLpaiGraph_CustomProperty_t</span></a> initializer macro. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv430QnnLpaiGraph_SetConfigOption_t">
+<span id="_CPPv330QnnLpaiGraph_SetConfigOption_t"></span><span id="_CPPv230QnnLpaiGraph_SetConfigOption_t"></span><span class="target" id="QnnLpaiGraph_8h_1a20b7b5bccca61e514036f6ef521714f5"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QnnLpaiGraph_SetConfigOption_t</span></span></span><a class="headerlink" href="#_CPPv430QnnLpaiGraph_SetConfigOption_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N30QnnLpaiGraph_SetConfigOption_t34QNN_LPAI_GRAPH_SET_CFG_SCRATCH_MEME">
+<span id="_CPPv3N30QnnLpaiGraph_SetConfigOption_t34QNN_LPAI_GRAPH_SET_CFG_SCRATCH_MEME"></span><span id="_CPPv2N30QnnLpaiGraph_SetConfigOption_t34QNN_LPAI_GRAPH_SET_CFG_SCRATCH_MEME"></span><span class="target" id="QnnLpaiGraph_8h_1a20b7b5bccca61e514036f6ef521714f5a6d5a8d9a4c2558dfe9481014c84dbb99"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_SET_CFG_SCRATCH_MEM</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="enum_QnnLpaiGraphInternal_8h_1a380e9128c82bba9152efb494ab48708d.html#_CPPv4N48QnnLpaiGraph_SetConfigOption_ScratchMemVersion_t42QNN_LPAI_GRAPH_SET_CFG_SCRATCH_MEM_DEFAULTE" title="QNN_LPAI_GRAPH_SET_CFG_SCRATCH_MEM_DEFAULT"><span class="n"><span class="pre">QNN_LPAI_GRAPH_SET_CFG_SCRATCH_MEM_DEFAULT</span></span></a><a class="headerlink" href="#_CPPv4N30QnnLpaiGraph_SetConfigOption_t34QNN_LPAI_GRAPH_SET_CFG_SCRATCH_MEME" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N30QnnLpaiGraph_SetConfigOption_t37QNN_LPAI_GRAPH_SET_CFG_PERSISTENT_MEME">
+<span id="_CPPv3N30QnnLpaiGraph_SetConfigOption_t37QNN_LPAI_GRAPH_SET_CFG_PERSISTENT_MEME"></span><span id="_CPPv2N30QnnLpaiGraph_SetConfigOption_t37QNN_LPAI_GRAPH_SET_CFG_PERSISTENT_MEME"></span><span class="target" id="QnnLpaiGraph_8h_1a20b7b5bccca61e514036f6ef521714f5a1ebd697a03a1bee71f4aa597c02e6af9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_SET_CFG_PERSISTENT_MEM</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="enum_QnnLpaiGraphInternal_8h_1a80081d813e4aa7f48edc89a55c043973.html#_CPPv4N51QnnLpaiGraph_SetConfigOption_PersistentMemVersion_t45QNN_LPAI_GRAPH_SET_CFG_PERSISTENT_MEM_DEFAULTE" title="QNN_LPAI_GRAPH_SET_CFG_PERSISTENT_MEM_DEFAULT"><span class="n"><span class="pre">QNN_LPAI_GRAPH_SET_CFG_PERSISTENT_MEM_DEFAULT</span></span></a><a class="headerlink" href="#_CPPv4N30QnnLpaiGraph_SetConfigOption_t37QNN_LPAI_GRAPH_SET_CFG_PERSISTENT_MEME" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N30QnnLpaiGraph_SetConfigOption_t31QNN_LPAI_GRAPH_SET_CFG_PERF_CFGE">
+<span id="_CPPv3N30QnnLpaiGraph_SetConfigOption_t31QNN_LPAI_GRAPH_SET_CFG_PERF_CFGE"></span><span id="_CPPv2N30QnnLpaiGraph_SetConfigOption_t31QNN_LPAI_GRAPH_SET_CFG_PERF_CFGE"></span><span class="target" id="QnnLpaiGraph_8h_1a20b7b5bccca61e514036f6ef521714f5a6998527c6d953e07fc727b5c9dee6b1a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_SET_CFG_PERF_CFG</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="enum_QnnLpaiGraphInternal_8h_1a6842a439f060ffb70c99aabdc96cfb67.html#_CPPv4N48QnnLpaiGraph_SetConfigOption_PerfConfigVersion_t39QNN_LPAI_GRAPH_SET_CFG_PERF_CFG_DEFAULTE" title="QNN_LPAI_GRAPH_SET_CFG_PERF_CFG_DEFAULT"><span class="n"><span class="pre">QNN_LPAI_GRAPH_SET_CFG_PERF_CFG_DEFAULT</span></span></a><a class="headerlink" href="#_CPPv4N30QnnLpaiGraph_SetConfigOption_t31QNN_LPAI_GRAPH_SET_CFG_PERF_CFGE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N30QnnLpaiGraph_SetConfigOption_t36QNN_LPAI_GRAPH_SET_CFG_CORE_AFFINITYE">
+<span id="_CPPv3N30QnnLpaiGraph_SetConfigOption_t36QNN_LPAI_GRAPH_SET_CFG_CORE_AFFINITYE"></span><span id="_CPPv2N30QnnLpaiGraph_SetConfigOption_t36QNN_LPAI_GRAPH_SET_CFG_CORE_AFFINITYE"></span><span class="target" id="QnnLpaiGraph_8h_1a20b7b5bccca61e514036f6ef521714f5a20678aaa5f2da3e84a83a64b98d1d212"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_SET_CFG_CORE_AFFINITY</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="enum_QnnLpaiGraphInternal_8h_1a2c93f3f8ab7aa8372588175df239759b.html#_CPPv4N50QnnLpaiGraph_SetConfigOption_CoreAffinityVersion_t44QNN_LPAI_GRAPH_SET_CFG_CORE_AFFINITY_DEFAULTE" title="QNN_LPAI_GRAPH_SET_CFG_CORE_AFFINITY_DEFAULT"><span class="n"><span class="pre">QNN_LPAI_GRAPH_SET_CFG_CORE_AFFINITY_DEFAULT</span></span></a><a class="headerlink" href="#_CPPv4N30QnnLpaiGraph_SetConfigOption_t36QNN_LPAI_GRAPH_SET_CFG_CORE_AFFINITYE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N30QnnLpaiGraph_SetConfigOption_t32QNN_LPAI_GRAPH_SET_CFG_UNDEFINEDE">
+<span id="_CPPv3N30QnnLpaiGraph_SetConfigOption_t32QNN_LPAI_GRAPH_SET_CFG_UNDEFINEDE"></span><span id="_CPPv2N30QnnLpaiGraph_SetConfigOption_t32QNN_LPAI_GRAPH_SET_CFG_UNDEFINEDE"></span><span class="target" id="QnnLpaiGraph_8h_1a20b7b5bccca61e514036f6ef521714f5a3876c0fba35accf145cdbae94fdb184b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_SET_CFG_UNDEFINED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x7fffffff</span></span><a class="headerlink" href="#_CPPv4N30QnnLpaiGraph_SetConfigOption_t32QNN_LPAI_GRAPH_SET_CFG_UNDEFINEDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv432QnnLpaiGraph_GetPropertyOption_t">
+<span id="_CPPv332QnnLpaiGraph_GetPropertyOption_t"></span><span id="_CPPv232QnnLpaiGraph_GetPropertyOption_t"></span><span class="target" id="QnnLpaiGraph_8h_1a3be865aa5d48ba6ffe1bc823d3604583"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QnnLpaiGraph_GetPropertyOption_t</span></span></span><a class="headerlink" href="#_CPPv432QnnLpaiGraph_GetPropertyOption_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N32QnnLpaiGraph_GetPropertyOption_t40QNN_LPAI_GRAPH_GET_PROP_SCRATCH_MEM_SIZEE">
+<span id="_CPPv3N32QnnLpaiGraph_GetPropertyOption_t40QNN_LPAI_GRAPH_GET_PROP_SCRATCH_MEM_SIZEE"></span><span id="_CPPv2N32QnnLpaiGraph_GetPropertyOption_t40QNN_LPAI_GRAPH_GET_PROP_SCRATCH_MEM_SIZEE"></span><span class="target" id="QnnLpaiGraph_8h_1a3be865aa5d48ba6ffe1bc823d3604583ad8d9ad097a1a6be37830ea314be6781b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_GET_PROP_SCRATCH_MEM_SIZE</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="file_include_QNN_LPAI_QnnLpaiGraphInternal.h.html#_CPPv4N54QnnLpaiGraph_GetPropertyOption_ScratchMemSizeVersion_t48QNN_LPAI_GRAPH_GET_PROP_SCRATCH_MEM_SIZE_DEFAULTE" title="QNN_LPAI_GRAPH_GET_PROP_SCRATCH_MEM_SIZE_DEFAULT"><span class="n"><span class="pre">QNN_LPAI_GRAPH_GET_PROP_SCRATCH_MEM_SIZE_DEFAULT</span></span></a><a class="headerlink" href="#_CPPv4N32QnnLpaiGraph_GetPropertyOption_t40QNN_LPAI_GRAPH_GET_PROP_SCRATCH_MEM_SIZEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N32QnnLpaiGraph_GetPropertyOption_t43QNN_LPAI_GRAPH_GET_PROP_PERSISTENT_MEM_SIZEE">
+<span id="_CPPv3N32QnnLpaiGraph_GetPropertyOption_t43QNN_LPAI_GRAPH_GET_PROP_PERSISTENT_MEM_SIZEE"></span><span id="_CPPv2N32QnnLpaiGraph_GetPropertyOption_t43QNN_LPAI_GRAPH_GET_PROP_PERSISTENT_MEM_SIZEE"></span><span class="target" id="QnnLpaiGraph_8h_1a3be865aa5d48ba6ffe1bc823d3604583a03238452f70248d02d5679cb99ddd70d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_GET_PROP_PERSISTENT_MEM_SIZE</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="enum_QnnLpaiGraphInternal_8h_1a8e670d8ee6e15f53f3af9a84a2732dad.html#_CPPv4N57QnnLpaiGraph_GetPropertyOption_PersistentMemSizeVersion_t51QNN_LPAI_GRAPH_GET_PROP_PERSISTENT_MEM_SIZE_DEFAULTE" title="QNN_LPAI_GRAPH_GET_PROP_PERSISTENT_MEM_SIZE_DEFAULT"><span class="n"><span class="pre">QNN_LPAI_GRAPH_GET_PROP_PERSISTENT_MEM_SIZE_DEFAULT</span></span></a><a class="headerlink" href="#_CPPv4N32QnnLpaiGraph_GetPropertyOption_t43QNN_LPAI_GRAPH_GET_PROP_PERSISTENT_MEM_SIZEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N32QnnLpaiGraph_GetPropertyOption_t38QNN_LPAI_GRAPH_GET_PROP_IO_TENSOR_INFOE">
+<span id="_CPPv3N32QnnLpaiGraph_GetPropertyOption_t38QNN_LPAI_GRAPH_GET_PROP_IO_TENSOR_INFOE"></span><span id="_CPPv2N32QnnLpaiGraph_GetPropertyOption_t38QNN_LPAI_GRAPH_GET_PROP_IO_TENSOR_INFOE"></span><span class="target" id="QnnLpaiGraph_8h_1a3be865aa5d48ba6ffe1bc823d3604583a11812153ba7c71d5a22e3fbdd1fec550"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_GET_PROP_IO_TENSOR_INFO</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="enum_QnnLpaiGraphInternal_8h_1ad5d525991d3cf3a3ecc277d5a8e0d5bd.html#_CPPv4N52QnnLpaiGraph_GetPropertyOption_IOTensorInfoVersion_t46QNN_LPAI_GRAPH_GET_PROP_IO_TENSOR_INFO_DEFAULTE" title="QNN_LPAI_GRAPH_GET_PROP_IO_TENSOR_INFO_DEFAULT"><span class="n"><span class="pre">QNN_LPAI_GRAPH_GET_PROP_IO_TENSOR_INFO_DEFAULT</span></span></a><a class="headerlink" href="#_CPPv4N32QnnLpaiGraph_GetPropertyOption_t38QNN_LPAI_GRAPH_GET_PROP_IO_TENSOR_INFOE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N32QnnLpaiGraph_GetPropertyOption_t33QNN_LPAI_GRAPH_GET_PROP_UNDEFINEDE">
+<span id="_CPPv3N32QnnLpaiGraph_GetPropertyOption_t33QNN_LPAI_GRAPH_GET_PROP_UNDEFINEDE"></span><span id="_CPPv2N32QnnLpaiGraph_GetPropertyOption_t33QNN_LPAI_GRAPH_GET_PROP_UNDEFINEDE"></span><span class="target" id="QnnLpaiGraph_8h_1a3be865aa5d48ba6ffe1bc823d3604583ae8b9884002532778530a243707ccbc57"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_GET_PROP_UNDEFINED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x7fffffff</span></span><a class="headerlink" href="#_CPPv4N32QnnLpaiGraph_GetPropertyOption_t33QNN_LPAI_GRAPH_GET_PROP_UNDEFINEDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv429QnnLpaiGraph_ClientPerfType_t">
+<span id="_CPPv329QnnLpaiGraph_ClientPerfType_t"></span><span id="_CPPv229QnnLpaiGraph_ClientPerfType_t"></span><span class="target" id="QnnLpaiGraph_8h_1af55a209351b48422d7f393d809fa9642"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QnnLpaiGraph_ClientPerfType_t</span></span></span><a class="headerlink" href="#_CPPv429QnnLpaiGraph_ClientPerfType_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N29QnnLpaiGraph_ClientPerfType_t41QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_REAL_TIMEE">
+<span id="_CPPv3N29QnnLpaiGraph_ClientPerfType_t41QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_REAL_TIMEE"></span><span id="_CPPv2N29QnnLpaiGraph_ClientPerfType_t41QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_REAL_TIMEE"></span><span class="target" id="QnnLpaiGraph_8h_1af55a209351b48422d7f393d809fa9642aa95be3f58500a682f1bab27afc227572"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_REAL_TIME</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><a class="headerlink" href="#_CPPv4N29QnnLpaiGraph_ClientPerfType_t41QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_REAL_TIMEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N29QnnLpaiGraph_ClientPerfType_t45QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_NON_REAL_TIMEE">
+<span id="_CPPv3N29QnnLpaiGraph_ClientPerfType_t45QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_NON_REAL_TIMEE"></span><span id="_CPPv2N29QnnLpaiGraph_ClientPerfType_t45QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_NON_REAL_TIMEE"></span><span class="target" id="QnnLpaiGraph_8h_1af55a209351b48422d7f393d809fa9642a5b7d6cc23842f88e625ef61819c29cb7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_NON_REAL_TIME</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><a class="headerlink" href="#_CPPv4N29QnnLpaiGraph_ClientPerfType_t45QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_NON_REAL_TIMEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N29QnnLpaiGraph_ClientPerfType_t41QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_UNDEFINEDE">
+<span id="_CPPv3N29QnnLpaiGraph_ClientPerfType_t41QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_UNDEFINEDE"></span><span id="_CPPv2N29QnnLpaiGraph_ClientPerfType_t41QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_UNDEFINEDE"></span><span class="target" id="QnnLpaiGraph_8h_1af55a209351b48422d7f393d809fa9642a45deecd8be0f9a5e2b685bc15cd874b4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_UNDEFINED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x7fffffff</span></span><a class="headerlink" href="#_CPPv4N29QnnLpaiGraph_ClientPerfType_t41QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_UNDEFINEDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv431QnnLpaiGraph_CoreAffinityType_t">
+<span id="_CPPv331QnnLpaiGraph_CoreAffinityType_t"></span><span id="_CPPv231QnnLpaiGraph_CoreAffinityType_t"></span><span class="target" id="QnnLpaiGraph_8h_1a5fbf1ddfad05194d573a3f7201729485"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QnnLpaiGraph_CoreAffinityType_t</span></span></span><a class="headerlink" href="#_CPPv431QnnLpaiGraph_CoreAffinityType_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N31QnnLpaiGraph_CoreAffinityType_t33QNN_LPAI_GRAPH_CORE_AFFINITY_SOFTE">
+<span id="_CPPv3N31QnnLpaiGraph_CoreAffinityType_t33QNN_LPAI_GRAPH_CORE_AFFINITY_SOFTE"></span><span id="_CPPv2N31QnnLpaiGraph_CoreAffinityType_t33QNN_LPAI_GRAPH_CORE_AFFINITY_SOFTE"></span><span class="target" id="QnnLpaiGraph_8h_1a5fbf1ddfad05194d573a3f7201729485a538c7e7666c6837ac11a2ac8f5ff5cd2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_CORE_AFFINITY_SOFT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><a class="headerlink" href="#_CPPv4N31QnnLpaiGraph_CoreAffinityType_t33QNN_LPAI_GRAPH_CORE_AFFINITY_SOFTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N31QnnLpaiGraph_CoreAffinityType_t33QNN_LPAI_GRAPH_CORE_AFFINITY_HARDE">
+<span id="_CPPv3N31QnnLpaiGraph_CoreAffinityType_t33QNN_LPAI_GRAPH_CORE_AFFINITY_HARDE"></span><span id="_CPPv2N31QnnLpaiGraph_CoreAffinityType_t33QNN_LPAI_GRAPH_CORE_AFFINITY_HARDE"></span><span class="target" id="QnnLpaiGraph_8h_1a5fbf1ddfad05194d573a3f7201729485a1d1d5c066384a9ae7298b3d7104138fa"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_CORE_AFFINITY_HARD</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><a class="headerlink" href="#_CPPv4N31QnnLpaiGraph_CoreAffinityType_t33QNN_LPAI_GRAPH_CORE_AFFINITY_HARDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N31QnnLpaiGraph_CoreAffinityType_t38QNN_LPAI_GRAPH_CORE_AFFINITY_UNDEFINEDE">
+<span id="_CPPv3N31QnnLpaiGraph_CoreAffinityType_t38QNN_LPAI_GRAPH_CORE_AFFINITY_UNDEFINEDE"></span><span id="_CPPv2N31QnnLpaiGraph_CoreAffinityType_t38QNN_LPAI_GRAPH_CORE_AFFINITY_UNDEFINEDE"></span><span class="target" id="QnnLpaiGraph_8h_1a5fbf1ddfad05194d573a3f7201729485aa48f600c25b83062dc4c3ef29de5262a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_CORE_AFFINITY_UNDEFINED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x7fffffff</span></span><a class="headerlink" href="#_CPPv4N31QnnLpaiGraph_CoreAffinityType_t38QNN_LPAI_GRAPH_CORE_AFFINITY_UNDEFINEDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv422QnnLpaiGraph_MemType_t">
+<span id="_CPPv322QnnLpaiGraph_MemType_t"></span><span id="_CPPv222QnnLpaiGraph_MemType_t"></span><span class="target" id="QnnLpaiGraph_8h_1abaf59123014fc85e3cfc415ea0288dcb"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QnnLpaiGraph_MemType_t</span></span></span><a class="headerlink" href="#_CPPv422QnnLpaiGraph_MemType_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N22QnnLpaiGraph_MemType_t27QNN_LPAI_GRAPH_MEM_TYPE_DDRE">
+<span id="_CPPv3N22QnnLpaiGraph_MemType_t27QNN_LPAI_GRAPH_MEM_TYPE_DDRE"></span><span id="_CPPv2N22QnnLpaiGraph_MemType_t27QNN_LPAI_GRAPH_MEM_TYPE_DDRE"></span><span class="target" id="QnnLpaiGraph_8h_1abaf59123014fc85e3cfc415ea0288dcba7d6bbda0b0b5f6e59270b783f07a7702"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_MEM_TYPE_DDR</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><a class="headerlink" href="#_CPPv4N22QnnLpaiGraph_MemType_t27QNN_LPAI_GRAPH_MEM_TYPE_DDRE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N22QnnLpaiGraph_MemType_t27QNN_LPAI_GRAPH_MEM_TYPE_LLCE">
+<span id="_CPPv3N22QnnLpaiGraph_MemType_t27QNN_LPAI_GRAPH_MEM_TYPE_LLCE"></span><span id="_CPPv2N22QnnLpaiGraph_MemType_t27QNN_LPAI_GRAPH_MEM_TYPE_LLCE"></span><span class="target" id="QnnLpaiGraph_8h_1abaf59123014fc85e3cfc415ea0288dcba10fdc23f508d34ee83172f2b086bf42e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_MEM_TYPE_LLC</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><a class="headerlink" href="#_CPPv4N22QnnLpaiGraph_MemType_t27QNN_LPAI_GRAPH_MEM_TYPE_LLCE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N22QnnLpaiGraph_MemType_t27QNN_LPAI_GRAPH_MEM_TYPE_TCME">
+<span id="_CPPv3N22QnnLpaiGraph_MemType_t27QNN_LPAI_GRAPH_MEM_TYPE_TCME"></span><span id="_CPPv2N22QnnLpaiGraph_MemType_t27QNN_LPAI_GRAPH_MEM_TYPE_TCME"></span><span class="target" id="QnnLpaiGraph_8h_1abaf59123014fc85e3cfc415ea0288dcba7171121679161e0294294149e2a82333"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_MEM_TYPE_TCM</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">3</span></span><a class="headerlink" href="#_CPPv4N22QnnLpaiGraph_MemType_t27QNN_LPAI_GRAPH_MEM_TYPE_TCME" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N22QnnLpaiGraph_MemType_t33QNN_LPAI_GRAPH_MEM_TYPE_UNDEFINEDE">
+<span id="_CPPv3N22QnnLpaiGraph_MemType_t33QNN_LPAI_GRAPH_MEM_TYPE_UNDEFINEDE"></span><span id="_CPPv2N22QnnLpaiGraph_MemType_t33QNN_LPAI_GRAPH_MEM_TYPE_UNDEFINEDE"></span><span class="target" id="QnnLpaiGraph_8h_1abaf59123014fc85e3cfc415ea0288dcbabe79646bf04c118f7a439a8be172e288"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QNN_LPAI_GRAPH_MEM_TYPE_UNDEFINED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x7fffffff</span></span><a class="headerlink" href="#_CPPv4N22QnnLpaiGraph_MemType_t33QNN_LPAI_GRAPH_MEM_TYPE_UNDEFINEDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv422QnnLpaiGraph_PerfCfg_t">
+<span id="_CPPv322QnnLpaiGraph_PerfCfg_t"></span><span id="_CPPv222QnnLpaiGraph_PerfCfg_t"></span><span id="QnnLpaiGraph_PerfCfg_t"></span><span class="target" id="structQnnLpaiGraph__PerfCfg__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QnnLpaiGraph_PerfCfg_t</span></span></span><a class="headerlink" href="#_CPPv422QnnLpaiGraph_PerfCfg_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;QnnLpaiGraph.h&gt;</em></div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N22QnnLpaiGraph_PerfCfg_t3fpsE">
+<span id="_CPPv3N22QnnLpaiGraph_PerfCfg_t3fpsE"></span><span id="_CPPv2N22QnnLpaiGraph_PerfCfg_t3fpsE"></span><span id="QnnLpaiGraph_PerfCfg_t::fps__uint32_t"></span><span class="target" id="structQnnLpaiGraph__PerfCfg__t_1a414e97e227c644d34c7815b986006321"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fps</span></span></span><a class="headerlink" href="#_CPPv4N22QnnLpaiGraph_PerfCfg_t3fpsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N22QnnLpaiGraph_PerfCfg_t9ftrtRatioE">
+<span id="_CPPv3N22QnnLpaiGraph_PerfCfg_t9ftrtRatioE"></span><span id="_CPPv2N22QnnLpaiGraph_PerfCfg_t9ftrtRatioE"></span><span id="QnnLpaiGraph_PerfCfg_t::ftrtRatio__uint32_t"></span><span class="target" id="structQnnLpaiGraph__PerfCfg__t_1a9fa90cc86d97658fb0a302509ad08fa7"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ftrtRatio</span></span></span><a class="headerlink" href="#_CPPv4N22QnnLpaiGraph_PerfCfg_t9ftrtRatioE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N22QnnLpaiGraph_PerfCfg_t10clientTypeE">
+<span id="_CPPv3N22QnnLpaiGraph_PerfCfg_t10clientTypeE"></span><span id="_CPPv2N22QnnLpaiGraph_PerfCfg_t10clientTypeE"></span><span id="QnnLpaiGraph_PerfCfg_t::clientType__QnnLpaiGraph_ClientPerfType_t"></span><span class="target" id="structQnnLpaiGraph__PerfCfg__t_1a48740e9df4f39516583352248b6bc069"></span><a class="reference internal" href="enum_QnnLpaiGraph_8h_1af55a209351b48422d7f393d809fa9642.html#_CPPv429QnnLpaiGraph_ClientPerfType_t" title="QnnLpaiGraph_ClientPerfType_t"><span class="n"><span class="pre">QnnLpaiGraph_ClientPerfType_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clientType</span></span></span><a class="headerlink" href="#_CPPv4N22QnnLpaiGraph_PerfCfg_t10clientTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv427QnnLpaiGraph_CoreAffinity_t">
+<span id="_CPPv327QnnLpaiGraph_CoreAffinity_t"></span><span id="_CPPv227QnnLpaiGraph_CoreAffinity_t"></span><span id="QnnLpaiGraph_CoreAffinity_t"></span><span class="target" id="structQnnLpaiGraph__CoreAffinity__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QnnLpaiGraph_CoreAffinity_t</span></span></span><a class="headerlink" href="#_CPPv427QnnLpaiGraph_CoreAffinity_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;QnnLpaiGraph.h&gt;</em></div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N27QnnLpaiGraph_CoreAffinity_t8affinityE">
+<span id="_CPPv3N27QnnLpaiGraph_CoreAffinity_t8affinityE"></span><span id="_CPPv2N27QnnLpaiGraph_CoreAffinity_t8affinityE"></span><span id="QnnLpaiGraph_CoreAffinity_t::affinity__QnnLpaiGraph_CoreAffinityType_t"></span><span class="target" id="structQnnLpaiGraph__CoreAffinity__t_1ac73cc3155800dc284d8c79395d80a94a"></span><a class="reference internal" href="enum_QnnLpaiGraph_8h_1a5fbf1ddfad05194d573a3f7201729485.html#_CPPv431QnnLpaiGraph_CoreAffinityType_t" title="QnnLpaiGraph_CoreAffinityType_t"><span class="n"><span class="pre">QnnLpaiGraph_CoreAffinityType_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">affinity</span></span></span><a class="headerlink" href="#_CPPv4N27QnnLpaiGraph_CoreAffinity_t8affinityE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N27QnnLpaiGraph_CoreAffinity_t13coreSelectionE">
+<span id="_CPPv3N27QnnLpaiGraph_CoreAffinity_t13coreSelectionE"></span><span id="_CPPv2N27QnnLpaiGraph_CoreAffinity_t13coreSelectionE"></span><span id="QnnLpaiGraph_CoreAffinity_t::coreSelection__uint32_t"></span><span class="target" id="structQnnLpaiGraph__CoreAffinity__t_1a6f26fdca1d66495202c7f1026e0de3c2"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">coreSelection</span></span></span><a class="headerlink" href="#_CPPv4N27QnnLpaiGraph_CoreAffinity_t13coreSelectionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv418QnnLpaiGraph_Mem_t">
+<span id="_CPPv318QnnLpaiGraph_Mem_t"></span><span id="_CPPv218QnnLpaiGraph_Mem_t"></span><span id="QnnLpaiGraph_Mem_t"></span><span class="target" id="structQnnLpaiGraph__Mem__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QnnLpaiGraph_Mem_t</span></span></span><a class="headerlink" href="#_CPPv418QnnLpaiGraph_Mem_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;QnnLpaiGraph.h&gt;</em></div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N18QnnLpaiGraph_Mem_t7memTypeE">
+<span id="_CPPv3N18QnnLpaiGraph_Mem_t7memTypeE"></span><span id="_CPPv2N18QnnLpaiGraph_Mem_t7memTypeE"></span><span id="QnnLpaiGraph_Mem_t::memType__QnnLpaiGraph_MemType_t"></span><span class="target" id="structQnnLpaiGraph__Mem__t_1a28ff9bfe65ede6f8ee3a577e82bf0e24"></span><a class="reference internal" href="enum_QnnLpaiGraph_8h_1abaf59123014fc85e3cfc415ea0288dcb.html#_CPPv422QnnLpaiGraph_MemType_t" title="QnnLpaiGraph_MemType_t"><span class="n"><span class="pre">QnnLpaiGraph_MemType_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">memType</span></span></span><a class="headerlink" href="#_CPPv4N18QnnLpaiGraph_Mem_t7memTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N18QnnLpaiGraph_Mem_t4sizeE">
+<span id="_CPPv3N18QnnLpaiGraph_Mem_t4sizeE"></span><span id="_CPPv2N18QnnLpaiGraph_Mem_t4sizeE"></span><span id="QnnLpaiGraph_Mem_t::size__uint32_t"></span><span class="target" id="structQnnLpaiGraph__Mem__t_1ad43bc23da69be7f4486ac5e8eb454e47"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><a class="headerlink" href="#_CPPv4N18QnnLpaiGraph_Mem_t4sizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N18QnnLpaiGraph_Mem_t4addrE">
+<span id="_CPPv3N18QnnLpaiGraph_Mem_t4addrE"></span><span id="_CPPv2N18QnnLpaiGraph_Mem_t4addrE"></span><span id="QnnLpaiGraph_Mem_t::addr__voidP"></span><span class="target" id="structQnnLpaiGraph__Mem__t_1a5fd1db89685d27c02f71b8ea5c28bca6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">addr</span></span></span><a class="headerlink" href="#_CPPv4N18QnnLpaiGraph_Mem_t4addrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv425QnnLpaiGraph_TensorInfo_t">
+<span id="_CPPv325QnnLpaiGraph_TensorInfo_t"></span><span id="_CPPv225QnnLpaiGraph_TensorInfo_t"></span><span id="QnnLpaiGraph_TensorInfo_t"></span><span class="target" id="structQnnLpaiGraph__TensorInfo__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QnnLpaiGraph_TensorInfo_t</span></span></span><a class="headerlink" href="#_CPPv425QnnLpaiGraph_TensorInfo_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;QnnLpaiGraph.h&gt;</em></div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N25QnnLpaiGraph_TensorInfo_t2idE">
+<span id="_CPPv3N25QnnLpaiGraph_TensorInfo_t2idE"></span><span id="_CPPv2N25QnnLpaiGraph_TensorInfo_t2idE"></span><span id="QnnLpaiGraph_TensorInfo_t::id__uint32_t"></span><span class="target" id="structQnnLpaiGraph__TensorInfo__t_1a1718b020f4d502ac01532ee8dff86059"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">id</span></span></span><a class="headerlink" href="#_CPPv4N25QnnLpaiGraph_TensorInfo_t2idE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N25QnnLpaiGraph_TensorInfo_t4addrE">
+<span id="_CPPv3N25QnnLpaiGraph_TensorInfo_t4addrE"></span><span id="_CPPv2N25QnnLpaiGraph_TensorInfo_t4addrE"></span><span id="QnnLpaiGraph_TensorInfo_t::addr__voidP"></span><span class="target" id="structQnnLpaiGraph__TensorInfo__t_1a1d83d286af2f3d1355b633ca412ce3a9"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">addr</span></span></span><a class="headerlink" href="#_CPPv4N25QnnLpaiGraph_TensorInfo_t4addrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N25QnnLpaiGraph_TensorInfo_t10tensorSizeE">
+<span id="_CPPv3N25QnnLpaiGraph_TensorInfo_t10tensorSizeE"></span><span id="_CPPv2N25QnnLpaiGraph_TensorInfo_t10tensorSizeE"></span><span id="QnnLpaiGraph_TensorInfo_t::tensorSize__uint32_t"></span><span class="target" id="structQnnLpaiGraph__TensorInfo__t_1a8829de9798ab280efff7e7501dc0231d"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tensorSize</span></span></span><a class="headerlink" href="#_CPPv4N25QnnLpaiGraph_TensorInfo_t10tensorSizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N25QnnLpaiGraph_TensorInfo_t11alignedSizeE">
+<span id="_CPPv3N25QnnLpaiGraph_TensorInfo_t11alignedSizeE"></span><span id="_CPPv2N25QnnLpaiGraph_TensorInfo_t11alignedSizeE"></span><span id="QnnLpaiGraph_TensorInfo_t::alignedSize__uint32_t"></span><span class="target" id="structQnnLpaiGraph__TensorInfo__t_1a1395e54455f4c1b33244257b36c401fc"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">alignedSize</span></span></span><a class="headerlink" href="#_CPPv4N25QnnLpaiGraph_TensorInfo_t11alignedSizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N25QnnLpaiGraph_TensorInfo_t9alignmentE">
+<span id="_CPPv3N25QnnLpaiGraph_TensorInfo_t9alignmentE"></span><span id="_CPPv2N25QnnLpaiGraph_TensorInfo_t9alignmentE"></span><span id="QnnLpaiGraph_TensorInfo_t::alignment__uint32_t"></span><span class="target" id="structQnnLpaiGraph__TensorInfo__t_1a2a9ad8fb63799a4be76792e8bd17f1e4"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">alignment</span></span></span><a class="headerlink" href="#_CPPv4N25QnnLpaiGraph_TensorInfo_t9alignmentE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv427QnnLpaiGraph_CustomConfig_t">
+<span id="_CPPv327QnnLpaiGraph_CustomConfig_t"></span><span id="_CPPv227QnnLpaiGraph_CustomConfig_t"></span><span id="QnnLpaiGraph_CustomConfig_t"></span><span class="target" id="structQnnLpaiGraph__CustomConfig__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QnnLpaiGraph_CustomConfig_t</span></span></span><a class="headerlink" href="#_CPPv427QnnLpaiGraph_CustomConfig_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;QnnLpaiGraph.h&gt;</em></div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N27QnnLpaiGraph_CustomConfig_t6optionE">
+<span id="_CPPv3N27QnnLpaiGraph_CustomConfig_t6optionE"></span><span id="_CPPv2N27QnnLpaiGraph_CustomConfig_t6optionE"></span><span id="QnnLpaiGraph_CustomConfig_t::option__uint32_t"></span><span class="target" id="structQnnLpaiGraph__CustomConfig__t_1a99d3cdf88a43b708d23b10395c3f0bd8"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">option</span></span></span><a class="headerlink" href="#_CPPv4N27QnnLpaiGraph_CustomConfig_t6optionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N27QnnLpaiGraph_CustomConfig_t6configE">
+<span id="_CPPv3N27QnnLpaiGraph_CustomConfig_t6configE"></span><span id="_CPPv2N27QnnLpaiGraph_CustomConfig_t6configE"></span><span id="QnnLpaiGraph_CustomConfig_t::config__voidP"></span><span class="target" id="structQnnLpaiGraph__CustomConfig__t_1af0e16c6fa4a30eb56b3b78c7c4bfe4ca"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">config</span></span></span><a class="headerlink" href="#_CPPv4N27QnnLpaiGraph_CustomConfig_t6configE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv429QnnLpaiGraph_CustomProperty_t">
+<span id="_CPPv329QnnLpaiGraph_CustomProperty_t"></span><span id="_CPPv229QnnLpaiGraph_CustomProperty_t"></span><span id="QnnLpaiGraph_CustomProperty_t"></span><span class="target" id="structQnnLpaiGraph__CustomProperty__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QnnLpaiGraph_CustomProperty_t</span></span></span><a class="headerlink" href="#_CPPv429QnnLpaiGraph_CustomProperty_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;QnnLpaiGraph.h&gt;</em></div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N29QnnLpaiGraph_CustomProperty_t6optionE">
+<span id="_CPPv3N29QnnLpaiGraph_CustomProperty_t6optionE"></span><span id="_CPPv2N29QnnLpaiGraph_CustomProperty_t6optionE"></span><span id="QnnLpaiGraph_CustomProperty_t::option__uint32_t"></span><span class="target" id="structQnnLpaiGraph__CustomProperty__t_1aa68014ba917ccd5d98e01acdefb85344"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">option</span></span></span><a class="headerlink" href="#_CPPv4N29QnnLpaiGraph_CustomProperty_t6optionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N29QnnLpaiGraph_CustomProperty_t8propertyE">
+<span id="_CPPv3N29QnnLpaiGraph_CustomProperty_t8propertyE"></span><span id="_CPPv2N29QnnLpaiGraph_CustomProperty_t8propertyE"></span><span id="QnnLpaiGraph_CustomProperty_t::property__voidP"></span><span class="target" id="structQnnLpaiGraph__CustomProperty__t_1acb52780041374b3ac508d366e056da35"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">property</span></span></span><a class="headerlink" href="#_CPPv4N29QnnLpaiGraph_CustomProperty_t8propertyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020-2024, Qualcomm Technologies, Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,438 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Tutorials &mdash; Qualcomm® Genie SDK </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_css.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Supported models" href="supported_models.html" />
+    <link rel="prev" title="Tools" href="tools.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qualcomm® Genie SDK 
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v2.25.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#qnn-genaitransformer-backend-workflow">QNN GenAITransformer backend workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#model-download">Model download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-conversion">Model conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-configuration">Model configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-execution">Model execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-the-example-model-library">Building the example model library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#qnn-htp-backend-workflow">QNN HTP backend workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#htp-backend-example-model-config-and-backend-extension-config">HTP Backend Example Model Config and Backend Extension Config</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="supported_models.html">Supported models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qualcomm® Genie SDK </a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Tutorials</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorials">
+<h1><a class="toc-backref" href="#id1">Tutorials</a><a class="headerlink" href="#tutorials" title="Permalink to this heading">¶</a></h1>
+<p>This section contains tutorials that assist users in becoming familiar with the Genie SDK workflow. Tutorials are split
+into two sections: one for the QNN GenAITransformer backend and one for the QNN HTP backend.</p>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#tutorials" id="id1">Tutorials</a></p>
+<ul>
+<li><p><a class="reference internal" href="#qnn-genaitransformer-backend-workflow" id="id2">QNN GenAITransformer backend workflow</a></p>
+<ul>
+<li><p><a class="reference internal" href="#model-download" id="id3">Model download</a></p></li>
+<li><p><a class="reference internal" href="#model-conversion" id="id4">Model conversion</a></p></li>
+<li><p><a class="reference internal" href="#model-configuration" id="id5">Model configuration</a></p></li>
+<li><p><a class="reference internal" href="#model-execution" id="id6">Model execution</a></p></li>
+<li><p><a class="reference internal" href="#building-the-example-model-library" id="id7">Building the example model library</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#qnn-htp-backend-workflow" id="id8">QNN HTP backend workflow</a></p>
+<ul>
+<li><p><a class="reference internal" href="#htp-backend-example-model-config-and-backend-extension-config" id="id9">HTP Backend Example Model Config and Backend Extension Config</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please refer to <a class="reference internal" href="setup.html"><span class="doc">Setup</span></a> before starting any of the tutorials.</p>
+</div>
+<div class="section" id="qnn-genaitransformer-backend-workflow">
+<h2><a class="toc-backref" href="#id2">QNN GenAITransformer backend workflow</a><a class="headerlink" href="#qnn-genaitransformer-backend-workflow" title="Permalink to this heading">¶</a></h2>
+<p>The Genie provided QNN GenAITransformer backend leverages the QNN op package interface to represent an entire LLaMA
+model as a single op. The model execution engine is provided via the QnnGenAiTransformerCpuOpPkg op package library. The
+Genie SDK packages a prebuilt QnnGenAiTransformerModel model library. The corresponding source for this model library
+can be found at <code class="docutils literal notranslate"><span class="pre">${SDK_ROOT}/examples/Genie/Model/model.cpp</span></code>. Because the QNN GenAITransformer backend model and op
+package are prebuilt, this backend uses the <code class="docutils literal notranslate"><span class="pre">qnn-genai-transformer-composer</span></code> tool for preparation.</p>
+<div class="section" id="model-download">
+<h3><a class="toc-backref" href="#id3">Model download</a><a class="headerlink" href="#model-download" title="Permalink to this heading">¶</a></h3>
+<p>Download LLaMA-2-7b from <a class="reference external" href="https://huggingface.co/meta-llama/Llama-2-7b-hf/tree/main">https://huggingface.co/meta-llama/Llama-2-7b-hf/tree/main</a>.</p>
+</div>
+<div class="section" id="model-conversion">
+<h3><a class="toc-backref" href="#id4">Model conversion</a><a class="headerlink" href="#model-conversion" title="Permalink to this heading">¶</a></h3>
+<p>The following section demonstrates converting a model using
+<a class="reference internal" href="tools.html#qnn-genai-transformer-composer"><span class="std std-ref">qnn-genai-transformer-composer</span></a>.</p>
+<p><strong>Model conversion on Linux and Android</strong></p>
+<p>Open a command shell on Linux host and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make sure environment is setup as per instructions, or can cd into bin folder on Linux host</span>
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/bin/x86_64-linux-clang/
+./qnn-genai-transformer-composer<span class="w"> </span>--quantize<span class="w"> </span>Z4
+<span class="w">                                 </span>--outfile<span class="w"> </span>&lt;output<span class="w"> </span>filename<span class="w"> </span>with<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>path&gt;.bin
+<span class="w">                                 </span>--model<span class="w"> </span>&lt;path-to-downloaded-LLama-model-directory&gt;
+</pre></div>
+</div>
+<p><strong>Model conversion on Windows</strong></p>
+<p>Open <code class="docutils literal notranslate"><span class="pre">Developer</span> <span class="pre">PowerShell</span> <span class="pre">for</span> <span class="pre">VS2022</span></code> on Windows host and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make sure environment is setup as per instructions, or can cd into bin folder on Windows host</span>
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>&gt;<span class="se">\b</span>in<span class="se">\x</span>86_64-windows-msvc
+python<span class="w"> </span>.<span class="se">\q</span>nn-genai-transformer-composer<span class="w"> </span>--quantize<span class="w"> </span>Z4
+<span class="w">                                        </span>--outfile<span class="w"> </span>&lt;output<span class="w"> </span>filename<span class="w"> </span>with<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>path&gt;.bin
+<span class="w">                                        </span>--model<span class="w"> </span>&lt;path-to-downloaded-LLama-model-directory&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="model-configuration">
+<h3><a class="toc-backref" href="#id5">Model configuration</a><a class="headerlink" href="#model-configuration" title="Permalink to this heading">¶</a></h3>
+<p>See <a class="reference internal" href="api.html#genie-dialog-json-config-string"><span class="std std-ref">Genie Dialog JSON configuration string</span></a> for details on the fields and what
+they mean. An example model config can be found at
+<code class="docutils literal notranslate"><span class="pre">${QNN_SDK_ROOT}/examples/Genie/configs/llama2-7b/llama2-7b-genaitransformer.json</span></code>. Note that the tokenizer path and
+model bin fields will need to be updated based on your actual preparation steps.</p>
+</div>
+<div class="section" id="model-execution">
+<h3><a class="toc-backref" href="#id6">Model execution</a><a class="headerlink" href="#model-execution" title="Permalink to this heading">¶</a></h3>
+<p>The following section demonstrates running a model on the QNN GenAITransformer backend using
+<a class="reference internal" href="tools.html#genie-t2t-run"><span class="std std-ref">genie-t2t-run</span></a>.</p>
+<p><strong>Model execution on Linux</strong></p>
+<p>Open a command shell on Linux host and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make sure environment is setup as per instructions, or can cd into bin folder on Linux host</span>
+<span class="nb">cd</span><span class="w"> </span>&lt;QNN_SDK_ROOT&gt;<span class="se">\b</span>in<span class="se">\x</span>86_64-linux-clang
+./genie-t2t-run<span class="w"> </span>-c<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>cpu_model_config.json&gt;
+<span class="w">                </span>-p<span class="w"> </span><span class="s2">&quot;Tell me about Qualcomm&quot;</span>
+</pre></div>
+</div>
+<p><strong>Model execution on Android</strong></p>
+<p>Open a command shell on Linux host and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># make sure a test device is connected</span>
+adb<span class="w"> </span>devices
+
+<span class="c1"># push artifacts to device</span>
+adb<span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/bin/aarch64-android/genie-t2t-run<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/lib/aarch64-android/libGenie.so<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/lib/aarch64-android/libQnnGenAiTransformer.so<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/lib/aarch64-android/libQnnGenAiTransformerCpuOpPkg.so<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/lib/aarch64-android/libQnnGenAiTransformerModel.so<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>tokenizer.json&gt;<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>cpu-model-config.json&gt;<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>model<span class="w"> </span>bin<span class="w"> </span>file,<span class="w"> </span>e.g.<span class="w"> </span>&lt;path-to-downloaded-LLama-model-directory&gt;/model.bin&gt;<span class="w"> </span>/data/local/tmp/
+
+<span class="c1"># open adb shell</span>
+adb<span class="w"> </span>shell
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/data/local/tmp/
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:<span class="nv">$PATH</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$LD_LIBRARY_PATH</span>
+./genie-t2t-run<span class="w"> </span>-c<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>cpu-model-config.json&gt;
+<span class="w">                </span>-p<span class="w"> </span><span class="s2">&quot;Tell me about Qualcomm&quot;</span>
+</pre></div>
+</div>
+<p><strong>Model execution on Windows</strong></p>
+<p>Open <code class="docutils literal notranslate"><span class="pre">Developer</span> <span class="pre">PowerShell</span> <span class="pre">for</span> <span class="pre">VS2022</span></code> on Windows on Snapdragon host and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make sure environment is setup as per instructions, or can cd into bin folder on Windows host</span>
+<span class="nb">cd</span><span class="w"> </span>&lt;QNN_SDK_ROOT&gt;<span class="se">\b</span>in<span class="se">\a</span>arch64-windows-msvc
+.<span class="se">\g</span>enie-t2t-run.exe<span class="w"> </span>-c<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>cpu-model-config.json&gt;
+<span class="w">                    </span>-p<span class="w"> </span><span class="s2">&quot;Tell me about Qualcomm&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-the-example-model-library">
+<h3><a class="toc-backref" href="#id7">Building the example model library</a><a class="headerlink" href="#building-the-example-model-library" title="Permalink to this heading">¶</a></h3>
+<p>Building an example model library is optional.</p>
+<p>In the case of the GenAITransformer backend, the model is composed of a single custom op implemented by the pre-built
+<code class="docutils literal notranslate"><span class="pre">libQnnGenAiTransformerCpuOpPkg.so</span></code> and <code class="docutils literal notranslate"><span class="pre">QnnGenAiTransformerCpuOpPkg.dll</span></code> op packages.</p>
+<p>The Genie SDK provides pre-built <code class="docutils literal notranslate"><span class="pre">libQnnGenAiTransformerModel.so</span></code> and <code class="docutils literal notranslate"><span class="pre">QnnGenAiTransformerModel.dll</span></code> libraries as
+described in the <a class="reference internal" href="introduction.html"><span class="doc">Introduction</span></a>. The source for these libraries is provided by
+<code class="docutils literal notranslate"><span class="pre">${QNN_SDK_ROOT}/examples/Genie/Model/model.cpp</span></code>. This section shows the user how to compile this source into a model
+library consumable by the Genie SDK.</p>
+<p><strong>Model build on Linux host</strong></p>
+<p>Open a command shell on Linux host and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/bin/x86_64-linux-clang/qnn-model-lib-generator<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/examples/GenAiTransformer/Model/model.cpp<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-o<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/examples/GenAiTransformer/Model/model_libs<span class="w"> </span><span class="c1"># This can be any path</span>
+</pre></div>
+</div>
+<p>This will produce the following artifacts:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">${QNN_SDK_ROOT}/examples/GenAiTransformer/Model/model_libs/aarch64-android/libqnn_model.so</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">${QNN_SDK_ROOT}/examples/GenAiTransformer/Model/model_libs/x86_64-linux-clang/libqnn_model.so</span></code></p></li>
+</ul>
+<dl class="simple">
+<dt>By default libraries are built for all targets. To compile for a specific target, use the <code class="docutils literal notranslate"><span class="pre">-t</span> <span class="pre">&lt;target&gt;</span></code> option with</dt><dd><p><code class="docutils literal notranslate"><span class="pre">qnn-model-lib-generator</span></code>. Choices of &lt;target&gt; are aarch64-android and x86_64-linux-clang.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="qnn-htp-backend-workflow">
+<h2><a class="toc-backref" href="#id8">QNN HTP backend workflow</a><a class="headerlink" href="#qnn-htp-backend-workflow" title="Permalink to this heading">¶</a></h2>
+<p>The following tutorial demonstrates running a model on the QNN HTP backend using
+<a class="reference internal" href="tools.html#genie-t2t-run"><span class="std std-ref">genie-t2t-run</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section assumes that the QNN HTP context binaries have been obtained via the QNN workflow.</p>
+</div>
+<div class="section" id="htp-backend-example-model-config-and-backend-extension-config">
+<h3><a class="toc-backref" href="#id9">HTP Backend Example Model Config and Backend Extension Config</a><a class="headerlink" href="#htp-backend-example-model-config-and-backend-extension-config" title="Permalink to this heading">¶</a></h3>
+<p>See <a class="reference internal" href="api.html#genie-dialog-json-config-string"><span class="std std-ref">Genie Dialog JSON configuration string</span></a> for details on the fields and what
+they mean. An example model_config can be found at
+<code class="docutils literal notranslate"><span class="pre">${QNN_SDK_ROOT}/examples/Genie/configs/llama2-7b/llama2-7b-htp.json</span></code>. Note that the tokenizer path and
+context binary fields will need to be updated based on your actual preparation steps. There is also a Windows specific
+configuration file located here: <code class="docutils literal notranslate"><span class="pre">${QNN_SDK_ROOT}/examples/Genie/configs/llama2-7b/llama2-7b-htp-windows.json</span></code>.</p>
+<p>An example backend_ext_config.json can be found at
+<code class="docutils literal notranslate"><span class="pre">${QNN_SDK_ROOT}/examples/Genie/configs/htp_backend_ext_config.json</span></code>.</p>
+<p>For more information on the QNN HTP backend extension configurations options, please refer to
+<code class="docutils literal notranslate"><span class="pre">${QNN_SDK_ROOT}/docs/QNN/general/htp/htp_backend.html</span></code>.</p>
+<p><strong>LLaMA model inference on Android</strong></p>
+<p>To run on QNN HTP backend, open a command shell on android and run the following. This assumes that the HTP architecture
+has been set (e.g., ARCH=75).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>adb<span class="w"> </span>shell<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/bin/aarch64-android/genie-t2t-run<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/lib/aarch64-android/libGenie.so<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/lib/aarch64-android/libQnnHtp.so<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/lib/aarch64-android/libQnnSystem.so<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/lib/aarch64-android/libQnnHtpPrepare.so<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/lib/aarch64-android/libQnnHtpNetRunExtensions.so<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/lib/aarch64-android/libQnnHtpV<span class="si">${</span><span class="nv">ARCH</span><span class="si">}</span>Stub.so<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">QNN_SDK_ROOT</span><span class="si">}</span>/lib/hexagon-v<span class="si">${</span><span class="nv">ARCH</span><span class="si">}</span>/unsigned/libQnnHtpV<span class="si">${</span><span class="nv">ARCH</span><span class="si">}</span>Skel.so<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>htp_backend_ext_config.json&gt;<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>llama2-7b-htp.json&gt;<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>tokenizer.json&gt;<span class="w"> </span>/data/local/tmp/
+adb<span class="w"> </span>push<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>model<span class="w"> </span>bin<span class="w"> </span>files&gt;<span class="w"> </span>/data/local/tmp/
+
+<span class="c1"># open adb shell</span>
+adb<span class="w"> </span>shell
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/data/local/tmp/
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:<span class="nv">$PATH</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$LD_LIBRARY_PATH</span>
+./genie-t2t-run<span class="w"> </span>-c<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>llama2-7b-htp.json&gt;
+<span class="w">                </span>-p<span class="w"> </span><span class="s2">&quot;What is the most popular cookie in the world?&quot;</span>
+</pre></div>
+</div>
+<p><strong>LLaMA model inference on Windows</strong></p>
+<p>Open <code class="docutils literal notranslate"><span class="pre">Developer</span> <span class="pre">PowerShell</span> <span class="pre">for</span> <span class="pre">VS2022</span></code> on Windows on Snapdragon host and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make sure environment is setup as per instructions, or can cd into bin folder on Windows host</span>
+<span class="nb">cd</span><span class="w"> </span>&lt;QNN_SDK_ROOT&gt;<span class="se">\b</span>in<span class="se">\a</span>arch64-windows-msvc
+.<span class="se">\g</span>enie-t2t-run.exe<span class="w"> </span>-c<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>llama2-7b-htp.json&gt;
+<span class="w">                    </span>-p<span class="w"> </span><span class="s2">&quot;Tell me about Qualcomm&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="supported_models.html" class="btn btn-neutral float-right" title="Supported models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tools.html" class="btn btn-neutral float-left" title="Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2024, Qualcomm Technologies, Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

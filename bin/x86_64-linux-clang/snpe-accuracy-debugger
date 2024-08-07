@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+# =============================================================================
+#
+#  Copyright (c) 2023-2024 Qualcomm Technologies, Inc.
+#  All Rights Reserved.
+#  Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+# =============================================================================
+
+from __future__ import unicode_literals
+from __future__ import print_function
+from __future__ import division
+from __future__ import absolute_import
+
+import os
+import sys
+
+# relative path to python lib in source
+SOURCE_LIB_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'python')
+# relative path to python lib in SDK
+QAISW_LIB_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', '..', 'lib', 'python')
+
+try:
+    if os.path.exists(SOURCE_LIB_PATH):
+        sys.path.insert(0, SOURCE_LIB_PATH)
+    elif os.path.exists(QAISW_LIB_PATH):
+        sys.path.insert(0, QAISW_LIB_PATH)
+    else:
+        raise ModuleNotFoundError('Cannot find Accuracy Debugger lib directory')
+
+    # imports
+    from qti.aisw.accuracy_debugger.lib.options.accuracy_debugger_main_cmd_options import MainCmdOptions
+    from qti.aisw.accuracy_debugger.lib.runner.component_runner import exec_framework_diagnosis, exec_inference_engine, exec_verification, exec_compare_encodings, exec_tensor_inspection, exec_wrapper, exec_quant_checker
+    from qti.aisw.accuracy_debugger.lib.utils.nd_constants import Engine
+except ModuleNotFoundError as mnfe:
+    print(str(mnfe))
+    print('Please ensure that the lib path is in your PYTHONPATH')
+    sys.exit(1)
+except ImportError as ie:
+    print('Failed to find the necessary package:')
+    print(str(ie))
+    sys.exit(1)
+
+
+def main():
+    system_args = sys.argv[1:]
+    args = MainCmdOptions(system_args).parse()
+
+    if (args.framework_diagnosis):  # runs framework diagnosis
+        exec_framework_diagnosis(system_args)
+    elif (args.inference_engine):  # runs inference engine
+        exec_inference_engine(system_args, Engine.SNPE.value)
+    elif (args.verification):  # runs verifier
+        exec_verification(system_args)
+    elif (args.compare_encodings):  # Compares SNPE dlc encodings with AIMET encodings
+        exec_compare_encodings(system_args, Engine.SNPE.value)
+    elif (args.tensor_inspection):  # compares given reference output and target output tensors
+        exec_tensor_inspection(system_args)
+    elif (args.quant_checker):
+        exec_quant_checker(system_args, Engine.SNPE.value)
+    else:  # runs wrapper
+        exec_wrapper(system_args, Engine.SNPE.value)
+
+
+if __name__ == '__main__':
+    main()

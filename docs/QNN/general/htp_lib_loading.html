@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Windows HTP Library Loading Tutorial &mdash; Qualcomm® AI Engine Direct</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_css.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qualcomm® AI Engine Direct
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v2.25.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backend.html">Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="op_packages.html">Op Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="converters.html">Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarking.html">Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations.html">Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qualcomm® AI Engine Direct</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Windows HTP Library Loading Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="windows-htp-library-loading-tutorial">
+<h1>Windows HTP Library Loading Tutorial<a class="headerlink" href="#windows-htp-library-loading-tutorial" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<p>Qualcomm® AI Engine Direct Windows SDK manages the HTP backend resources. Qualcomm introduced the HTP skel signing verification feature
+on all Windows-based Snapdragon X Series platforms.</p>
+<p>The HTP skel signing verification feature:</p>
+<ul class="simple">
+<li><p>Provides secure execution of trusted code on the HTP backend (NPU)</p></li>
+<li><p>Digitally signs the HTP libraries</p></li>
+<li><p>Verifies signatures at library load time</p></li>
+<li><p>Only allows signed libraries to be loaded on the HTP backend</p></li>
+</ul>
+</div>
+<div class="section" id="htp-skel-signing-verification-related-files">
+<h2>HTP Skel Signing Verification Related Files<a class="headerlink" href="#htp-skel-signing-verification-related-files" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><em>libQnnHtpVXXSkel.so</em> – Shared library that must be loaded in the HTP backend to execute the model.</p></li>
+<li><p><em>libqnnhtpvXX.cat</em> – Windows security catalog file required to pass signing verification.</p></li>
+<li><p><em>libCalculator_skel.so</em> – An HTP runtime library required by qnn-platform-validator</p></li>
+</ul>
+</div>
+<div class="section" id="usage-requirements">
+<h2>Usage Requirements<a class="headerlink" href="#usage-requirements" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">* Do not modify any library (*skel.so) or catalog (*.cat) files. This will break signing verification and the library will not load.</div>
+<div class="line">Library and catalog files must be in the same folder or the library won’t load.</div>
+</div>
+</div>
+<p>For Windows client applications using QNN with HTP runtime, the following files must stay in the same folder.</p>
+<ul class="simple">
+<li><p>libQnnHtpV73Skel.so</p></li>
+<li><p>libqnnhtpv73.cat</p></li>
+</ul>
+<p>When running qnn-platform-validator.exe, the following files must stay in the same folder.</p>
+<ul class="simple">
+<li><p>libCalculator_skel.so</p></li>
+<li><p>libqnnhtpv73.cat</p></li>
+</ul>
+<p>For Windows device drivers (camera, audio, etc.) that need to pass the Windows Hardware Compatibility Program (WHCP), do not include these HTP Skel signed libraries.</p>
+<ul class="simple">
+<li><p>Instead, Windows device drivers use the Qualcomm HNRD backend interface which is pre-installed on Snapdragon X Series platforms.</p></li>
+<li><p>See the HNRD documentation for details.</p></li>
+</ul>
+</div>
+<div class="section" id="error-logs-when-the-signing-verification-fails">
+<h2>Error Logs When the Signing Verification Fails<a class="headerlink" href="#error-logs-when-the-signing-verification-fails" title="Permalink to this heading">¶</a></h2>
+<p>Qualcomm® AI Engine Direct Windows SDK raises an error when it finds the shared library is unable to load.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">transportStatus:</span> <span class="pre">9</span></code> error message appears when the HTP skel signing verification fails.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">QnnDsp</span><span class="w"> </span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="n">DspTransport</span><span class="p">.</span><span class="n">openSession</span><span class="w"> </span><span class="n">qnn_open</span><span class="w"> </span><span class="n">failed</span><span class="p">,</span><span class="w"> </span><span class="mh">0x80000406</span>
+<span class="n">QnnDsp</span><span class="w"> </span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="n">IDspTransport</span><span class="o">:</span><span class="w"> </span><span class="n">Unable</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="n">lib</span><span class="w"> </span><span class="mh">0x80000406</span>
+<span class="n">QnnDsp</span><span class="w"> </span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="n">DspTransport</span><span class="w"> </span><span class="n">failed</span><span class="p">,</span><span class="n">cannot</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="n">session</span><span class="p">,</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="mh">0x00000009</span>
+<span class="n">QnnDsp</span><span class="w"> </span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Unable</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="n">Skel</span><span class="w"> </span><span class="n">Library</span><span class="p">.</span><span class="w"> </span><span class="n">transportStatus</span><span class="o">:</span><span class="w"> </span><span class="mi">9</span>
+<span class="n">QnnDsp</span><span class="w"> </span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Failed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">retrieve</span><span class="w"> </span><span class="n">skel</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">id</span><span class="o">:</span><span class="w"> </span><span class="n">err</span><span class="o">:</span><span class="w"> </span><span class="mi">1008</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="signed-htp-libraries-vs-signed-protection-domain">
+<h2>Signed HTP libraries vs Signed Protection Domain<a class="headerlink" href="#signed-htp-libraries-vs-signed-protection-domain" title="Permalink to this heading">¶</a></h2>
+<p>The term <em>sign</em> can refer to numerous concepts depending on its context.</p>
+<ul class="simple">
+<li><p>In the context of the HTP skel signing verification feature, signed means the Windows digitally-signed catalog file (.cat) serves as a digital signature for HTP library files.</p></li>
+<li><p>Within the NPU, there are unsigned and signed NPU <abbr title="Protection Domains">PDs</abbr>, that control access to different services on the NPU. See the Hexagon SDK documentation for more details.</p></li>
+</ul>
+<p>The digitally-signed catalog file and signed HTP libraries in the Qualcomm® AI Engine Direct Windows SDK may be located in a folder named “unsigned”.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here the folder name <em>unsigned</em> refers to the PD and may cause confusion due to its association with signing in Windows verification.</p>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020-2024, Qualcomm Technologies, Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,372 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Hexagon NPU Runtime Driver (Windows Only) &mdash; Snapdragon Neural Processing Engine SDK</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_css.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Benchmarking and Accuracy" href="usergroup10.html" />
+    <link rel="prev" title="Windows ARM64X Support" href="arm64x_support.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qualcomm® Neural Processing SDK
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v2.25.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="revision_history.html">Revision History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revision_history_windows.html">Revision History - Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usergroup1.html">Network Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usergroup5.html">Input Data and Preprocessing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="usergroup6.html">Tutorials and Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial_setup.html">Tutorials Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snpe2_migration_guidelines.html">SNPE1 to SNPE2 Migration Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usergroup7.html">Running Nets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usergroup8.html">Code Examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="usergroup9.html">Application Tips</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="prog_integration.html">Application Integration Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prog_performance.html">Performance Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prog_burst_mode.html">Burst Mode on DSP and AIP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_logging.html">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpu_fxp_mode.html">CPU Fixed Point Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arm64x_support.html">Windows ARM64X Support</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Hexagon NPU Runtime Driver (Windows Only)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usergroup10.html">Benchmarking and Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usergroup11.html">Debug Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="limitations.html">Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appx_ref.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qualcomm® Neural Processing SDK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="usergroup6.html">Tutorials and Examples</a> &raquo;</li>
+        
+          <li><a href="usergroup9.html">Application Tips</a> &raquo;</li>
+        
+      <li>Hexagon NPU Runtime Driver (Windows Only)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hexagon-npu-runtime-driver-windows-only">
+<h1>Hexagon NPU Runtime Driver (Windows Only)<a class="headerlink" href="#hexagon-npu-runtime-driver-windows-only" title="Permalink to this heading">¶</a></h1>
+<p>Hexagon NPU Runtime Driver (HNRD) is available for Windows based Snapdragon® X Series Platforms. HNRD is designed to be forward and backward compatible with Qualcomm AI Stack SDKs.
+With HNRD in the system, applications have the option to unbundle from SNPE HTP platform dependent libraries, and allows these applications to be portable over to older and newer Windows platforms.
+HNRD is packaged and distributed independently from the SNPE SDK and it is currently packaged with the device BSP. OEMs use the BSP to pre-install HNRD on their devices.</p>
+<p><strong>Switching Between Traditional and HNRD Paths</strong></p>
+<div class="figure align-center" id="hexagon-npu-runtime-driver-figure">
+<img alt="../images/hnrd.svg" src="../images/hnrd.svg" /></div>
+<dl class="simple">
+<dt>Pre-driver:</dt><dd><ul class="simple">
+<li><p>Traditional path only; applications build with the SNPE SDK and bundle the SNPE HTP platform dependent libraries</p></li>
+</ul>
+</dd>
+<dt>Post-driver:</dt><dd><ul class="simple">
+<li><p>Traditional and HNRD paths available; the application can choose which path to use</p></li>
+<li><p>Traditional path; applications build with the SNPE SDK and bundle the SNPE HTP platform dependent libraries with the application (Default – same as pre-driver)</p></li>
+<li><p>HNRD path; applications build with the SNPE SDK, but utilize the platform dependent libraries installed on the system</p></li>
+<li><p>Note: there is no difference in the build step between traditional and HNRD paths. In addition, the bundling and choosing between traditional and HNRD paths is applicable to both QNN and SNPE</p></li>
+</ul>
+</dd>
+</dl>
+<p>In other words, if an application bundles the SNPE HTP platform dependent libraries (i.e., SnpeHtpV73Stub.dll and SnpeHtpV73Skel.so), it will default to choose the traditional path. Otherwise, if the platform dependent libraries are not bundled, it will fall back to choose the HNRD path.</p>
+<p>The following sample logs illustrate the HNRD path being applied:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w">  </span><span class="mf">0.0</span><span class="n">ms</span><span class="w"> </span><span class="p">[</span><span class="n">WARNING</span><span class="p">]</span><span class="w"> </span><span class="n">QnnDsp</span><span class="w"> </span><span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Traditional</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">available</span><span class="p">.</span><span class="w"> </span><span class="n">Switching</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">path</span>
+<span class="linenos">2</span><span class="w">  </span><span class="mf">0.0</span><span class="n">ms</span><span class="w"> </span><span class="p">[</span><span class="n">WARNING</span><span class="p">]</span><span class="w"> </span><span class="n">QnnDsp</span><span class="w"> </span><span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span><span class="w"> </span><span class="n">HTP</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">loaded</span><span class="p">.</span><span class="w"> </span><span class="n">Switched</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">path</span>
+</pre></div>
+</div>
+<p><strong>Compatibility Support</strong></p>
+<p>The minimum QNN and SNPE version is 2.22.2.
+Applications can be built with older or newer versions of the SNPE SDK and they will still work on the device.
+Depending on the HNRD version installed on the system, new features may not be supported.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">Traditional</span></code> and <code class="docutils literal notranslate"><span class="pre">HNRD</span></code> paths can co-exist on the platform and each application independently selects whether to use traditional or HNRD paths.</p>
+</div>
+<p><strong>Model Cache Management</strong></p>
+<p>When utilizing <a class="reference internal" href="init_caching.html#init-caching"><span class="std std-ref">Init Caching</span></a> with HNRD, it requires special attention on managing the caches.
+When using HNRD path, online prepare and cache loading are done by HNRD since they are platform-dependent.
+A cache generated by one version of HNRD might not be able to run on HNRD with an older version or might not utilize all software / hardware capabilities on HNRD with a new version.
+It is required to check the compatibility of saved caches with the HNRD every time before loading, since the HNRD installed on a device can be upgraded (or downgraded) at any time.</p>
+<p><span class="xref std std-ref">Snpe_SNPEBuilder_Build()</span> and <span class="xref std std-ref">SNPEBuilder</span>::build() check the compatibility automatically before loading the caches.
+Calling <span class="xref std std-ref">Snpe_SNPEBuilder_SetCacheCompatiblityMode()</span> and <span class="xref std std-ref">SNPEBuilder</span>::setCacheCompatibilityMode() can control whether to fail sub-optimal caches during compatibility check.
+<span class="xref std std-ref">Snpe_SNPEBuilder_ValidateCache()</span> and <span class="xref std std-ref">SNPEBuilder</span>::validateCache() do a similar check as <span class="xref std std-ref">Snpe_SNPEBuilder_Build()</span> and <span class="xref std std-ref">SNPEBuilder</span>::build() except they won’t create SNPE instances.</p>
+<p>If a cache fails to pass the compatibility check, performing online prepare to create another valid cache can solve the problem.
+To reduce the latency impact of online prepare, continue execution with the original sub-optimal cache while doing online prepare in a background thread and switch to the new cache once online prepare is done.</p>
+<p>Note that online prepare may not succeed. This can happen when a model converted by a newer SDK version uses features that are not supported by the HNRD. In such a case, upgrade the HNRD.
+The following example shows how to handle cache management.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">Snpe_SNPE_Handle_t</span><span class="w"> </span><span class="n">snpeHandle</span><span class="p">;</span><span class="w">  </span><span class="c1">// SNPE used to do inference</span>
+<span class="linenos"> 2</span><span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="n">Snpe_SNPEBuilder_Handle_t</span><span class="o">&gt;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="n">futureSnpeHandle</span><span class="p">;</span><span class="w">  </span><span class="c1">// SNPE being created in background</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="n">Snpe_DlContainer_Handle_t</span><span class="w"> </span><span class="n">containerHandle</span><span class="w"> </span><span class="o">=</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="n">Snpe_DlContainer_Open</span><span class="p">(</span><span class="n">dlcPath</span><span class="p">.</span><span class="n">string</span><span class="p">().</span><span class="n">c_str</span><span class="p">());</span>
+<span class="linenos"> 7</span><span class="n">Snpe_RuntimeList_Handle_t</span><span class="w"> </span><span class="n">runtimeListHandle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Snpe_RuntimeList_Create</span><span class="p">();</span>
+<span class="linenos"> 8</span><span class="n">Snpe_SNPEBuilder_Handle_t</span><span class="w"> </span><span class="n">snpeBuilderHandle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Snpe_SNPEBuilder_Create</span><span class="p">(</span><span class="n">containerHandle</span><span class="p">);</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1">// Add DSP runtime.</span>
+<span class="linenos">11</span><span class="n">Snpe_RuntimeList_Add</span><span class="p">(</span><span class="n">runtimeListHandle</span><span class="p">,</span><span class="w"> </span><span class="n">SNPE_RUNTIME_DSP</span><span class="p">);</span>
+<span class="linenos">12</span><span class="n">Snpe_SNPEBuilder_SetRuntimeProcessorOrder</span><span class="p">(</span><span class="n">snpeBuilderHandle</span><span class="p">,</span><span class="w"> </span><span class="n">runtimeListHandle</span><span class="p">);</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="c1">// Set compatbility mode to strict to check sub-optimality.</span>
+<span class="linenos">15</span><span class="n">Snpe_SNPEBuilder_SetCacheCompatibilityMode</span><span class="p">(</span><span class="n">snpeBuilderHandle</span><span class="p">,</span>
+<span class="linenos">16</span><span class="w">                                           </span><span class="n">SNPE_CACHE_COMPATIBILITY_STRICT</span><span class="p">);</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="c1">// Create SNPE.</span>
+<span class="linenos">19</span><span class="n">snpeHandle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Snpe_SNPEBuilder_Build</span><span class="p">(</span><span class="n">snpeBuilderHandle</span><span class="p">);</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">snpeHandle</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">22</span><span class="w">  </span><span class="n">Snpe_ErrorCode_t</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Snpe_ErrorCode_getLastErrorCode</span><span class="p">();</span>
+<span class="linenos">23</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">error</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SNPE_ERRORCODE_DLCACHING_SUBOPTIMAL_CACHE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">24</span><span class="w">    </span><span class="c1">// The cache is valid but sub-optimal.</span>
+<span class="linenos">25</span><span class="w">    </span><span class="c1">// Continue exection with this cache.</span>
+<span class="linenos">26</span><span class="w">    </span><span class="c1">// Set compatiblity mode to permissive to bypass sub-optimality check.</span>
+<span class="linenos">27</span><span class="w">    </span><span class="n">Snpe_SNPEBuilder_SetCacheCompatibilityMode</span><span class="p">(</span><span class="n">snpeBuilderHandle</span><span class="p">,</span>
+<span class="linenos">28</span><span class="w">                                               </span><span class="n">SNPE_CACHE_COMPATIBILITY_PERMISSIVE</span><span class="p">);</span>
+<span class="linenos">29</span><span class="w">    </span><span class="n">snpeHandle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Snpe_SNPEBuilder_Build</span><span class="p">(</span><span class="n">snpeBuilderHandle</span><span class="p">);</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="w">    </span><span class="c1">// Create another SNPE with better performance in background thread.</span>
+<span class="linenos">32</span><span class="w">    </span><span class="c1">// Set compatibility mode to generate new cache.</span>
+<span class="linenos">33</span><span class="w">    </span><span class="n">Snpe_SNPEBuilder_SetCacheCompatibilityMode</span><span class="p">(</span>
+<span class="linenos">34</span><span class="w">        </span><span class="n">snpeBuilderHandle</span><span class="p">,</span><span class="w"> </span><span class="n">SNPE_CACHE_COMPATIBILITY_ALWAYS_GENERATE_NEW_CACHE</span><span class="p">);</span>
+<span class="linenos">35</span><span class="w">    </span><span class="c1">// Enable init cache mode to save the cache later.</span>
+<span class="linenos">36</span><span class="w">    </span><span class="n">Snpe_SNPEBuilder_SetInitCacheMode</span><span class="p">(</span><span class="n">snpeBuilderHandle</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos">37</span><span class="w">    </span><span class="n">futureSnpeHandle</span><span class="w"> </span><span class="o">=</span>
+<span class="linenos">38</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">async</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">launch</span><span class="o">::</span><span class="n">async</span><span class="p">,</span><span class="w"> </span><span class="n">Snpe_SNPEBuilder_Build</span><span class="p">,</span><span class="w"> </span><span class="n">snpeBuilderHandle</span><span class="p">);</span>
+<span class="linenos">39</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">error</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SNPE_ERRORCODE_QNN_CONTEXT_ERROR_CREATE_FROM_BINARY</span><span class="w"> </span><span class="o">||</span>
+<span class="linenos">40</span><span class="w">             </span><span class="n">error</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SNPE_ERRORCODE_QNN_COMMON_ERROR_NOT_SUPPORTED</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">41</span><span class="w">    </span><span class="c1">// The cache cannot run.</span>
+<span class="linenos">42</span><span class="w">    </span><span class="c1">// Force generate a new cache.</span>
+<span class="linenos">43</span><span class="w">    </span><span class="n">Snpe_SNPEBuilder_SetCacheCompatibilityMode</span><span class="p">(</span>
+<span class="linenos">44</span><span class="w">        </span><span class="n">snpeBuilderHandle</span><span class="p">,</span><span class="w"> </span><span class="n">SNPE_CACHE_COMPATIBILITY_ALWAYS_GENERATE_NEW_CACHE</span><span class="p">);</span>
+<span class="linenos">45</span><span class="w">    </span><span class="n">snpeHandle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Snpe_SNPEBuilder_Build</span><span class="p">(</span><span class="n">snpeBuilderHandle</span><span class="p">);</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">snpeHandle</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">48</span><span class="w">      </span><span class="c1">// If it still fails, one possible reason could be HNRD is too old for the</span>
+<span class="linenos">49</span><span class="w">      </span><span class="c1">// graph. In such case, prompt the users to upgrade HNRD.</span>
+<span class="linenos">50</span><span class="w">      </span><span class="n">cleanUp</span><span class="p">(</span><span class="n">containerHandle</span><span class="p">,</span><span class="w"> </span><span class="n">runtimeListHandle</span><span class="p">,</span><span class="w"> </span><span class="n">snpeBuilderHandle</span><span class="p">);</span>
+<span class="linenos">51</span><span class="w">      </span><span class="n">message</span><span class="p">(</span><span class="n">ERROR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;The HNRD is too old. Please install latest HNRD.&quot;</span><span class="p">);</span>
+<span class="linenos">52</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">53</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">54</span><span class="w">    </span><span class="n">cleanUp</span><span class="p">(</span><span class="n">containerHandle</span><span class="p">,</span><span class="w"> </span><span class="n">runtimeListHandle</span><span class="p">,</span><span class="w"> </span><span class="n">snpeBuilderHandle</span><span class="p">);</span>
+<span class="linenos">55</span><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;Skip handling of other errors.&quot;</span><span class="p">);</span>
+<span class="linenos">56</span><span class="w">  </span><span class="p">}</span>
+<span class="linenos">57</span><span class="p">}</span>
+<span class="linenos">58</span>
+<span class="linenos">59</span><span class="c1">// Do inference.</span>
+<span class="linenos">60</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">waitInputData</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">61</span><span class="w">  </span><span class="c1">// Switch to new SNPE if prepare is done.</span>
+<span class="linenos">62</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">futureSnpeHandle</span><span class="p">.</span><span class="n">valid</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="linenos">63</span><span class="w">      </span><span class="n">futureSnpeHandle</span><span class="p">.</span><span class="n">wait_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">future_status</span><span class="o">::</span><span class="n">ready</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">64</span><span class="w">    </span><span class="c1">// Clean up the original SNPE.</span>
+<span class="linenos">65</span><span class="w">    </span><span class="n">Snpe_SNPE_Delete</span><span class="p">(</span><span class="n">snpeHandle</span><span class="p">);</span>
+<span class="linenos">66</span><span class="w">    </span><span class="c1">// Switch to the new SNPE.</span>
+<span class="linenos">67</span><span class="w">    </span><span class="n">snpeHandle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">futureSnpeHandle</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+<span class="linenos">68</span><span class="w">    </span><span class="c1">// Save the new cache to DLC.</span>
+<span class="linenos">69</span><span class="w">    </span><span class="n">Snpe_DlContainer_Save</span><span class="p">(</span><span class="n">containerHandle</span><span class="p">,</span><span class="w"> </span><span class="n">dlcPath</span><span class="p">.</span><span class="n">string</span><span class="p">().</span><span class="n">c_str</span><span class="p">());</span>
+<span class="linenos">70</span><span class="w">  </span><span class="p">}</span>
+<span class="linenos">71</span>
+<span class="linenos">72</span><span class="w">  </span><span class="n">doInference</span><span class="p">(</span><span class="n">snpeHandle</span><span class="p">);</span>
+<span class="linenos">73</span><span class="p">}</span>
+<span class="linenos">74</span>
+<span class="linenos">75</span><span class="c1">// Clean up.</span>
+<span class="linenos">76</span><span class="n">Snpe_SNPE_Delete</span><span class="p">(</span><span class="n">snpeHandle</span><span class="p">);</span>
+<span class="linenos">77</span><span class="n">cleanUp</span><span class="p">(</span><span class="n">containerHandle</span><span class="p">,</span><span class="w"> </span><span class="n">runtimeListHandle</span><span class="p">,</span><span class="w"> </span><span class="n">snpeBuilderHandle</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="usergroup10.html" class="btn btn-neutral float-right" title="Benchmarking and Accuracy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="arm64x_support.html" class="btn btn-neutral float-left" title="Windows ARM64X Support" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020-2023, Qualcomm Technologies, Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+{
+    "inference_engine": {
+        "snpe_dlc_utils_package": "lib/python/qti/aisw/dlc_utils",
+        "backend_locations": {
+            "QNN": {
+                "x86_64-linux-clang": {
+                    "cpu": ["{engine_path}/lib/{target_arch}/libQnnCpu.so"],
+                    "gpu": ["{engine_path}/lib/{target_arch}/libQnnGpu.so"],
+                    "dsp": ["{engine_path}/lib/{target_arch}/libQnnHtp.so"],
+                    "htp": ["{engine_path}/lib/{target_arch}/libQnnHtp.so"],
+                    "aic": ["{engine_path}/lib/{target_arch}/libQnnAic.so"]
+                },
+                "x86_64-windows-msvc": {
+                    "cpu": ["{engine_path}/lib/{target_arch}/QnnCpu.dll"],
+                    "gpu": ["{engine_path}/lib/{target_arch}/QnnGpu.dll"],
+                    "htp": ["{engine_path}/lib/{target_arch}/QnnHtp.dll"],
+                    "dsp": ["{engine_path}/lib/{target_arch}/QnnHtp.dll"]
+                },
+                "aarch64-android": {
+                    "cpu": ["{engine_path}/lib/{target_arch}/libQnnCpu.so"],
+                    "gpu": ["{engine_path}/lib/{target_arch}/libQnnGpu.so"],
+                    "dsp": [
+                        "{engine_path}/lib/{target_arch}/libQnnHtp.so",
+                        "{engine_path}/lib/{target_arch}/libQnnHtpPrepare.so",
+                        "{engine_path}/lib/{target_arch}/libQnnHtp{dsp_version_upper}Stub.so",
+                        "{engine_path}/lib/hexagon-{dsp_version}/unsigned/libQnnHtp{dsp_version_upper}Skel.so"
+                    ]
+                },
+                "aarch64-qnx": {
+                    "cpu": ["{engine_path}/lib/{target_arch}/libQnnCpu.so"],
+                    "gpu": ["{engine_path}/lib/{target_arch}/libQnnGpu.so"],
+                    "dsp": [
+                        "{engine_path}/lib/{target_arch}/libQnnHtp.so",
+                        "{engine_path}/lib/{target_arch}/libQnnHtpProfilingReader.so",
+                        "{engine_path}/lib/{target_arch}/libQnnChrometraceProfilingReader.so",
+                        "{engine_path}/lib/{target_arch}/libQnnHtpNetRunExtensions.so",
+                        "{engine_path}/lib/{target_arch}/libQnnHtp{dsp_version_upper}Stub.so",
+                        "{engine_path}/lib/{target_arch}/libQnnHtp{dsp_version_upper}CalculatorStub.so",
+                        "{engine_path}/lib/hexagon-{dsp_version}/unsigned/libQnnHtp{dsp_version_upper}Skel.so",
+                        "{engine_path}/lib/hexagon-{dsp_version}/unsigned/libQnnHtp{dsp_version_upper}.so"
+                    ]
+                },
+                "wos": {
+                    "cpu": ["{engine_path}/lib/{target_arch}/QnnCpu.dll"],
+                    "gpu": ["{engine_path}/lib/{target_arch}/QnnGpu.dll"],
+                    "htp": ["{engine_path}/lib/{target_arch}/QnnHtp.dll"],
+                    "dsp": [
+                        "{engine_path}/lib/{target_arch}/QnnHtp.dll",
+                        "{engine_path}/lib/{target_arch}/QnnHtpPrepare.dll",
+                        "{engine_path}/lib/{target_arch}/QnnHtpProfilingReader.dll",
+                        "{engine_path}/lib/{target_arch}/QnnChrometraceProfilingReader.dll",
+                        "{engine_path}/lib/{target_arch}/QnnDspNetRunExtensions.dll",
+                        "{engine_path}/lib/{target_arch}/QnnHtp{dsp_version_upper}Stub.dll",
+                        "{engine_path}/lib/hexagon-{dsp_version}/unsigned/libQnnHtp{dsp_version_upper}Skel.so",
+                        "{engine_path}/lib/hexagon-{dsp_version}/unsigned/libQnnHtp{dsp_version_upper}.so"
+                    ]
+                }
+            },
+            "SNPE": {
+                "x86_64-linux-clang": {
+                    "cpu": [
+                        "{engine_path}/lib/{target_arch}/libSNPE.so"
+                    ]
+                },
+                "aarch64-android": {
+                    "cpu": [
+                        "{engine_path}/lib/{target_arch}/libSNPE.so"
+                    ],
+                    "gpu": [
+                        "{engine_path}/lib/{target_arch}/libSNPE.so"
+                    ],
+                    "dsp": [
+                        "{engine_path}/lib/{target_arch}/libSNPE.so",
+                        "{engine_path}/lib/{target_arch}/libPlatformValidatorShared.so",
+                        "{engine_path}/lib/{target_arch}/libSnpeHtpPrepare.so",
+                        "{engine_path}/lib/{target_arch}/libSnpeHtp{dsp_version_upper}Stub.so",
+                        "{engine_path}/lib/hexagon-{dsp_version}/unsigned/libSnpeHtp{dsp_version_upper}Skel.so"
+                    ]
+                },
+                "wos": {
+                    "cpu": [
+                        "{engine_path}/lib/{target_arch}/SNPE.dll"
+                    ],
+                    "dsp": [
+                        "{engine_path}/lib/{target_arch}/SNPE.dll",
+                        "{engine_path}/lib/{target_arch}/SnpeHtpPrepare.dll",
+                        "{engine_path}/lib/{target_arch}/SnpeHtp{dsp_version_upper}Stub.dll",
+                        "{engine_path}/lib/hexagon-{dsp_version}/unsigned/libSnpeHtp{dsp_version_upper}Skel.so"
+                    ]
+                },
+                "x86_64-windows-msvc": {
+                    "cpu": [
+                        "{engine_path}/lib/{target_arch}/SNPE.dll"
+                    ],
+                    "dsp": [
+                        "{engine_path}/lib/{target_arch}/SNPE.dll",
+                        "{engine_path}/lib/{target_arch}/HtpPrepare.dll"
+                    ]
+                }
+            }
+        },
+        "htp_backend_extension_shared_library_path": {
+            "linux": "{engine_path}/lib/{target_arch}/libQnnHtpNetRunExtensions.so",
+            "windows": "{engine_path}/lib/{target_arch}/QnnHtpNetRunExtensions.dll"
+        },
+        "aic_backend_extension_shared_library_path": {
+            "linux": "{engine_path}/lib/{target_arch}/libQnnAicNetRunExtensions.so",
+            "windows": null
+        },
+        "gpu_backend_extension_shared_library_path": {
+            "linux": "{engine_path}/lib/{target_arch}/libQnnGpuNetRunExtensions.so",
+            "windows": null
+        },
+        "environment_variables": {
+            "PYTHONPATH": "{sdk_tools_root}/lib/python/",
+            "PATH": "{sdk_tools_root}/bin/x86_64-linux-clang",
+            "LD_LIBRARY_PATH": "{sdk_tools_root}/lib/x86_64-linux-clang"
+        },
+        "x86_64_windows_msvc_environment_variables": {
+            "PYTHONPATH": "{sdk_tools_root}/lib/python/",
+            "PATH": "{sdk_tools_root}/bin/x86_64-windows-msvc;{sdk_tools_root}/lib/x86_64-windows-msvc"
+        },
+        "wos_environment_variables": {
+            "PYTHONPATH": "{sdk_tools_root}/lib/python/",
+            "PATH": "{sdk_tools_root}/bin/aarch64-windows-msvc;{sdk_tools_root}/lib/aarch64-windows-msvc;{sdk_tools_root}/bin/arm64x-windows-msvc;{sdk_tools_root}/lib/arm64x-windows-msvc"
+        }
+    },
+    "devices": {
+        "host": ["x86", "x86_64-windows-msvc", "wos"],
+        "target": ["x86", "linux-embedded", "android", "qnx", "wos-remote", "x86_64-windows-msvc", "wos"]
+    },
+    "converter": {
+        "executable": "qairt-converter",
+        "arguments": {
+            "model_path_flag": "--input_network",
+            "input_shape_flag": "--desired_input_shape",
+            "output_tensor_flag": "--out_tensor_node",
+            "io_config_flag": "--io_config",
+            "output_path_flag": "--output_path",
+            "quantization_overrides_flag": "--quantization_overrides"
+        }
+    },
+    "quantizer": {
+        "executable": "qairt-quantizer",
+        "arguments": {
+            "dlc_path": "--input_dlc",
+            "dump_encoding_json": "--dump_encoding_json",
+            "input_list": "--input_list",
+            "weights_bitwidth": "--weights_bitwidth",
+            "act_bitwidth": "--act_bitwidth",
+            "bias_bitwidth": "--bias_bitwidth",
+            "float_bitwidth": "--float_bitwidth",
+            "output_path": "--output_dlc",
+            "use_native_input_files": "--use_native_input_files",
+            "use_native_output_files": "--use_native_output_files",
+            "act_quantizer_calibration": "--act_quantizer_calibration",
+            "param_quantizer_calibration": "--param_quantizer_calibration",
+            "act_quantizer_schema": "--act_quantizer_schema",
+            "param_quantizer_schema": "--param_quantizer_schema",
+            "percentile_calibration_value": "--percentile_calibration_value",
+            "use_per_channel_quantization": "--use_per_channel_quantization",
+            "use_per_row_quantization": "--use_per_row_quantization",
+            "float_fallback_flag": "--float_fallback",
+            "float_bitwidth_flag": "--float_bitwidth"
+        }
+    },
+    "context_binary_generator": {
+        "executable": "qnn-context-binary-generator",
+        "arguments": {
+            "model_path": "--model",
+            "backend": "--backend",
+            "binary_file": "--binary_file",
+            "model_prefix": "--model_prefix",
+            "output_dir": "--output_dir",
+            "op_package": "--op_packages",
+            "config_file": "--config_file",
+            "enable_intermediate_outputs": "--enable_intermediate_outputs",
+            "output_tensors": "--set_output_tensors",
+            "profiling_level": "--profiling_level",
+            "dlc_path": "--dlc_path"
+        },
+        "backend_location": "{engine_path}/lib/x86_64-linux-clang/libQnnHtp.so",
+        "aic_backend_location": "{engine_path}/lib/x86_64-linux-clang/libQnnAic.so",
+        "remote_backend_location": "{engine_path}/lib/{target_arch}/QnnHtp.dll"
+    },
+    "x86_64_windows_context_binary_generator": {
+        "executable": "qnn-context-binary-generator.exe",
+        "arguments": {
+            "model_path": "--model",
+            "backend": "--backend",
+            "binary_file": "--binary_file",
+            "model_prefix": "--model_prefix",
+            "output_dir": "--output_dir",
+            "op_package": "--op_packages",
+            "config_file": "--config_file",
+            "enable_intermediate_outputs": "--enable_intermediate_outputs",
+            "output_tensors": "--set_output_tensors",
+            "profiling_level": "--profiling_level",
+            "dlc_path": "--dlc_path"
+        },
+        "backend_location": "{engine_path}/lib/x86_64-windows-msvc/QnnHtp.dll",
+        "aic_backend_location": "{engine_path}/lib/x86_64-windows-msvc/QnnAic.dll",
+        "remote_backend_location": "{engine_path}/lib/{target_arch}/QnnHtp.dll"
+    },
+    "wos_context_binary_generator": {
+        "executable": "qnn-context-binary-generator.exe",
+        "arguments": {
+            "model_path": "--model",
+            "backend": "--backend",
+            "binary_file": "--binary_file",
+            "model_prefix": "--model_prefix",
+            "output_dir": "--output_dir",
+            "op_package": "--op_packages",
+            "config_file": "--config_file",
+            "enable_intermediate_outputs": "--enable_intermediate_outputs",
+            "output_tensors": "--set_output_tensors",
+            "profiling_level": "--profiling_level",
+            "dlc_path": "--dlc_path"
+        },
+        "backend_location": "{engine_path}/lib/aarch64-windows-msvc/QnnHtp.dll"
+
+    }
+}

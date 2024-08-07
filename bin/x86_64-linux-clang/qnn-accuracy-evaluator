@@ -1,0 +1,233 @@
+#!/usr/bin/env python3
+##############################################################################
+#
+# Copyright (c) 2022, 2023 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+# All data and information contained in or disclosed by this document are
+# confidential and proprietary information of Qualcomm Technologies, Inc., and
+# all rights therein are expressly reserved. By accepting this material, the
+# recipient agrees that this material and the information contained therein
+# are held in confidence and in trust and will not be used, copied, reproduced
+# in whole or in part, nor its contents revealed in any manner to others
+# without the express written permission of Qualcomm Technologies, Inc.
+#
+##############################################################################
+
+import os
+import sys
+import argparse
+import logging
+import shutil
+import yaml
+import csv
+from argparse import RawTextHelpFormatter
+
+if os.path.isdir(os.path.abspath(os.path.join(sys.path[0], '../python/'))):
+    # When evaluator is run from bin directory of source append its path instead of SDK
+    sys.path.insert(0, os.path.abspath(os.path.join(sys.path[0], '../python/')))
+else:
+    sys.path.insert(0, os.path.join(os.environ['QNN_SDK_ROOT'], 'lib', 'python'))
+
+from qti.aisw.accuracy_evaluator.qacc import qacc_logger, qacc_file_logger
+from qti.aisw.accuracy_evaluator.qacc.logger import QaccLogger
+import qti.aisw.accuracy_evaluator.qacc.manager as manager
+from qti.aisw.accuracy_evaluator.qacc.utils import (check_model_dir, process_model_dir,
+                                                    create_default_config)
+from qti.aisw.accuracy_evaluator.qacc.constants import Constants as qcc
+
+# Removing the local path.
+sys.path.pop(0)
+
+
+def prepare_work_dir(work_dir, prompt):
+    """Deletes temp directory before execution starts."""
+    qacc_logger.warning('Directory {} will be deleted if already exists. Take backup before '
+                        'execution.'.format(work_dir))
+    user_input = input('Do you want to start execution? (yes/no) :').lower() if prompt else 'y'
+    if user_input in ['yes', 'y']:
+        temp_dir = os.path.join(work_dir)
+        if os.path.exists(temp_dir):
+            shutil.rmtree(temp_dir)
+    else:
+        sys.exit(1)
+    # create empty temp dir
+    os.makedirs(temp_dir)
+
+
+def main():
+    parser = argparse.ArgumentParser(description='qnn-accuracy-evaluator options',
+                                     formatter_class=RawTextHelpFormatter)
+    parser._action_groups.pop()
+    min_mode = parser.add_argument_group('minimal mode options')
+
+    min_mode.add_argument(
+        '-model', help='path to model or model directory, available only for htp or aic backend')
+    min_mode.add_argument('-target_arch', choices=['aarch64-android', 'x86_64-linux-clang'],
+                          help='Target architecture to compile.')
+    min_mode.add_argument(
+        '-backend', help=
+        "Backend to run the inference.\nFor target_arch x86_64-linux-clang allowed backends are {htp,aic,htp_mcp}\nFor target_arch aarch64-android allowed backends are {cpu,gpu,dspv68,dspv69,dspv73,dspv75,dspv79}"
+    )
+    min_mode.add_argument('-comparator', type=str, help='comparator to be used.')
+    min_mode.add_argument('-tol_thresh', default=0.01, type=float,
+                          help='Tolerance threshold to be used for the comparator')
+    min_mode.add_argument(
+        '-act_bw', type=str, help='[Optional] bitwidth to use for activations.'
+        ' E.g., 8, 16. Default is 8.')
+    min_mode.add_argument(
+        '-bias_bw', type=str, help='[Optional] bitwidth to use for biases. '
+        ' either 8 (default) or 32.')
+    min_mode.add_argument('-box_input', type=str, help='Path to the json file. Used only '
+                          ' with the box comparator')
+
+    config_mode = parser.add_argument_group('config mode options')
+    config_mode.add_argument('-config', help='path to model config yaml')
+
+    pipeoptions = parser.add_argument_group('pipeline options')
+    pipeoptions.add_argument(
+        '-preproc_file',
+        help='preprocessed input file, overrides inputfile provided in model config')
+    pipeoptions.add_argument(
+        '-calib_file',
+        help='calibration input file, overrides calibration file provided in model config')
+
+    otheroptions = parser.add_argument_group('other options')
+    otheroptions.add_argument(
+        '-input_info', nargs=2, action='append',
+        help="The name and dimension of all the input buffers to the network specified in\n"
+        "the format [input_name comma-separated-dimensions],\n"
+        "for example: 'data' 1,224,224,3. \n"
+        "This option is mandatory for pytorch models in minimal mode.")
+    otheroptions.add_argument('-device_id', help='Target device id to be provided')
+    otheroptions.add_argument('-work_dir', default='qacc_temp', help='working directory path.'
+                              ' default is ./qacc_temp')
+    otheroptions.add_argument(
+        '-cleanup', choices=['end', 'intermediate'], default='', help=
+        'Cleanup files geneated in preprocessing, inference and postprocessing stages.\n-cleanup=end: deletes the files after all stages are completed.\n-cleanup=intermediate: deletes the intermediate inference and postprocessing output files.\nSelecting intermediate option saves space but disables comparator option'
+    )
+    otheroptions.add_argument('-silent', action='store_true',
+                              help='Run in silent mode. default enabled in minimal mode')
+    otheroptions.add_argument('-inference_schema', help='run only on this inference schema')
+    otheroptions.add_argument('-inference_schema_tag', help='run only this inference schema tag')
+    otheroptions.add_argument('-batchsize', help='overrides batchsize provided in model config')
+    otheroptions.add_argument(
+        '-onnx_symbol', action='append', nargs='+', help=
+        'Replace onnx symbols in input/output shapes of the model. If onnx symbols are not provided by default it would be replaced by 1.\nThis argument can be repeat multiple times and must be passed for each symbol separately.\n  e.g -onnx_symbol __unk_200:1 -onnx_symbol batch_size:1 '
+    )
+    otheroptions.add_argument(
+        '-set_global', action='append', nargs='+', help=
+        'Replace global symbols with given value in the model config.\nThis argument can be repeat multiple times and must be passed for each global symbol defined in the config.\n  e.g -set_global <symbol>:2 -set_global count:10 '
+    )
+    otheroptions.add_argument('-debug', action='store_true', default=False,
+                              help='Set logging level to DEBUG within the tool')
+    otheroptions.add_argument('-use_memory_plugins', action='store_true', default=False,
+                              help='Flag to enable memory plugins usage in the tool')
+
+    args = parser.parse_args()
+    args.infer_file = None
+
+    #Get the qnn-sdk-dir from env
+    qnn_sdk_dir = os.environ.get('QNN_SDK_ROOT')
+    if not qnn_sdk_dir:
+        qacc_logger.error("QNN_SDK_ROOT variable is not set.")
+        sys.exit(1)
+    prepare_work_dir(args.work_dir, not args.silent)
+
+    log_level = logging.DEBUG if args.debug else logging.INFO
+    QaccLogger.setup_logger(os.path.join(args.work_dir, 'qacc.log'), log_level=log_level)
+
+    eval_cmd_invoked = f'{sys.executable} qaic-acc-evaluator.py '
+    for k, v in args.__dict__.items():
+        if v:
+            eval_cmd_invoked += f"-{k} {'' if isinstance(v,bool) else v} "
+    qacc_file_logger.info(f"Evaluator Command used: {eval_cmd_invoked}")
+    qacc_file_logger.info('===========================================================')
+    qacc_file_logger.info('QNN Accuracy Evaluator (qacc)')
+
+    #Check for config mode or minimal mode.
+    if not (args.config or (args.model and args.backend and args.target_arch)):
+        qacc_logger.error("Please provide config file or params for minimal mode")
+        sys.exit(1)
+
+    #Minimal Mode - Create the config file if cli options have been passed.
+    #Minimal mode overrides the config mode if both options are given.
+    if args.model:
+        args.config = create_default_config(args.work_dir, args.model, args.backend,
+                                            args.target_arch, args.comparator, args.tol_thresh,
+                                            args.input_info, args.act_bw, args.bias_bw,
+                                            args.box_input)
+        args.silent = True  #Make it default in minimal mode.
+
+    #Check if model path or directory path is given.
+    is_model_dir, model_path = check_model_dir(args.config)
+    if is_model_dir:
+        models, preproc_files, work_dirs = process_model_dir(model_path, args.work_dir)
+
+    if not is_model_dir:
+        try:
+            mgr = manager.QACCManager(config_path=args.config, work_dir=args.work_dir,
+                                      set_global=args.set_global, batchsize=args.batchsize,
+                                      use_memory_plugins=args.use_memory_plugins)
+            status = mgr.run_pipeline(
+                inference_schema_name=args.inference_schema, work_dir=args.work_dir,
+                inference_schema_tag=args.inference_schema_tag, cleanup=args.cleanup,
+                onnx_symbol=args.onnx_symbol, device_id=args.device_id, silent=args.silent,
+                cli_preproc_file=args.preproc_file, cli_infer_file=args.infer_file,
+                qnn_sdk_dir=qnn_sdk_dir, backend=args.backend)
+        except Exception as e:
+            qacc_logger.error(
+                f'qacc failed to run the pipeline. See {os.path.abspath(args.work_dir)}/qacc.log for more details'
+            )
+            qacc_file_logger.exception(e)
+            sys.exit(1)
+        if status:
+            qacc_logger.error(
+                f'qacc failed to run the pipeline. See {os.path.abspath(args.work_dir)}/qacc.log for more details'
+            )
+            sys.exit(1)
+        else:
+            qacc_logger.info('qacc pipeline ended successfully')
+
+    else:
+        qacc_logger.info("Running in Model directory mode")
+        qacc_logger.info(f"Total no of models : {len(models)}")
+        model_status = {}
+        for model, preproc_file, work_dir in zip(models, preproc_files, work_dirs):
+            try:
+                qacc_logger.info(f"Running the Accuracy Evaluator for model - {model}")
+                mgr = manager.QACCManager(config_path=args.config, work_dir=work_dir,
+                                          set_global=args.set_global, batchsize=args.batchsize,
+                                          model_path=model,
+                                          use_memory_plugins=args.use_memory_plugins)
+                status = mgr.run_pipeline(
+                    inference_schema_name=args.inference_schema, work_dir=work_dir,
+                    inference_schema_tag=args.inference_schema_tag, cleanup=args.cleanup,
+                    onnx_symbol=args.onnx_symbol, device_id=args.device_id, silent=args.silent,
+                    cli_preproc_file=preproc_file, cli_infer_file=args.infer_file,
+                    qnn_sdk_dir=qnn_sdk_dir, backend=args.backend)
+            except:
+                model_status[model] = "FAIL"
+                continue
+
+            if status:
+                model_status[model] = "FAIL"
+            else:
+                model_status[model] = "PASS"
+
+        dump_model_status(model_status)
+
+
+def dump_model_status(model_status):
+    """Dump the model status to a csv file."""
+    failed_count = [i for i in model_status.values() if i == "FAIL"]
+    qacc_logger.info(f"Total models failed: {len(failed_count)}")
+    with open("model_status.csv", 'w') as csv_file:
+        csv_writer = csv.writer(csv_file)
+        for key, value in model_status.items():
+            csv_writer.writerow([key, value])
+
+
+if __name__ == "__main__":
+    main()

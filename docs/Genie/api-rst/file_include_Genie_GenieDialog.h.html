@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>File GenieDialog.h &mdash; Qualcomm® Genie SDK </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_css.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qualcomm® Genie SDK 
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v2.25.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/supported_models.html">Supported models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/api.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qualcomm® Genie SDK </a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>File GenieDialog.h</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="file-geniedialog-h">
+<span id="file-include-genie-geniedialog-h"></span><h1>File GenieDialog.h<a class="headerlink" href="#file-geniedialog-h" title="Permalink to this heading">¶</a></h1>
+<p>↰ <a class="reference internal" href="dir_include_Genie.html#dir-include-genie"><span class="std std-ref">Parent directory</span></a> (<code class="docutils literal notranslate"><span class="pre">include/Genie</span></code>)</p>
+<p>Dialog API providing query functionality.</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#definition-include-genie-geniedialog-h" id="id1">Definition (<code class="docutils literal notranslate"><span class="pre">include/Genie/GenieDialog.h</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#includes" id="id2">Includes</a></p></li>
+<li><p><a class="reference internal" href="#enums" id="id3">Enums</a></p></li>
+<li><p><a class="reference internal" href="#functions" id="id4">Functions</a></p></li>
+<li><p><a class="reference internal" href="#typedefs" id="id5">Typedefs</a></p></li>
+</ul>
+</div>
+<div class="section" id="definition-include-genie-geniedialog-h">
+<h2>Definition (<code class="docutils literal notranslate"><span class="pre">include/Genie/GenieDialog.h</span></code>)<a class="headerlink" href="#definition-include-genie-geniedialog-h" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="program_listing_file_include_Genie_GenieDialog.h.html">Program Listing for File GenieDialog.h</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="includes">
+<h2>Includes<a class="headerlink" href="#includes" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GenieCommon.h</span></code> (<a class="reference internal" href="file_include_Genie_GenieCommon.h.html#file-include-genie-geniecommon-h"><span class="std std-ref">File GenieCommon.h</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="enums">
+<h2>Enums<a class="headerlink" href="#enums" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="enum_GenieDialog_8h_1a60d9c773028eddac789d15409995b539.html#exhale-enum-geniedialog-8h-1a60d9c773028eddac789d15409995b539"><span class="std std-ref">Enum GenieDialog_SentenceCode_t</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="function_GenieDialog_8h_1a7ed8b75b55a1d483cf9d5e5bf9027d24.html#exhale-function-geniedialog-8h-1a7ed8b75b55a1d483cf9d5e5bf9027d24"><span class="std std-ref">Function GenieDialog_create</span></a></p></li>
+<li><p><a class="reference internal" href="function_GenieDialog_8h_1a1493e65680af274eea84347f88d90899.html#exhale-function-geniedialog-8h-1a1493e65680af274eea84347f88d90899"><span class="std std-ref">Function GenieDialog_free</span></a></p></li>
+<li><p><a class="reference internal" href="function_GenieDialog_8h_1a7b2d4bf78e184fe81e81d089719f3733.html#exhale-function-geniedialog-8h-1a7b2d4bf78e184fe81e81d089719f3733"><span class="std std-ref">Function GenieDialog_query</span></a></p></li>
+<li><p><a class="reference internal" href="function_GenieDialog_8h_1a4547984d74b50386a3d1f90d7389933c.html#exhale-function-geniedialog-8h-1a4547984d74b50386a3d1f90d7389933c"><span class="std std-ref">Function GenieDialog_reset</span></a></p></li>
+<li><p><a class="reference internal" href="function_GenieDialog_8h_1a3c66d3491d44d1f93c98eb7af294b140.html#exhale-function-geniedialog-8h-1a3c66d3491d44d1f93c98eb7af294b140"><span class="std std-ref">Function GenieDialogConfig_createFromJson</span></a></p></li>
+<li><p><a class="reference internal" href="function_GenieDialog_8h_1a12f0f8a9498298b77c1d251372e8d525.html#exhale-function-geniedialog-8h-1a12f0f8a9498298b77c1d251372e8d525"><span class="std std-ref">Function GenieDialogConfig_free</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="typedef_GenieDialog_8h_1a97c022bbadfb48b6114dda2b90aa20dc.html#exhale-typedef-geniedialog-8h-1a97c022bbadfb48b6114dda2b90aa20dc"><span class="std std-ref">Typedef GenieDialog_Handle_t</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_GenieDialog_8h_1ab1af80932798e035a376ba2e0782b75a.html#exhale-typedef-geniedialog-8h-1ab1af80932798e035a376ba2e0782b75a"><span class="std std-ref">Typedef GenieDialog_QueryCallback_t</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_GenieDialog_8h_1a008305c5d79c18e4acb768815607489b.html#exhale-typedef-geniedialog-8h-1a008305c5d79c18e4acb768815607489b"><span class="std std-ref">Typedef GenieDialogConfig_Handle_t</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2024, Qualcomm Technologies, Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

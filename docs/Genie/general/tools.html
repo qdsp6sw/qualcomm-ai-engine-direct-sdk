@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Tools &mdash; Qualcomm® Genie SDK </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_css.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorials" href="tutorials.html" />
+    <link rel="prev" title="Setup" href="setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qualcomm® Genie SDK 
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v2.25.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#genie-t2t-run">genie-t2t-run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qnn-genai-transformer-composer">qnn-genai-transformer-composer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported_models.html">Supported models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qualcomm® Genie SDK </a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Tools</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tools">
+<h1><a class="toc-backref" href="#id5">Tools</a><a class="headerlink" href="#tools" title="Permalink to this heading">¶</a></h1>
+<p>This page describes the tools provided in Genie SDK.</p>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#tools" id="id5">Tools</a></p>
+<ul>
+<li><p><a class="reference internal" href="#genie-t2t-run" id="id6">genie-t2t-run</a></p></li>
+<li><p><a class="reference internal" href="#qnn-genai-transformer-composer" id="id7">qnn-genai-transformer-composer</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="genie-t2t-run">
+<span id="id1"></span><h2><a class="toc-backref" href="#id6">genie-t2t-run</a><a class="headerlink" href="#genie-t2t-run" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The genie-t2t-run interface will have a backwards incompatible update in the next release.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">genie-t2t-run</span></code> tool is provided as a test application to do text to text inference run on provided LLM network.
+It takes a user prompt in text format and outputs the result in the text format.</p>
+<div class="figure align-center" id="id3">
+<img alt="Genie t2t run diagram." src="../_images/genie-t2t-run.png" />
+<p class="caption"><span class="caption-text">Genie T2T Run Application</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">DESCRIPTION</span><span class="p">:</span>
+<span class="o">------------</span>
+<span class="n">Tool</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">inference</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">LLMs</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">Genie</span><span class="p">.</span>
+
+
+<span class="n">REQUIRED</span><span class="w"> </span><span class="n">ARGUMENTS</span><span class="o">:</span>
+<span class="o">-------------------</span>
+
+<span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="o">--</span><span class="n">config</span><span class="w">                        </span><span class="o">&lt;</span><span class="kt">FILE</span><span class="o">&gt;</span><span class="w">      </span><span class="n">Dialog</span><span class="w"> </span><span class="n">JSON</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="p">.</span>
+
+<span class="n">OPTIONAL</span><span class="w"> </span><span class="n">ARGUMENTS</span><span class="o">:</span>
+<span class="o">-------------------</span>
+<span class="o">-</span><span class="n">h</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w">                                      </span><span class="n">Show</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">exit</span><span class="p">.</span>
+
+<span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="o">--</span><span class="n">prompt</span><span class="w">                        </span><span class="o">&lt;</span><span class="n">VAL</span><span class="o">&gt;</span><span class="w">       </span><span class="n">Prompt</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">query</span><span class="p">.</span><span class="w"> </span><span class="n">Mutually</span><span class="w"> </span><span class="n">exclusive</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="o">--</span><span class="n">prompt_file</span><span class="p">.</span>
+
+<span class="o">--</span><span class="n">prompt_file</span><span class="w">                         </span><span class="o">&lt;</span><span class="kt">FILE</span><span class="o">&gt;</span><span class="w">      </span><span class="n">Prompt</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="w"> </span><span class="n">Mutually</span><span class="w"> </span><span class="n">exclusive</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="o">--</span><span class="n">prompt</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="tutorials.html"><span class="doc">Tutorials</span></a> for reference example on how to use the <code class="docutils literal notranslate"><span class="pre">genie-t2t-run</span></code> tool.</p>
+</div>
+<div class="section" id="qnn-genai-transformer-composer">
+<span id="id2"></span><h2><a class="toc-backref" href="#id7">qnn-genai-transformer-composer</a><a class="headerlink" href="#qnn-genai-transformer-composer" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">qnn-genai-transformer-composer</span></code> interface will have a backwards incompatible update in the next release.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">qnn-genai-transformer-composer</span></code> tool prepares a model for inference via Genie, but specifically for the Gen AI
+Transformer Backend.</p>
+<div class="figure align-center" id="id4">
+<img alt="GenAITransformer Composer diagram." src="../_images/gen_ai_transformer_composer_diagram.png" />
+<p class="caption"><span class="caption-text">GenAITransformer Composer Tool</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">DESCRIPTION</span><span class="p">:</span>
+<span class="o">------------</span>
+<span class="n">Tool</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">convert</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">LLM</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">binary</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">consumable</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">Genie</span><span class="w"> </span><span class="n">execution</span><span class="w"> </span><span class="n">engine</span><span class="p">.</span>
+
+<span class="n">REQUIRED</span><span class="w"> </span><span class="n">ARGUMENTS</span><span class="o">:</span>
+<span class="o">-------------------</span>
+<span class="o">--</span><span class="n">model</span><span class="w">                        </span><span class="o">&lt;</span><span class="kt">DIR</span><span class="o">&gt;</span><span class="w">           </span><span class="n">Path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">downloaded</span><span class="w"> </span><span class="n">LLM</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="n">directory</span><span class="p">.</span>
+
+<span class="n">OPTIONAL</span><span class="w"> </span><span class="n">ARGUMENTS</span><span class="o">:</span>
+<span class="o">-------------------</span>
+
+<span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w">                                    </span><span class="n">Show</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">exit</span><span class="p">.</span>
+
+<span class="o">--</span><span class="n">outtype</span><span class="w"> </span><span class="p">{</span><span class="n">f32</span><span class="p">,</span><span class="n">f16</span><span class="p">}</span><span class="w">            </span><span class="o">&lt;</span><span class="n">VAL</span><span class="o">&gt;</span><span class="w">          </span><span class="n">Output</span><span class="w"> </span><span class="n">format</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="n">f32</span><span class="p">)</span>
+
+<span class="o">--</span><span class="n">quantize</span><span class="w"> </span><span class="p">{</span><span class="n">Z4</span><span class="p">,</span><span class="n">Z4_FP16</span><span class="p">}</span><span class="w">        </span><span class="o">&lt;</span><span class="n">VAL</span><span class="o">&gt;</span><span class="w">          </span><span class="n">Quantization</span><span class="w"> </span><span class="n">type</span><span class="p">.</span>
+
+<span class="o">--</span><span class="n">export_tokenizer_json</span><span class="w">        </span><span class="o">&lt;</span><span class="n">VAL</span><span class="o">&gt;</span><span class="w">          </span><span class="n">Export</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">tokenizer</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">HuggingFace</span><span class="w"> </span><span class="n">Fast</span><span class="w"> </span><span class="n">Tokenizer</span><span class="w"> </span><span class="p">.</span><span class="n">json</span><span class="w"> </span><span class="n">file</span><span class="p">.</span>
+<span class="w">                                              </span><span class="n">The</span><span class="w"> </span><span class="n">tokenizer</span><span class="p">.</span><span class="n">json</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">the</span>
+<span class="w">                                              </span><span class="o">--</span><span class="n">outfile</span><span class="w"> </span><span class="n">parameter</span><span class="p">.</span>
+
+<span class="o">--</span><span class="n">outfile</span><span class="w"> </span><span class="n">OUTFILE</span><span class="w">              </span><span class="o">&lt;</span><span class="kt">FILE</span><span class="o">&gt;</span><span class="w">         </span><span class="n">Path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">to</span><span class="p">;</span><span class="w"> </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">--</span><span class="n">model</span><span class="w"> </span><span class="n">parameter</span><span class="p">.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">--export_tokenizer_json</span></code> option only supports tokenizers for QWen-1 and BaiChuan-1 models.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorials.html" class="btn btn-neutral float-right" title="Tutorials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="setup.html" class="btn btn-neutral float-left" title="Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2024, Qualcomm Technologies, Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

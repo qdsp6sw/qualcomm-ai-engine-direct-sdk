@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Struct Qnn_VectorEncoding_t &mdash; Qualcomm® AI Engine Direct</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_css.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Struct Qnn_Version_t" href="structQnn__Version__t.html" />
+    <link rel="prev" title="Struct Qnn_TensorV2_t" href="structQnn__TensorV2__t.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qualcomm® AI Engine Direct
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v2.25.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/backend.html">Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/op_packages.html">Op Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/converters.html">Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/benchmarking.html">Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/operations.html">Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qualcomm® AI Engine Direct</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../general/api.html">API</a> &raquo;</li>
+        
+          <li><a href="unabridged_api.html">Full API</a> &raquo;</li>
+        
+      <li>Struct Qnn_VectorEncoding_t</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="struct-qnn-vectorencoding-t">
+<span id="exhale-struct-structqnn-vectorencoding-t"></span><h1>Struct Qnn_VectorEncoding_t<a class="headerlink" href="#struct-qnn-vectorencoding-t" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_QNN_QnnTypes.h.html#file-include-qnn-qnntypes-h"><span class="std std-ref">File QnnTypes.h</span></a></p></li>
+</ul>
+<div class="section" id="struct-documentation">
+<h2>Struct Documentation<a class="headerlink" href="#struct-documentation" title="Permalink to this heading">¶</a></h2>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv420Qnn_VectorEncoding_t">
+<span id="_CPPv320Qnn_VectorEncoding_t"></span><span id="_CPPv220Qnn_VectorEncoding_t"></span><span id="Qnn_VectorEncoding_t"></span><span class="target" id="structQnn__VectorEncoding__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Qnn_VectorEncoding_t</span></span></span><a class="headerlink" href="#_CPPv420Qnn_VectorEncoding_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A struct to express vector quantization parameters. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This quantization encoding is a specific case of per-channel quantization where the weights and parameters are crafted in such a way to allow for compression and codebook generation. For each group of rowsPerBlock*columnsPerBlock weights, there will be 2^indexBitwidth unique vectorDimension-tuples of weights.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This quantization encoding must not be used with dynamically shaped tensors. </p>
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Qnn_VectorEncoding_t17bwAxisScaleOffsetE">
+<span id="_CPPv3N20Qnn_VectorEncoding_t17bwAxisScaleOffsetE"></span><span id="_CPPv2N20Qnn_VectorEncoding_t17bwAxisScaleOffsetE"></span><span id="Qnn_VectorEncoding_t::bwAxisScaleOffset__Qnn_BwAxisScaleOffset_t"></span><span class="target" id="structQnn__VectorEncoding__t_1a96cf1a34656ffc87a38aaecb46287352"></span><a class="reference internal" href="structQnn__BwAxisScaleOffset__t.html#_CPPv423Qnn_BwAxisScaleOffset_t" title="Qnn_BwAxisScaleOffset_t"><span class="n"><span class="pre">Qnn_BwAxisScaleOffset_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bwAxisScaleOffset</span></span></span><a class="headerlink" href="#_CPPv4N20Qnn_VectorEncoding_t17bwAxisScaleOffsetE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Vector Quantization can be thought of as per-channel quantization with specifically crafted weights and encoding parameters that allow for codebook generation Each weight within the codebook is bwAxisScaleOffset.bitwidth bits wide </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Qnn_VectorEncoding_t12rowsPerBlockE">
+<span id="_CPPv3N20Qnn_VectorEncoding_t12rowsPerBlockE"></span><span id="_CPPv2N20Qnn_VectorEncoding_t12rowsPerBlockE"></span><span id="Qnn_VectorEncoding_t::rowsPerBlock__uint32_t"></span><span class="target" id="structQnn__VectorEncoding__t_1a5eff144a23eb8fdbe12c2270c90e8f46"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rowsPerBlock</span></span></span><a class="headerlink" href="#_CPPv4N20Qnn_VectorEncoding_t12rowsPerBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of rows in the block of decoded weight coordinates. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Qnn_VectorEncoding_t15columnsPerBlockE">
+<span id="_CPPv3N20Qnn_VectorEncoding_t15columnsPerBlockE"></span><span id="_CPPv2N20Qnn_VectorEncoding_t15columnsPerBlockE"></span><span id="Qnn_VectorEncoding_t::columnsPerBlock__uint32_t"></span><span class="target" id="structQnn__VectorEncoding__t_1a22f4518b3c37de267b44c55472949918"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">columnsPerBlock</span></span></span><a class="headerlink" href="#_CPPv4N20Qnn_VectorEncoding_t15columnsPerBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of colums inf the block of decoded weight coordinates. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Qnn_VectorEncoding_t15vectorDimensionE">
+<span id="_CPPv3N20Qnn_VectorEncoding_t15vectorDimensionE"></span><span id="_CPPv2N20Qnn_VectorEncoding_t15vectorDimensionE"></span><span id="Qnn_VectorEncoding_t::vectorDimension__uint8_t"></span><span class="target" id="structQnn__VectorEncoding__t_1a5ac2b9a242658f2ca43fa68b9d3140bc"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vectorDimension</span></span></span><a class="headerlink" href="#_CPPv4N20Qnn_VectorEncoding_t15vectorDimensionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The dimension of the vector encoding. e.g 1D,2D,3D… for 1, 2 or 3 weights per index, respectively. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Qnn_VectorEncoding_t12vectorStrideE">
+<span id="_CPPv3N20Qnn_VectorEncoding_t12vectorStrideE"></span><span id="_CPPv2N20Qnn_VectorEncoding_t12vectorStrideE"></span><span id="Qnn_VectorEncoding_t::vectorStride__uint8_t"></span><span class="target" id="structQnn__VectorEncoding__t_1af3753b04e0518aa3e7c6b14dc1927bbb"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vectorStride</span></span></span><a class="headerlink" href="#_CPPv4N20Qnn_VectorEncoding_t12vectorStrideE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A value describing how the weights from a given lookup will be unpacked. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20Qnn_VectorEncoding_t13indexBitwidthE">
+<span id="_CPPv3N20Qnn_VectorEncoding_t13indexBitwidthE"></span><span id="_CPPv2N20Qnn_VectorEncoding_t13indexBitwidthE"></span><span id="Qnn_VectorEncoding_t::indexBitwidth__uint8_t"></span><span class="target" id="structQnn__VectorEncoding__t_1a1d1ec441ba0f351ee7fa4379f1567dc9"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">indexBitwidth</span></span></span><a class="headerlink" href="#_CPPv4N20Qnn_VectorEncoding_t13indexBitwidthE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The bitwidth of the each index into the codebook. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="structQnn__Version__t.html" class="btn btn-neutral float-right" title="Struct Qnn_Version_t" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="structQnn__TensorV2__t.html" class="btn btn-neutral float-left" title="Struct Qnn_TensorV2_t" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020-2024, Qualcomm Technologies, Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+# =============================================================================
+#
+#  Copyright (c) 2022-2023 Qualcomm Technologies, Inc.
+#  All Rights Reserved.
+#  Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+# =============================================================================
+import argparse
+import logging
+import os
+import sys
+import json
+
+try:
+    from qti.aisw.dlc_utils import snpe_dlc_utils
+    from qti.aisw.arch_checker.snpe_arch_checker import SnpeArchChecker
+    from qti.aisw.arch_checker.snpe_modifier import SnpeModifier
+    from qti.aisw.arch_checker.arch_checker_cmd_options import MainCmdOptions
+    import qti.aisw.arch_checker.config as config
+except ImportError as ie:
+    print("Failed to find necessary package:")
+    print(str(ie))
+    print("Please ensure that $SNPE_ROOT/lib/python is in your PYTHONPATH")
+    sys.exit(1)
+
+
+def main():
+    system_args = sys.argv[1:]
+    command = os.path.basename(sys.argv[0])
+    args = MainCmdOptions(command, system_args).parse()
+
+    logging.basicConfig(format='%(asctime)s - %(lineno)d - %(levelname)s - %(message)s', level=logging.DEBUG)
+    logger = logging.getLogger()
+
+    if not os.path.exists(args.input_dlc):
+        logger.error("Cannot find archive DLC file " + args.input_dlc)
+        sys.exit(-1)
+
+    try:
+        m = snpe_dlc_utils.ModelInfo()
+        m.load(args.input_dlc)
+        c_ir_graph = m.model_reader.get_ir_graph()
+    except:
+        logger.error("Unable to run Architecture checker on this model")
+        sys.exit(-1)
+
+    constraints_json = os.path.join(os.environ.get('SNPE_ROOT'),
+                config.CONSTRAINTS_PATH)
+    if not os.path.exists(constraints_json):
+        logger.error("Failed to find necessary file. Please ensure $SNPE_ROOT/lib/python/qti/aisw/arch_checker/constraints.json exists")
+        sys.exit(-1)
+    with open(constraints_json) as f:
+        constraints = json.load(f)
+
+    out_file_base = os.path.splitext(os.path.abspath(args.input_dlc))[0]
+    if args.output_path:
+        out_file_base = os.path.abspath(args.output_path)
+    out_file_csv = out_file_base + '_architecture_checker.csv'
+    snpe_arch_checker = SnpeArchChecker(c_ir_graph, constraints, logger, out_file_csv, m)
+    logger.info("Running snpe-architecture-checker...")
+    df = snpe_arch_checker.run_checks()
+
+    if args.modify!=None:
+        snpe_modifier = SnpeModifier(c_ir_graph, constraints, logger, args.modify, df)
+        check_modifications = snpe_modifier.do_modification()
+        if check_modifications:
+            out_file_dlc = out_file_base + '_architecture_checker.dlc'
+            converter_command = snpe_arch_checker.model_info.model_reader.quantizer_command
+            res = snpe_modifier.save_modified_graph(out_file_dlc, converter_command)
+            if not res:
+                logger.error("Failed to apply modifications on this model. Unable to run Architecture checker on this model.")
+                sys.exit(-1)
+        else:
+            logger.info("No rules found for applying modifications.")
+
+    snpe_arch_checker.save_to_csv(df)
+    logger.info("Saved output csv at: " + out_file_csv)
+
+    html_file = os.path.splitext(os.path.abspath(args.input_dlc))[0] + "_architecture_checker.html"
+    if args.output_path:
+        html_file = os.path.abspath(args.output_path) + "_architecture_checker.html"
+
+    snpe_arch_checker.get_html(html_file, args.input_dlc)
+    logger.info("Saved html output at: " + html_file)
+
+if __name__ == '__main__':
+    main()

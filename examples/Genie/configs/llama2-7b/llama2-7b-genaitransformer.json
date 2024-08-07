@@ -1,0 +1,44 @@
+{
+  "dialog" : {
+    "version" : 1,
+    "type" : "basic",
+    "context" : {
+      "version" : 1,
+      "size": 512,
+      "n-vocab": 32000,
+      "bos-token": 1,
+      "eos-token": 2
+    },
+    "sampler" : {
+      "version" : 1,
+      "seed" : 100,
+      "temp" : 1.2,
+      "top-k" : 20,
+      "top-p" : 0.75,
+      "greedy" : false
+    },
+    "tokenizer" : {
+      "version" : 1,
+      "path" : "your/path/to/tokenizer_file.json"
+    },
+    "engine" : {
+      "version" : 1,
+      "n-threads" : 10,
+      "backend" : {
+        "version" : 1,
+        "type" : "QnnGenAiTransformer",
+        "QnnGenAiTransformer" : {
+          "version" : 1
+        }
+      },
+      "model" : {
+        "version" : 1,
+        "type" : "library",
+        "library" : {
+          "version" : 1,
+          "model-bin" : "your/path/to/model/file.bin"
+        }
+      }
+    }
+  }
+}

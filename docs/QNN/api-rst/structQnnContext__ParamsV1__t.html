@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Struct QnnContext_ParamsV1_t &mdash; Qualcomm® AI Engine Direct</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_css.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Struct QnnCpuGraph_CustomConfig_t" href="structQnnCpuGraph__CustomConfig__t.html" />
+    <link rel="prev" title="Struct QnnContext_Params_t" href="structQnnContext__Params__t.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qualcomm® AI Engine Direct
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v2.25.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/backend.html">Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/op_packages.html">Op Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/converters.html">Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/benchmarking.html">Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/operations.html">Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qualcomm® AI Engine Direct</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../general/api.html">API</a> &raquo;</li>
+        
+          <li><a href="unabridged_api.html">Full API</a> &raquo;</li>
+        
+      <li>Struct QnnContext_ParamsV1_t</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="struct-qnncontext-paramsv1-t">
+<span id="exhale-struct-structqnncontext-paramsv1-t"></span><h1>Struct QnnContext_ParamsV1_t<a class="headerlink" href="#struct-qnncontext-paramsv1-t" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_QNN_QnnContext.h.html#file-include-qnn-qnncontext-h"><span class="std std-ref">File QnnContext.h</span></a></p></li>
+</ul>
+<div class="section" id="struct-documentation">
+<h2>Struct Documentation<a class="headerlink" href="#struct-documentation" title="Permalink to this heading">¶</a></h2>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv421QnnContext_ParamsV1_t">
+<span id="_CPPv321QnnContext_ParamsV1_t"></span><span id="_CPPv221QnnContext_ParamsV1_t"></span><span id="QnnContext_ParamsV1_t"></span><span class="target" id="structQnnContext__ParamsV1__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QnnContext_ParamsV1_t</span></span></span><a class="headerlink" href="#_CPPv421QnnContext_ParamsV1_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This structure serves as a consolidated representation of context-related parameters. QnnContext_createFromBinaryListAsync API takes a list of these parameters for initializing multiple context binaries. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N21QnnContext_ParamsV1_t6configE">
+<span id="_CPPv3N21QnnContext_ParamsV1_t6configE"></span><span id="_CPPv2N21QnnContext_ParamsV1_t6configE"></span><span id="QnnContext_ParamsV1_t::config__QnnContext_Config_tCPP"></span><span class="target" id="structQnnContext__ParamsV1__t_1a7e0d0f6f7f9f0a410866629dc460ad36"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="structQnnContext__Config__t.html#_CPPv419QnnContext_Config_t" title="QnnContext_Config_t"><span class="n"><span class="pre">QnnContext_Config_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">config</span></span></span><a class="headerlink" href="#_CPPv4N21QnnContext_ParamsV1_t6configE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Config pointer to a NULL-terminated array of config option pointers for one context. NULL is allowed and indicates that no config options are provided. If not provided, all config options have default values consistent with the serialized context. If the same config option type is provided multiple times, the last option value will be used. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N21QnnContext_ParamsV1_t12binaryBufferE">
+<span id="_CPPv3N21QnnContext_ParamsV1_t12binaryBufferE"></span><span id="_CPPv2N21QnnContext_ParamsV1_t12binaryBufferE"></span><span id="QnnContext_ParamsV1_t::binaryBuffer__voidCP"></span><span class="target" id="structQnnContext__ParamsV1__t_1ab81d3ad55845d279a96ae980ad64aef9"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">binaryBuffer</span></span></span><a class="headerlink" href="#_CPPv4N21QnnContext_ParamsV1_t12binaryBufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A pointer to the context binary. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N21QnnContext_ParamsV1_t16binaryBufferSizeE">
+<span id="_CPPv3N21QnnContext_ParamsV1_t16binaryBufferSizeE"></span><span id="_CPPv2N21QnnContext_ParamsV1_t16binaryBufferSizeE"></span><span id="QnnContext_ParamsV1_t::binaryBufferSize__Qnn_ContextBinarySize_tC"></span><span class="target" id="structQnnContext__ParamsV1__t_1a21db783d3fa0c2e0141e32a02c62e788"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="typedef_QnnTypes_8h_1abe693e6fd72f4165901dc7c3360e5825.html#_CPPv423Qnn_ContextBinarySize_t" title="Qnn_ContextBinarySize_t"><span class="n"><span class="pre">Qnn_ContextBinarySize_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">binaryBufferSize</span></span></span><a class="headerlink" href="#_CPPv4N21QnnContext_ParamsV1_t16binaryBufferSizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Holds the size of the context binary. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N21QnnContext_ParamsV1_t7profileE">
+<span id="_CPPv3N21QnnContext_ParamsV1_t7profileE"></span><span id="_CPPv2N21QnnContext_ParamsV1_t7profileE"></span><span id="QnnContext_ParamsV1_t::profile__Qnn_ProfileHandle_t"></span><span class="target" id="structQnnContext__ParamsV1__t_1af3c161aa1a43fef6f32ca48f05dc4d26"></span><a class="reference internal" href="typedef_QnnCommon_8h_1a3d859a5097d3fe96b8d5bad77bf0afd5.html#_CPPv419Qnn_ProfileHandle_t" title="Qnn_ProfileHandle_t"><span class="n"><span class="pre">Qnn_ProfileHandle_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">profile</span></span></span><a class="headerlink" href="#_CPPv4N21QnnContext_ParamsV1_t7profileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The profile handle on which metrics are populated and can be queried. Use a NULL handle to disable profile collection. If a handle is reused, it will reset and be populated with values from the current call. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N21QnnContext_ParamsV1_t10notifyFuncE">
+<span id="_CPPv3N21QnnContext_ParamsV1_t10notifyFuncE"></span><span id="_CPPv2N21QnnContext_ParamsV1_t10notifyFuncE"></span><span id="QnnContext_ParamsV1_t::notifyFunc__QnnContext_createFromBinaryNotifyFn_t"></span><span class="target" id="structQnnContext__ParamsV1__t_1a817ba4144c3c87e1a425e14d48613fbb"></span><a class="reference internal" href="typedef_QnnContext_8h_1afb2363703b53d9718408ad42a2bc8f49.html#_CPPv437QnnContext_createFromBinaryNotifyFn_t" title="QnnContext_createFromBinaryNotifyFn_t"><span class="n"><span class="pre">QnnContext_createFromBinaryNotifyFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">notifyFunc</span></span></span><a class="headerlink" href="#_CPPv4N21QnnContext_ParamsV1_t10notifyFuncE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to a notification function, cannot be NULL. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N21QnnContext_ParamsV1_t11notifyParamE">
+<span id="_CPPv3N21QnnContext_ParamsV1_t11notifyParamE"></span><span id="_CPPv2N21QnnContext_ParamsV1_t11notifyParamE"></span><span id="QnnContext_ParamsV1_t::notifyParam__voidP"></span><span class="target" id="structQnnContext__ParamsV1__t_1a7f79fd5cfa24e934d0c1ccacaac74d4b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">notifyParam</span></span></span><a class="headerlink" href="#_CPPv4N21QnnContext_ParamsV1_t11notifyParamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Client-supplied data object which will be passed back via <em>notifyFn</em> and can be used to identify which context’s asynchronous initialization instance the <strong>notifyFn</strong> applies to. Can be NULL if client does not need it. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="structQnnCpuGraph__CustomConfig__t.html" class="btn btn-neutral float-right" title="Struct QnnCpuGraph_CustomConfig_t" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="structQnnContext__Params__t.html" class="btn btn-neutral float-left" title="Struct QnnContext_Params_t" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020-2024, Qualcomm Technologies, Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

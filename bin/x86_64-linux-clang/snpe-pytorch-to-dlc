@@ -1,0 +1,76 @@
+#!/usr/bin/env python3
+# # -*- mode: python -*-
+# ==============================================================================
+#
+#  Copyright (c) Qualcomm Technologies, Inc.
+#  All Rights Reserved.
+#  Confidential and Proprietary - Qualcomm Technologies, Inc.
+# ==============================================================================
+
+import sys
+import traceback
+import torch
+
+try:
+    import qti.aisw
+except ImportError as ie1:
+    print("Failed to find necessary python package")
+    print(str(ie1))
+    print("Please ensure that $SNPE_ROOT/lib/python is in your PYTHONPATH")
+    sys.exit(1)
+
+# Common Imports
+from qti.aisw.converters.qnn_backend.custom_ops.op_factory import QnnCustomOpFactory
+from qti.aisw.converters.common.utils.converter_utils import log_error
+from qti.aisw.converters.common.converter_ir.op_graph_optimizations import IROptimizations
+from qti.aisw.converters.common.utils.argparser_util import ArgParserWrapper, CustomHelpFormatter
+
+# Pytorch Converter
+from qti.aisw.converters.pytorch.pytorch_to_ir import PyTorchConverterFrontend
+
+# Backend Imports
+from qti.aisw.converters.qnn_backend.ir_to_dlc import DLCBackend as NativeBackend
+
+class PyTorchToDLCArgParser(ArgParserWrapper):
+    def __init__(self):
+        super(PyTorchToDLCArgParser, self).__init__(formatter_class=CustomHelpFormatter,
+                                                    conflict_handler='resolve',
+                                                    parents=[PyTorchConverterFrontend.ArgParser(),
+                                                             IROptimizations.ArgParser(),
+                                                             NativeBackend.ArgParser()])
+        self.parser.description = 'Script to convert PyTorch model into DLC'
+
+def main():
+    try:
+        parser = PyTorchToDLCArgParser()
+        args = parser.parse_args()
+
+        converter = PyTorchConverterFrontend(args)
+        graph = converter.convert()
+
+        args.prepare_inputs_as_params = False
+        args.perform_axes_to_spatial_first_order = True
+        args.squash_box_decoder = True
+        args.match_caffe_ssd_to_tf = True
+        args.adjust_nms_features_dims = True
+        args.extract_color_transform = True
+        args.preprocess_roi_pool_inputs = True
+        args.inject_cast_for_gather = True
+        args.force_prune_cast_ops = False
+
+        optimizer = IROptimizations(args)
+        optimized_graph = optimizer.optimize(graph)
+
+        # save native model
+        backend = NativeBackend(args)
+        backend.save(optimized_graph)
+
+    except Exception as e:
+        log_error("Encountered Error: {}", str(e))
+        traceback.print_exc()
+        sys.exit(1)
+
+    sys.exit(0)
+
+if __name__ == '__main__':
+    main()

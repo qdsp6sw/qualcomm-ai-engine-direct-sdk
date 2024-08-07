@@ -1,0 +1,712 @@
+#!/bin/bash
+#
+# Copyright (c) 2022, 2024 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+
+
+help=0
+version=0
+verbose=0
+quiet=0
+silent=0
+debug_mask=""
+debug1=0
+debug2=0
+debug3=0
+log_mask=""
+log_file=""
+log_dir=""
+log_file_include_hostname=0
+input_dlc=""
+input_list=""
+no_weight_quantization=0
+output_dlc=""
+enable_htp=0
+htp_socs=""
+overwrite_cache_records=0
+use_float_io=0
+use_enhanced_quantizer=0
+use_adjusted_weights_quantizer=0
+optimizations=()
+algorithms=()
+override_params=0
+use_symmetric_quantize_weights=0
+param_quantizer=""
+act_quantizer=""
+bitwidth=""
+weights_bitwidth=""
+act_bitwidth=""
+bias_bitwidth=""
+float_bitwidth=""
+axis_quant=0
+use_per_channel_quantization=0
+use_per_row_quantization=0
+skip_quantization=0
+use_encoding_optimizations=0
+enable_hta=0
+hta_partitions=0
+restrict_quantization_steps=""
+dump_encoding_json=0
+include_data_invariant_ops=0
+
+cl_help="Command Line Options:
+           [ -h, --help ]        Displays this help message.
+           [ --version ]         Displays version information.
+           [ --verbose ]         Enable verbose user messages.
+           [ --quiet ]           Disables some user messages.
+           [ --silent ]          Disables all but fatal user messages.
+           [ --debug=<val> ]     Sets the debug log level.
+           [ --debug1 ]          Enables level 1 debug messages.
+           [ --debug2 ]          Enables level 2 debug messages.
+           [ --debug3 ]          Enables level 3 debug messages.
+           [ --log-mask=<val> ]  Sets the debug log mask to set the log level for one or more areas.
+                                 Example: '.*=USER_ERROR, .*=INFO, NDK=DEBUG2, NCC=DEBUG3'
+           [ --log-file=<val> ]  Overrides the default name for the debug log file.
+           [ --log-dir=<val> ]   Overrides the default directory path where debug log files are written.
+           [ --log-file-include-hostname ]
+                                 Appends the name of this host to the log file name.
+           [ --input_dlc=<val> ]
+                                 Path to the dlc container containing the model for which fixed-point encoding
+                                 metadata should be generated. This argument is required.
+           [ --input_list=<val> ]
+                                 Path to a file specifying the trial inputs. This file should be a plain text file,
+                                 containing one or more absolute file paths per line. These files will be taken to constitute
+                                 the trial set. Each path is expected to point to a binary file containing one trial input
+                                 in the 'raw' format, ready to be consumed by the tool without any further modifications.
+                                 This is similar to how input is provided to snpe-net-run application.
+           [ --no_weight_quantization ]
+                                 Note: This option is deprecated.
+                                 Generate and add the fixed-point encoding metadata but keep the weights in
+                                 floating point. This argument is optional.
+           [ --output_dlc=<val> ]
+                                 Path at which the metadata-included quantized model container should be written.
+                                 If this argument is omitted, the quantized model will be written at <unquantized_model_name>_quantized.dlc.
+           [ --enable_htp ]      Pack HTP information in quantized DLC.
+           [ --htp_socs=<val> ]  Specify SoC to generate HTP Offline Cache for.
+                                 SoCs are specified with an ASIC identifier, in a comma seperated list.
+                                 For example, --htp_socs sm8650
+           [ --overwrite_cache_records ]
+                                 Overwrite HTP cache records present in the DLC.
+           [ --use_float_io ]
+                                 Pack HTP information in quantized DLC (Note: deprecated).
+           [ --use_enhanced_quantizer ]
+                                 Note: This option is deprecated, use --param_quantizer and --act_quantizer options in future.
+                                 Use the enhanced quantizer feature when quantizing the model.  Regular quantization determines the range using the actual
+                                 values of min and max of the data being quantized.  Enhanced quantization uses an algorithm to determine optimal range.  It can be
+                                 useful for quantizing models that have long tails in the distribution of the data being quantized.
+           [ --use_adjusted_weights_quantizer ]
+                                 Note: This option is deprecated, use --param_quantizer option in future.
+                                 Use the adjusted tf quantizer for quantizing the weights only. This might be helpful for improving the accuracy of some models,
+                                 such as denoise model as being tested. This option is only used when quantizing the weights with 8 bit.
+           [ --optimizations=<val> ]
+                                 Note: This option is deprecated, use --algorithms option in future.
+                                 Use this option to enable new optimization algorithms. Usage is:
+                                 --optimizations <algo_name1> --optimizations <algo_name2>
+                                 The available optimization algorithms are:
+                                 cle - Cross layer equalization includes a number of methods for equalizing weights and biases across layers in order to rectify imbalances that cause quantization errors.
+                                 bc - Bias correction adjusts biases to offset activation quantization errors. Typically used in conjunction with 'cle' to improve quantization accuracy (Note: deprecated).
+           [ --algorithms=<val> ]
+                                 Use this option to enable new optimization algorithms. Usage is:
+                                 --algorithms <algo_name1> --algorithms <algo_name2>
+                                 The available optimization algorithms are:
+                                 cle - Cross layer equalization includes a number of methods for equalizing weights and biases across layers in order to rectify imbalances that cause quantization errors.
+                                 bc - Bias correction adjusts biases to offset activation quantization errors. Typically used in conjunction with 'cle' to improve quantization accuracy.
+           [ --override_params ]
+                                 Use this option to override quantization parameters when quantization was provided from the original source framework (eg TF fake quantization).
+                                 Note: Quantizer throws an error if overridden encodings contain unsupported bitwidths.
+           [ --use_encoding_optimizations ]
+                                 Note: This option is deprecated.
+                                 Use this option to enable quantization encoding optimizations. This can reduce requantization in the graph and may improve accuracy for some models
+                                 (Note: this flag can be passed in, but is a no-op. Recognition of this flag will be removed in the future).
+           [ --udo_package_path=<val> ]
+                                 Use this option to specify path to the Registration Library for UDO Package(s). Usage is:
+                                 --udo_package_path=<path_to_reg_lib>
+                                 Optionally, user can provide multiple packages as a comma-separated list.
+                                 This option must be specified for Networks with UDO. All UDO's in Network must have host executable CPU Implementation
+           [ --use_symmetric_quantize_weights ]
+                                 Note: This option is deprecated, use --param_quantizer option in future.
+                                 Use the symmetric quantizer feature when quantizing the weights of the model. It makes sure min and max have the
+                                 same absolute values about zero. Symmetrically quantized data will also be stored as int#_t data such that the offset is always 0.
+           [ --param_quantizer=<val> ]
+                                 Optional parameter to indicate the weight/bias quantizer to use. Must be followed by one of the following options:
+                                 tf - Uses the real min/max of the data and specified bitwidth (default)
+                                 enhanced - Uses an algorithm useful for quantizing models with long tails present in the weight distribution
+                                 symmetric - Ensures min and max have the same absolute values about zero. Data will be stored as int#_t data such that the offset is always 0.
+           [ --act_quantizer=<val> ]
+                                 Optional parameter to indicate the activation quantizer to use. Must be followed by one of the following options:
+                                 tf - Uses the real min/max of the data and specified bitwidth (default)
+                                 enhanced - Uses an algorithm useful for quantizing models with long tails present in the weight distribution
+                                 symmetric - Ensures min and max have the same absolute values about zero. Data will be stored as int#_t data such that the offset is always 0.
+           [ --bitwidth=<val> ]
+                                 Note: This option is deprecated.
+                                 Use the --bitwidth option to select the bitwidth to use when quantizing the weights/activation/bias, either 8 (default) or 16.
+                                 Can't mix with --weights_bitwidth or --act_bitwidth or --bias_bitwidth.
+           [ --weights_bitwidth=<val> ]
+                                 Use the --weights_bitwidth option to select the bitwidth to use when quantizing the weights, either 4, 8 (default) or 16. Can't mix with --bitwidth.
+           [ --act_bitwidth=<val> ]
+                                 Use the --act_bitwidth option to select the bitwidth to use when quantizing the activations, either 8 (default) or 16. Can't mix with --bitwidth.
+           [ --bias_bitwidth=<val> ]
+                                 Use the --bias_bitwidth option to select the bitwidth to use when quantizing the biases, either 8 (default) or 32.
+                                 Using 32 bit biases may sometimes provide a small improvement in accuracy. Can't mix with --bitwidth.
+           [ --float_bitwidth=<val> ]
+                                 Use the --float_bitwidth option to select the bitwidth to use when using float
+                                 for parameters(weights/bias) and activations for all ops  or specific
+                                 Op (via encodings) selected through encoding, either 32 (default) or 16.
+           [ --axis_quant ]
+                                 Note: This option is deprecated, use --use_per_channel_quantization option in future.
+                                 Use the --axis_quant option to select per-axis-element quantization for the weights and biases of certain layer types.
+                                 Currently only Convolution, Deconvolution and FullyConnected are supported.
+           [ --use_per_channel_quantization ]
+                                 Use the --use_per_channel_quantization option to select per-axis-element quantization for the weights and biases of certain layer types.
+                                 Currently only Convolution, Deconvolution and FullyConnected are supported.
+           [ --use_per_row_quantization ]
+                                 Use the --use_per_row_quantization to enable rowwise quantization of Matmul and FullyConnected ops.
+           [ --restrict_quantization_steps=<val> ]
+                        Specifies the number of steps to use for computing quantization encodings such that scale = (max - min) / number of quantization steps.
+                        The option should be passed as a comma separated pair of hexadecimal string minimum and maximum values'
+                        i.e. --restrict_quantization_steps MIN,MAX.  Please note that this is a hexadecimal string literal and not a signed integer,
+                        to supply a negative value an explicit minus sign is required. E.g.--restrict_quantization_steps -0x80,0x7F indicates an example 8 bit range'
+                                                                                           --restrict_quantization_steps -0x8000,0x7F7F indicates an example 16 bit range.
+                       This option only applies to symmetric param quantization."
+
+
+params="$(getopt -o h --long help \
+                      --long version \
+                      --long verbose \
+                      --long quiet \
+                      --long silent \
+                      --long debug \
+                      --long debug1 \
+                      --long debug2 \
+                      --long debug3 \
+                      --long no_weight_quantization \
+                      --long use_enhanced_quantizer \
+                      --long use_adjusted_weights_quantizer \
+                      --long clip_alpha \
+                      --long override_params \
+                      --long use_encoding_optimizations \
+                      --long use_symmetric_quantize_weights \
+                      --long param_quantizer: \
+                      --long act_quantizer: \
+                      --long axis_quant \
+                      --long use_per_channel_quantization \
+                      --long use_per_row_quantization \
+                      --long log-mask \
+                      --long log-file \
+                      --long log-dir \
+                      --long log-file-include-hostname \
+                      --long enable_htp \
+                      --long overwrite_cache_records \
+                      --long use_float_io \
+                      --long skip_quantization \
+                      --long enable_hta \
+                      --long input_dlc: \
+                      --long input_list: \
+                      --long htp_socs: \
+                      --long output_dlc: \
+                      --long bitwidth: \
+                      --long weights_bitwidth: \
+                      --long act_bitwidth: \
+                      --long bias_bitwidth: \
+                      --long float_bitwidth: \
+                      --long udo_package_path: \
+                      --long optimizations: \
+                      --long algorithms: \
+                      --long hta_partitions: \
+                      --long dump_encoding_json: \
+                      --long include_data_invariant_ops: \
+                      --long restrict_quantization_steps: -- "$@" 2>/dev/null)"
+
+if [ $? -ne 0 ]
+then
+    echo "Command Line Error: Invalid argument passed $1."
+    echo "$cl_help"
+    exit 2
+fi
+
+eval set -- "$params"
+
+while true :
+do
+  case "$1" in
+  -h|--help)
+    export help=1 ;
+    shift
+    ;;
+  --version)
+    export version=1 ;
+    shift
+    ;;
+  --verbose)
+    export verbose=1 ;
+    shift
+    ;;
+  --quiet)
+    export quiet=1 ;
+    shift
+    ;;
+  --silent)
+    export silent=1 ;
+    shift
+    ;;
+  --debug)
+    export debug_mask=$2 ;
+    shift
+    shift
+    ;;
+  --debug1)
+    debug1=1 ;
+    shift
+    ;;
+  --debug2)
+    debug2=1 ;
+    shift
+    ;;
+  --debug3)
+    debug3=1
+    shift
+    ;;
+  --log-mask)
+    log_mask=$2 ;
+    shift
+    shift
+    ;;
+  --log-file)
+    log_file=$2 ;
+    shift
+    shift
+    ;;
+  --log-dir)
+    log_dir=$2 ;
+    shift
+    shift
+    ;;
+  --log-file-include-hostname)
+    log_file_include_hostname=1 ;
+    shift
+    ;;
+  --input_dlc)
+    export input_dlc=$2 ;
+    shift
+    shift
+    ;;
+  --input_list)
+    export input_list=$2 ;
+    shift
+    shift
+    ;;
+  --no_weight_quantization)
+    no_weight_quantization=1 ;
+    shift
+    ;;
+  --output_dlc)
+    output_dlc=$2 ;
+    shift
+    shift
+    ;;
+  --enable_htp)
+    export enable_htp=1 ;
+    shift
+    ;;
+  --overwrite_cache_records)
+    export overwrite_cache_records=1 ;
+    shift
+    ;;
+  --use_float_io)
+    export use_float_io=1 ;
+    shift
+    ;;
+  --htp_socs)
+    if [ "$htp_socs" != "" ]
+    then
+      export htp_socs=""$htp_socs","$2"" ;
+    else
+      export htp_socs=""$2"" ;
+    fi
+    shift
+    shift
+    ;;
+  --use_enhanced_quantizer)
+    use_enhanced_quantizer=1 ;
+    shift
+    ;;
+  --use_encoding_optimizations)
+    use_encoding_optimizations=0 ;
+    shift
+    ;;
+  --use_adjusted_weights_quantizer)
+    use_adjusted_weights_quantizer=1 ;
+    shift
+    ;;
+  --optimizations)
+    optimizations+=("$2") ;
+    shift
+    shift
+    ;;
+  --algorithms)
+    algorithms+=("$2") ;
+    shift
+    shift
+    ;;
+  --override_params)
+    override_params=1 ;
+    shift
+    ;;
+  --use_symmetric_quantize_weights)
+    use_symmetric_quantize_weights=1 ;
+    shift
+    ;;
+  --param_quantizer)
+    param_quantizer=$2 ;
+    shift
+    shift
+    ;;
+  --act_quantizer)
+    act_quantizer=$2 ;
+    shift
+    shift
+    ;;
+  --bias_bitwidth)
+    bias_bitwidth=$2 ;
+    shift
+    shift
+    ;;
+  --act_bitwidth)
+    act_bitwidth=$2 ;
+    shift
+    shift
+    ;;
+  --weights_bitwidth)
+    weights_bitwidth=$2 ;
+    shift
+    shift
+    ;;
+  --float_bitwidth)
+    float_bitwidth=$2 ;
+    shift
+    shift
+    ;;
+  --bitwidth)
+    bitwidth=$2 ;
+    shift
+    shift
+    ;;
+  --udo_package_path)
+    udo_package_path=$2 ;
+    shift
+    shift
+    ;;
+  --skip_quantization)
+    skip_quantization=1 ;
+    shift
+    ;;
+  --axis_quant)
+    axis_quant=1
+    shift
+    ;;
+  --dump_encoding_json)
+    dump_encoding_json=1 ;
+    shift
+    shift
+    ;;
+  --include_data_invariant_ops)
+    include_data_invariant_ops=1 ;
+    shift
+    shift
+    ;;
+  --use_per_channel_quantization)
+    use_per_channel_quantization=1
+    shift
+    ;;
+  --use_per_row_quantization)
+    use_per_row_quantization=1
+    shift
+    ;;
+  --restrict_quantization_steps)
+    restrict_quantization_steps=$2 ;
+    shift
+    shift
+    ;;
+  --enable_hta)
+    enable_hta=1
+    shift
+    ;;
+  --hta_partitions)
+    hta_partitions=1
+    shift
+    shift
+    break
+    ;;
+  --)
+   shift
+   break
+   ;;
+  *)
+    echo "Command Line Error: Invalid argument passed $1."
+    echo "$cl_help"
+    exit 2
+    ;;
+  esac
+done
+
+if [ "$enable_hta" -ne 0 ]
+then
+  echo "WARNING : The argument enable_hta has been retired from SNPE version >= 2.x."
+fi
+
+if [ "$hta_partitions" -ne 0 ]
+then
+  echo "WARNING : The argument hta_partitions has been retired from SNPE version >= 2.x."
+fi
+
+if [ "$skip_quantization" != 1 ]
+then
+  export cmd="snpe-dlc-quant"
+  #Use quantizer
+  if [ "$input_dlc" != "" ]
+  then
+    export cmd="${cmd} --input_dlc="$input_dlc""
+  fi
+  if [ "$input_list" != "" ]
+  then
+    export cmd="${cmd} --input_list="$input_list""
+  fi
+  if [ ${help}  -ne 0 ]
+  then
+    cmd="${cmd} --help"
+  fi
+  if [ ${verbose} -ne 0 ]
+  then
+    cmd="${cmd} --verbose"
+  fi
+  if [ ${silent} -ne 0 ]
+  then
+    cmd="${cmd} --silent"
+  fi
+  if [ ${quiet} -ne 0 ]
+  then
+    cmd="${cmd} --quiet"
+  fi
+  if [ "$debug_mask" != "" ]
+  then
+    cmd="${cmd} --debug="${debug_mask}""
+  fi
+  if [ ${debug1} -ne 0 ]
+  then
+    cmd="${cmd} --debug1"
+  fi
+  if [ ${debug2} -ne 0 ]
+  then
+    cmd="${cmd} --debug2"
+  fi
+  if [ ${debug3} -ne 0 ]
+  then
+    cmd="${cmd} --debug3"
+  fi
+  if [ "$log_mask" != "" ]
+  then
+    cmd="${cmd} --log-mask="${log_mask}""
+  fi
+  if [ "$log_file" != "" ]
+  then
+    cmd="${cmd} --log-file="${log_file}""
+  fi
+  if [ "$log_dir" != "" ]
+  then
+    cmd="${cmd} --log-dir="${log_dir}""
+  fi
+  if [ ${log_file_include_hostname} -ne 0 ]
+  then
+    cmd="${cmd} --log-file-include-hostname"
+  fi
+  if [ "$output_dlc" != "" ]
+  then
+    cmd="${cmd} --output_dlc="${output_dlc}""
+  fi
+  if [ ${use_enhanced_quantizer} -ne 0 ]
+  then
+    cmd="${cmd} --use_enhanced_quantizer"
+  fi
+  if [ ${no_weight_quantization} -ne 0 ]
+  then
+    cmd="${cmd} --no_weight_quantization"
+  fi
+  if [ ${use_adjusted_weights_quantizer} -ne 0 ]
+  then
+    cmd="${cmd} --use_adjusted_weights_quantizer"
+  fi
+  if [ ${#optimizations[@]} -ne 0 ]
+  then
+    for algorithm in "${optimizations[@]}"; do
+      cmd="${cmd} --optimizations=${algorithm}"
+      done
+  fi
+  if [ ${#algorithms[@]} -ne 0 ]
+  then
+    for algorithm in "${algorithms[@]}"; do
+      cmd="${cmd} --algorithms=${algorithm}"
+      done
+  fi
+  if [ "$override_params" -ne 0 ]
+  then
+    cmd="${cmd} --override_params"
+  fi
+  if [ "$use_symmetric_quantize_weights" -ne 0 ]
+  then
+    cmd="${cmd} --use_symmetric_quantize_weights"
+  fi
+  if [ "$param_quantizer" != "" ]
+  then
+    cmd="${cmd} --param_quantizer="${param_quantizer}""
+  fi
+  if [ "$act_quantizer" != "" ]
+  then
+    cmd="${cmd} --act_quantizer="${act_quantizer}""
+  fi
+  if [ "$bias_bitwidth" != "" ]
+  then
+    cmd="${cmd} --bias_bitwidth=${bias_bitwidth}"
+  fi
+  if [ "$act_bitwidth" != "" ]
+  then
+    cmd="${cmd} --act_bitwidth=${act_bitwidth}"
+  fi
+  if [ "$weights_bitwidth" != "" ]
+  then
+    cmd="${cmd} --weights_bitwidth=${weights_bitwidth}"
+  fi
+  if [ "$float_bitwidth" != "" ]
+  then
+    cmd="${cmd} --float_bitwidth=${float_bitwidth}"
+  fi
+  if [ "$bitwidth" != "" ]
+  then
+    cmd="${cmd} --bitwidth=${bitwidth}"
+  fi
+  if [ "$udo_package_path" != "" ]
+  then
+    cmd="${cmd} --udo_package_path=${udo_package_path}"
+  fi
+  if [ "$axis_quant" -ne 0 ]
+    then
+      cmd="${cmd} --axis_quant"
+  fi
+  if [ "$dump_encoding_json" -ne 0 ]
+    then
+      cmd="${cmd} --dump_encoding_json"
+  fi
+  if [ "$include_data_invariant_ops" -ne 0 ]
+    then
+      cmd="${cmd} --include_data_invariant_ops"
+  fi
+  if [ "$use_per_channel_quantization" -ne 0 ]
+    then
+      cmd="${cmd} --use_per_channel_quantization"
+  fi
+  if [ "$use_per_row_quantization" -ne 0 ]
+    then
+      cmd="${cmd} --use_per_row_quantization"
+  fi
+  if [ "$restrict_quantization_steps" != "" ]
+    then
+      cmd="${cmd} --restrict_quantization_steps=${restrict_quantization_steps}"
+  fi
+
+  #use snpe-dlc-quant
+  $cmd
+fi
+#Use Offline Prepare
+if [ "$enable_htp" -ne 0 ]
+then
+  export cmd="snpe-dlc-graph-prepare"
+  export input_dlc_file_name="${input_dlc}"
+  if [ "$output_dlc" != "" ]
+  then
+    if [ "$skip_quantization" != 1 ]
+    then
+      #Use output_dlc of snpe-dlc-quant as the input_dlc for prepare
+      export input_dlc_file_name="${output_dlc}"
+    fi
+    export cmd="${cmd} --input_dlc=${input_dlc_file_name} --input_list=${input_list} --output_dlc=${output_dlc}"
+  else
+    #Get dlc_file_name without parent path
+    export dlc_file_name=$(basename $input_dlc .dlc)
+    if [ "$skip_quantization" != 1 ]
+    then
+      export input_dlc_file_name="${dlc_file_name}_quantized.dlc"
+    else
+      export input_dlc_file_name="${dlc_file_name}.dlc"
+    fi
+    export cmd="${cmd} --input_dlc=${input_dlc_file_name} --input_list=${input_list} --output_dlc=${input_dlc_file_name}"
+  fi
+  #parse user provided htp socs
+  if [ "$htp_socs" != "" ]
+  then
+    export cmd="${cmd} --htp_socs=${htp_socs}"
+  fi
+  if [ ${help}  -ne 0 ]
+  then
+    cmd="${cmd} --help"
+  fi
+  if [ ${verbose} -ne 0 ]
+  then
+    cmd="${cmd} --verbose"
+  fi
+  if [ ${silent} -ne 0 ]
+  then
+    cmd="${cmd} --silent"
+  fi
+  if [ ${quiet} -ne 0 ]
+  then
+    cmd="${cmd} --quiet"
+  fi
+  if [ "$debug_mask" != "" ]
+  then
+    cmd="${cmd} --debug="${debug_mask}""
+  fi
+  if [ ${debug1} -ne 0 ]
+  then
+    cmd="${cmd} --debug1"
+  fi
+  if [ ${debug2} -ne 0 ]
+  then
+    cmd="${cmd} --debug2"
+  fi
+  if [ ${debug3} -ne 0 ]
+  then
+    cmd="${cmd} --debug3"
+  fi
+  if [ "$log_mask" != "" ]
+  then
+    cmd="${cmd} --log-mask="${log_mask}""
+  fi
+  if [ "$log_file" != "" ]
+  then
+    cmd="${cmd} --log-file="${log_file}""
+  fi
+  if [ "$log_dir" != "" ]
+  then
+    cmd="${cmd} --log-dir="${log_dir}""
+  fi
+  if [ ${log_file_include_hostname} -ne 0 ]
+  then
+    cmd="${cmd} --log-file-include-hostname"
+  fi
+  if [ ${overwrite_cache_records} -ne 0 ]
+  then
+    cmd="${cmd} --overwrite_cache_records"
+  fi
+  if [ ${use_float_io} -ne 0 ]
+  then
+    cmd="${cmd} --use_float_io"
+  fi
+  if [ "$udo_package_path" != "" ]
+  then
+    cmd="${cmd} --udo_package_path=${udo_package_path}"
+  fi
+  $cmd
+fi
+
+

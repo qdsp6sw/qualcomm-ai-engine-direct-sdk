@@ -1,0 +1,141 @@
+#!/usr/bin/env bash
+
+#
+# Copyright (c) 2022 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+
+WORKING_DIR=$(pwd)
+QNN_X86_TARGET_ROOT=`dirname $(readlink -f ${0})`/../
+QNN_NETRON_SHARE_DIR=${QNN_X86_TARGET_ROOT}/../share/QNN/qnn_netron/
+
+function usage(){
+cat << EOF
+usage: $(basename ${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]}) [-h] [-w <working_dir>]
+Script to build and launch QNN Netron tool for visualizing and running analysis on Qnn Models.
+
+Optional argument(s):
+ -w <working_dir>                      Location for building QNN Netron tool. Default: current_dir
+
+EOF
+}
+
+OPTIND=1
+while getopts "h?w:" opt; do
+    case "$opt" in
+    h)
+        usage;
+        exit 0
+        ;;
+    w) WORKING_DIR=$(realpath $OPTARG);;
+    \?)
+    usage;
+    exit 1 ;;
+    esac
+done
+
+if [[ ! -d ${WORKING_DIR} ]]
+then
+  echo "INFO: Creating Working dir ${WORKING_DIR}."
+  mkdir -p ${WORKING_DIR}
+  if [[ $? != 0 ]]
+  then
+    echo "ERROR: Failed to creating working directory ${WORKING_DIR}, please check path is valid."
+    exit 1
+  fi
+fi
+
+WORKING_DIR_NETRON=${WORKING_DIR}/netron
+WORKING_DIR_QNN_NETRON=${WORKING_DIR}/qnn_netron
+
+# setup clean up of files for on any exit.
+function clean_up {
+  # return to dir where script was executed from if not already there
+  popd &> /dev/null
+}
+trap clean_up EXIT
+
+# Clone netron repo if not available
+git -C "${WORKING_DIR_NETRON}" rev-parse 2>/dev/null
+IS_GIT_DIR=$?
+
+set -e  # catch failure if not explicitly caught
+
+# Flag to determine if QNN Netron should be build prior to running
+# build is determine if fresh clone was made or new patches applied
+BUILD_QNN_NETRON=false
+
+# Copy over qnn_netron dependencies from QNN SDK
+/bin/cp -rf "${QNN_NETRON_SHARE_DIR}" "${WORKING_DIR}"
+pushd "${WORKING_DIR}" > /dev/null
+if [[ ${IS_GIT_DIR} -ne 0 ]]
+then
+  echo -e "\n----------------------------------"
+  echo "INFO: Cloning Netron Repo...    "
+  echo -e "----------------------------------"
+  bash "${WORKING_DIR_QNN_NETRON}"/fetch.sh
+  if [[ $? != 0 ]]
+    then
+      popd > /dev/null
+      echo "ERROR: Failed to clone netron repo."
+      exit 1
+  fi
+  BUILD_QNN_NETRON=true
+fi
+popd > /dev/null
+
+# copy qnn netron scripts and deps into cloned repo
+cp -rf "${WORKING_DIR_QNN_NETRON}"/deps \
+       "${WORKING_DIR_QNN_NETRON}"/NetworkDiagnostics \
+       "${WORKING_DIR_QNN_NETRON}"/package.json \
+       "${WORKING_DIR_QNN_NETRON}"/electron-builder.yml \
+       "${WORKING_DIR_NETRON}"/
+cp -rf "${WORKING_DIR_QNN_NETRON}"/source/* "${WORKING_DIR_NETRON}"/source/
+cp -rf "${WORKING_DIR_QNN_NETRON}"/tools/* "${WORKING_DIR_NETRON}"/tools/
+
+# Apply patches to vanilla netron to support qnn use-cases
+PATCHES_DIR="${WORKING_DIR_QNN_NETRON}"/patch/
+pushd "${WORKING_DIR_NETRON}" > /dev/null
+echo -e "\n----------------------------------"
+echo "INFO: Patching Netron for QNN..."
+echo -e "-------------------------------------"
+set +e  # turn off catching failure since we want to determine reason for apply patch failing
+for patch_file in "${PATCHES_DIR}"/*
+do
+  git apply "${patch_file}" &> /dev/null
+  if [[ $? != 0 ]]
+    then
+      # check if error is because patch is already applied
+      # if there is error to apply patch in reverse then actual error occurred
+      git apply "${patch_file}" --reverse --check
+      if [[ $? != 0 ]]
+      then
+        popd > /dev/null
+        echo "ERROR: Failed to patch netron repo."
+        exit 1
+      else
+          echo "Patch file: ${patch_file} already applied, skipping..."
+      fi
+  else
+      echo "Applied patch file: ${patch_file}"
+      BUILD_QNN_NETRON=true
+  fi
+done
+set -e  # catch failure if not explicitly caught after this point
+popd > /dev/null
+
+if [[ "${BUILD_QNN_NETRON}" = true ]]
+then
+  # Build QNN Netron Project
+  echo -e "\n----------------------------------"
+  echo "INFO: Building QNN Netron...    "
+  echo -e "----------------------------------"
+  npm --prefix "${WORKING_DIR_NETRON}/" install --production
+fi
+
+# Launch QNN Netron Application
+echo -e "\n----------------------------------"
+echo "INFO: Launching QNN Netron...   "
+echo -e "----------------------------------"
+npm  --prefix "${WORKING_DIR_NETRON}" start

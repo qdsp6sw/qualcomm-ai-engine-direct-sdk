@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Program Listing for File QnnLpaiGraph.h &mdash; Qualcomm® AI Engine Direct</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_css.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qualcomm® AI Engine Direct
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v2.25.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/backend.html">Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/op_packages.html">Op Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/converters.html">Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/benchmarking.html">Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/operations.html">Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qualcomm® AI Engine Direct</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Program Listing for File QnnLpaiGraph.h</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program-listing-for-file-qnnlpaigraph-h">
+<span id="program-listing-file-include-qnn-lpai-qnnlpaigraph-h"></span><h1>Program Listing for File QnnLpaiGraph.h<a class="headerlink" href="#program-listing-for-file-qnnlpaigraph-h" title="Permalink to this heading">¶</a></h1>
+<p>↰ <a class="reference internal" href="file_include_QNN_LPAI_QnnLpaiGraph.h.html#file-include-qnn-lpai-qnnlpaigraph-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">include/QNN/LPAI/QnnLpaiGraph.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//=============================================================================</span>
+<span class="c1">//</span>
+<span class="c1">//  Copyright (c) 2024 Qualcomm Technologies, Inc.</span>
+<span class="c1">//  All Rights Reserved.</span>
+<span class="c1">//  Confidential and Proprietary - Qualcomm Technologies, Inc.</span>
+<span class="c1">//</span>
+<span class="c1">//=============================================================================</span>
+
+<span class="cm">/** @file</span>
+<span class="cm"> *  @brief QNN LPAI Graph components</span>
+<span class="cm"> */</span>
+
+<span class="cp">#ifndef QNN_LPAI_GRAPH_H</span>
+<span class="cp">#define QNN_LPAI_GRAPH_H</span>
+
+<span class="cp">#ifdef __cplusplus</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdint&gt;</span>
+<span class="cp">#else</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;QnnLpaiGraphInternal.h&quot;</span>
+
+<span class="cp">#ifdef __cplusplus</span>
+<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="cp">#endif</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// see QnnLpaiGraph_Mem_t</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_SET_CFG_SCRATCH_MEM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QNN_LPAI_GRAPH_SET_CFG_SCRATCH_MEM_DEFAULT</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// see QnnLpaiGraph_Mem_t</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_SET_CFG_PERSISTENT_MEM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QNN_LPAI_GRAPH_SET_CFG_PERSISTENT_MEM_DEFAULT</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// see QnnLpaiGraph_PerfCfg_t</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_SET_CFG_PERF_CFG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QNN_LPAI_GRAPH_SET_CFG_PERF_CFG_DEFAULT</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// see QnnLpaiGraph_CoreAffinity_t</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_SET_CFG_CORE_AFFINITY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QNN_LPAI_GRAPH_SET_CFG_CORE_AFFINITY_DEFAULT</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// Unused, present to ensure 32 bits.</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_SET_CFG_UNDEFINED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x7fffffff</span>
+<span class="p">}</span><span class="w"> </span><span class="n">QnnLpaiGraph_SetConfigOption_t</span><span class="p">;</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// get the size requirement of scratch memory, return uint32_t</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_GET_PROP_SCRATCH_MEM_SIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QNN_LPAI_GRAPH_GET_PROP_SCRATCH_MEM_SIZE_DEFAULT</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// get the size requirement of persistent memory, return uint32_t</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_GET_PROP_PERSISTENT_MEM_SIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QNN_LPAI_GRAPH_GET_PROP_PERSISTENT_MEM_SIZE_DEFAULT</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// get the information and requirement of input/output tensor, see QnnLpaiGraph_TensorInfo_t</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_GET_PROP_IO_TENSOR_INFO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QNN_LPAI_GRAPH_GET_PROP_IO_TENSOR_INFO_DEFAULT</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// Unused, present to ensure 32 bits.</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_GET_PROP_UNDEFINED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x7fffffff</span>
+<span class="p">}</span><span class="w"> </span><span class="n">QnnLpaiGraph_GetPropertyOption_t</span><span class="p">;</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_REAL_TIME</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_NON_REAL_TIME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// Unused, present to ensure 32 bits.</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_UNDEFINED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x7fffffff</span>
+<span class="p">}</span><span class="w"> </span><span class="n">QnnLpaiGraph_ClientPerfType_t</span><span class="p">;</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">fps</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">ftrtRatio</span><span class="p">;</span>
+<span class="w">  </span><span class="n">QnnLpaiGraph_ClientPerfType_t</span><span class="w"> </span><span class="n">clientType</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">QnnLpaiGraph_PerfCfg_t</span><span class="p">;</span>
+
+<span class="c1">// clang-format off</span>
+<span class="c1">/// QnnLpaiGraph_PerfCfg_t initializer macro</span>
+<span class="cp">#define QNN_LPAI_GRAPH_PERF_CFG_INIT                             \</span>
+<span class="cp">  {                                                              \</span>
+<span class="cp">    1u,                                        </span><span class="cm">/*fps*/</span><span class="cp">           \</span>
+<span class="cp">    10u,                                       </span><span class="cm">/*ftrtRatio*/</span><span class="cp">     \</span>
+<span class="cp">    QNN_LPAI_GRAPH_CLIENT_PERF_TYPE_REAL_TIME  </span><span class="cm">/*clientType*/</span><span class="cp">    \</span>
+<span class="cp">  }</span>
+<span class="c1">// clang-format on</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_CORE_AFFINITY_SOFT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_CORE_AFFINITY_HARD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// Unused, present to ensure 32 bits.</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_CORE_AFFINITY_UNDEFINED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x7fffffff</span>
+<span class="p">}</span><span class="w"> </span><span class="n">QnnLpaiGraph_CoreAffinityType_t</span><span class="p">;</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">QnnLpaiGraph_CoreAffinityType_t</span><span class="w"> </span><span class="n">affinity</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">coreSelection</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">QnnLpaiGraph_CoreAffinity_t</span><span class="p">;</span>
+
+<span class="c1">// clang-format off</span>
+<span class="c1">/// QnnLpaiGraph_CoreAffinity_t initializer macro</span>
+<span class="cp">#define QNN_LPAI_GRAPH_CORE_AFFINITY_INIT                          \</span>
+<span class="cp">  {                                                                \</span>
+<span class="cp">    QNN_LPAI_GRAPH_CORE_AFFINITY_SOFT,       </span><span class="cm">/*affinity*/</span><span class="cp">          \</span>
+<span class="cp">    0u                                       </span><span class="cm">/*core_selection*/</span><span class="cp">    \</span>
+<span class="cp">  }</span>
+<span class="c1">// clang-format on</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_MEM_TYPE_DDR</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_MEM_TYPE_LLC</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_MEM_TYPE_TCM</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">  </span><span class="n">QNN_LPAI_GRAPH_MEM_TYPE_UNDEFINED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x7fffffff</span>
+<span class="p">}</span><span class="w"> </span><span class="n">QnnLpaiGraph_MemType_t</span><span class="p">;</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">QnnLpaiGraph_MemType_t</span><span class="w"> </span><span class="n">memType</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">addr</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">QnnLpaiGraph_Mem_t</span><span class="p">;</span>
+
+<span class="c1">// clang-format off</span>
+<span class="c1">/// QnnLpaiGraph_Mem_t initializer macro</span>
+<span class="cp">#define QNN_LPAI_GRAPH_MEM_INIT                            \</span>
+<span class="cp">  {                                                        \</span>
+<span class="cp">    QNN_LPAI_GRAPH_MEM_TYPE_UNDEFINED,   </span><span class="cm">/*memType*/</span><span class="cp">       \</span>
+<span class="cp">    0u,                                  </span><span class="cm">/*size*/</span><span class="cp">          \</span>
+<span class="cp">    NULL                                 </span><span class="cm">/*addr*/</span><span class="cp">          \</span>
+<span class="cp">  }</span>
+<span class="c1">// clang-format on</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">addr</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">tensorSize</span><span class="p">;</span><span class="w">  </span><span class="cm">/* Tensor size in bytes */</span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">alignedSize</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Required tensor buffer size if allocated by client, this includes extra</span>
+<span class="cm">                            padding to make the size aligned */</span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">alignment</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Tensor buffer start address alignment requirement if allocated by client*/</span>
+<span class="p">}</span><span class="w"> </span><span class="n">QnnLpaiGraph_TensorInfo_t</span><span class="p">;</span>
+
+<span class="c1">// clang-format off</span>
+<span class="c1">/// QnnLpaiGraph_TensorInfo_t initializer macro</span>
+<span class="cp">#define QNN_LPAI_GRAPH_TENSOR_INFO_INIT                    \</span>
+<span class="cp">  {                                                        \</span>
+<span class="cp">    0u,                                  </span><span class="cm">/*id*/</span><span class="cp">            \</span>
+<span class="cp">    NULL,                                </span><span class="cm">/*addr*/</span><span class="cp">          \</span>
+<span class="cp">    0u,                                  </span><span class="cm">/*tensor_size*/</span><span class="cp">   \</span>
+<span class="cp">    0u,                                  </span><span class="cm">/*aligned_size*/</span><span class="cp">  \</span>
+<span class="cp">    0u                                   </span><span class="cm">/*alignment*/</span><span class="cp">     \</span>
+<span class="cp">  }</span>
+<span class="c1">// clang-format on</span>
+
+<span class="c1">// used by QnnGraph_setConfig</span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">option</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">config</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">QnnLpaiGraph_CustomConfig_t</span><span class="p">;</span>
+
+<span class="c1">// clang-format off</span>
+<span class="c1">/// QnnLpaiGraph_CustomConfig_t initializer macro</span>
+<span class="cp">#define QNN_LPAI_GRAPH_CUSTOM_CONFIG_INIT                          \</span>
+<span class="cp">  {                                                                \</span>
+<span class="cp">    QNN_LPAI_GRAPH_SET_CFG_UNDEFINED,                </span><span class="cm">/*option*/</span><span class="cp">    \</span>
+<span class="cp">    NULL                                             </span><span class="cm">/*config*/</span><span class="cp">    \</span>
+<span class="cp">  }</span>
+<span class="c1">// clang-format on</span>
+
+<span class="c1">// used by QnnGraph_getProperty</span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">option</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">property</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">QnnLpaiGraph_CustomProperty_t</span><span class="p">;</span>
+
+<span class="c1">// clang-format off</span>
+<span class="c1">/// QnnLpaiGraph_CustomProperty_t initializer macro</span>
+<span class="cp">#define QNN_LPAI_GRAPH_CUSTOM_PROPERTY_INIT                          \</span>
+<span class="cp">  {                                                                  \</span>
+<span class="cp">    QNN_LPAI_GRAPH_GET_PROP_UNDEFINED,                 </span><span class="cm">/*option*/</span><span class="cp">    \</span>
+<span class="cp">    NULL                                               </span><span class="cm">/*property*/</span><span class="cp">  \</span>
+<span class="cp">  }</span>
+<span class="c1">// clang-format on</span>
+
+<span class="cp">#ifdef __cplusplus</span>
+<span class="p">}</span><span class="w">  </span><span class="c1">// extern &quot;C&quot;</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#endif  </span><span class="c1">// QNN_LPAI_GRAPH_H</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020-2024, Qualcomm Technologies, Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

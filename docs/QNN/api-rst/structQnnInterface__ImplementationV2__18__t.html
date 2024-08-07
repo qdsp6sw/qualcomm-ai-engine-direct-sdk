@@ -1,0 +1,559 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Struct QnnInterface_ImplementationV2_18_t &mdash; Qualcomm® AI Engine Direct</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_css.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Struct QnnInterface_t" href="structQnnInterface__t.html" />
+    <link rel="prev" title="Struct QnnHtpSystemContext_HwBlobInfoV1" href="structQnnHtpSystemContext__HwBlobInfoV1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Qualcomm® AI Engine Direct
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v2.25.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/backend.html">Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/op_packages.html">Op Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/converters.html">Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/quantization.html">Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/benchmarking.html">Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/operations.html">Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qualcomm® AI Engine Direct</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../general/api.html">API</a> &raquo;</li>
+        
+          <li><a href="unabridged_api.html">Full API</a> &raquo;</li>
+        
+      <li>Struct QnnInterface_ImplementationV2_18_t</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="struct-qnninterface-implementationv2-18-t">
+<span id="exhale-struct-structqnninterface-implementationv2-18-t"></span><h1>Struct QnnInterface_ImplementationV2_18_t<a class="headerlink" href="#struct-qnninterface-implementationv2-18-t" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_QNN_QnnInterface.h.html#file-include-qnn-qnninterface-h"><span class="std std-ref">File QnnInterface.h</span></a></p></li>
+</ul>
+<div class="section" id="struct-documentation">
+<h2>Struct Documentation<a class="headerlink" href="#struct-documentation" title="Permalink to this heading">¶</a></h2>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv434QnnInterface_ImplementationV2_18_t">
+<span id="_CPPv334QnnInterface_ImplementationV2_18_t"></span><span id="_CPPv234QnnInterface_ImplementationV2_18_t"></span><span id="QnnInterface_ImplementationV2_18_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">QnnInterface_ImplementationV2_18_t</span></span></span><a class="headerlink" href="#_CPPv434QnnInterface_ImplementationV2_18_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This struct defines Qnn interface specific to version. Interface functions are allowed to be NULL if not supported/available. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t21propertyHasCapabilityE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t21propertyHasCapabilityE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t21propertyHasCapabilityE"></span><span id="QnnInterface_ImplementationV2_18_t::propertyHasCapability__QnnProperty_HasCapabilityFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a7925bda7dd0fb2e152edfc32333e8c38"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a9e438d21301dac55de1b66c9b4dfe63b.html#_CPPv429QnnProperty_HasCapabilityFn_t" title="QnnProperty_HasCapabilityFn_t"><span class="n"><span class="pre">QnnProperty_HasCapabilityFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">propertyHasCapability</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t21propertyHasCapabilityE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t13backendCreateE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t13backendCreateE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t13backendCreateE"></span><span id="QnnInterface_ImplementationV2_18_t::backendCreate__QnnBackend_CreateFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a3a7d08ff803a1b314ef7852147265c43"></span><a class="reference internal" href="typedef_QnnInterface_8h_1ac547d5195950a1b821f084e2cd16e8e3.html#_CPPv421QnnBackend_CreateFn_t" title="QnnBackend_CreateFn_t"><span class="n"><span class="pre">QnnBackend_CreateFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">backendCreate</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t13backendCreateE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t16backendSetConfigE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t16backendSetConfigE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t16backendSetConfigE"></span><span id="QnnInterface_ImplementationV2_18_t::backendSetConfig__QnnBackend_SetConfigFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a5daac13279e8613dd3d200282e160207"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a04ed79a6e7283725ee186af10f0e20fd.html#_CPPv424QnnBackend_SetConfigFn_t" title="QnnBackend_SetConfigFn_t"><span class="n"><span class="pre">QnnBackend_SetConfigFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">backendSetConfig</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t16backendSetConfigE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t20backendGetApiVersionE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t20backendGetApiVersionE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t20backendGetApiVersionE"></span><span id="QnnInterface_ImplementationV2_18_t::backendGetApiVersion__QnnBackend_GetApiVersionFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a6cd81bc6555bed04c03280dfa05db968"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a9efe6855ed38e880b1e3eccc131233c0.html#_CPPv428QnnBackend_GetApiVersionFn_t" title="QnnBackend_GetApiVersionFn_t"><span class="n"><span class="pre">QnnBackend_GetApiVersionFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">backendGetApiVersion</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t20backendGetApiVersionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t17backendGetBuildIdE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t17backendGetBuildIdE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t17backendGetBuildIdE"></span><span id="QnnInterface_ImplementationV2_18_t::backendGetBuildId__QnnBackend_GetBuildIdFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1aa90c550ca3aa26c77116c71fd2e2197e"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a51a19e45980d7e5c92e7e9664d9ef3ad.html#_CPPv425QnnBackend_GetBuildIdFn_t" title="QnnBackend_GetBuildIdFn_t"><span class="n"><span class="pre">QnnBackend_GetBuildIdFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">backendGetBuildId</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t17backendGetBuildIdE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t24backendRegisterOpPackageE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t24backendRegisterOpPackageE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t24backendRegisterOpPackageE"></span><span id="QnnInterface_ImplementationV2_18_t::backendRegisterOpPackage__QnnBackend_RegisterOpPackageFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a353945f98a46d312d43ce96f7178baf8"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a8b12fbd7fc0746e5d1e5e137d1ad1ff7.html#_CPPv432QnnBackend_RegisterOpPackageFn_t" title="QnnBackend_RegisterOpPackageFn_t"><span class="n"><span class="pre">QnnBackend_RegisterOpPackageFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">backendRegisterOpPackage</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t24backendRegisterOpPackageE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t29backendGetSupportedOperationsE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t29backendGetSupportedOperationsE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t29backendGetSupportedOperationsE"></span><span id="QnnInterface_ImplementationV2_18_t::backendGetSupportedOperations__QnnBackend_GetSupportedOperationsFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1ac09f66ad6288368960830d5c2220a759"></span><a class="reference internal" href="typedef_QnnInterface_8h_1ab969638c5e96cd551d87fd8afe2bcea2.html#_CPPv437QnnBackend_GetSupportedOperationsFn_t" title="QnnBackend_GetSupportedOperationsFn_t"><span class="n"><span class="pre">QnnBackend_GetSupportedOperationsFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">backendGetSupportedOperations</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t29backendGetSupportedOperationsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t23backendValidateOpConfigE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t23backendValidateOpConfigE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t23backendValidateOpConfigE"></span><span id="QnnInterface_ImplementationV2_18_t::backendValidateOpConfig__QnnBackend_ValidateOpConfigFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1ac8eb195cf7d594ffbdfe20e50ee8f26b"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a906584947b83062cec4fef2c897566f0.html#_CPPv431QnnBackend_ValidateOpConfigFn_t" title="QnnBackend_ValidateOpConfigFn_t"><span class="n"><span class="pre">QnnBackend_ValidateOpConfigFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">backendValidateOpConfig</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t23backendValidateOpConfigE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t11backendFreeE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t11backendFreeE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t11backendFreeE"></span><span id="QnnInterface_ImplementationV2_18_t::backendFree__QnnBackend_FreeFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1abf968e8730c08c83c4431865b2d3cac8"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a440b070feaf676c1bec533cd52df9d79.html#_CPPv419QnnBackend_FreeFn_t" title="QnnBackend_FreeFn_t"><span class="n"><span class="pre">QnnBackend_FreeFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">backendFree</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t11backendFreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t13contextCreateE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t13contextCreateE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t13contextCreateE"></span><span id="QnnInterface_ImplementationV2_18_t::contextCreate__QnnContext_CreateFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a355502bb78c485675715bf83178b70e0"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a111a8fd0c93436b99e6ea2a2a00b0b7c.html#_CPPv421QnnContext_CreateFn_t" title="QnnContext_CreateFn_t"><span class="n"><span class="pre">QnnContext_CreateFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contextCreate</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t13contextCreateE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t16contextSetConfigE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t16contextSetConfigE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t16contextSetConfigE"></span><span id="QnnInterface_ImplementationV2_18_t::contextSetConfig__QnnContext_SetConfigFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1adfcd4068b879891352848e863bbe53a4"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a9d474533bc9a19b9428e19ed811706b2.html#_CPPv424QnnContext_SetConfigFn_t" title="QnnContext_SetConfigFn_t"><span class="n"><span class="pre">QnnContext_SetConfigFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contextSetConfig</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t16contextSetConfigE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t20contextGetBinarySizeE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t20contextGetBinarySizeE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t20contextGetBinarySizeE"></span><span id="QnnInterface_ImplementationV2_18_t::contextGetBinarySize__QnnContext_GetBinarySizeFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1ae9a4ca5731ee6b2aa2a0b711cca7d899"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a9da7d4ec9b4f2cfcb3beb2a18c3052b1.html#_CPPv428QnnContext_GetBinarySizeFn_t" title="QnnContext_GetBinarySizeFn_t"><span class="n"><span class="pre">QnnContext_GetBinarySizeFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contextGetBinarySize</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t20contextGetBinarySizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t16contextGetBinaryE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t16contextGetBinaryE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t16contextGetBinaryE"></span><span id="QnnInterface_ImplementationV2_18_t::contextGetBinary__QnnContext_GetBinaryFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a4f5060d89e12c250bbda345afdd6b309"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a2d80d16ba1cce5f0506936b4b856ac3e.html#_CPPv424QnnContext_GetBinaryFn_t" title="QnnContext_GetBinaryFn_t"><span class="n"><span class="pre">QnnContext_GetBinaryFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contextGetBinary</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t16contextGetBinaryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t23contextCreateFromBinaryE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t23contextCreateFromBinaryE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t23contextCreateFromBinaryE"></span><span id="QnnInterface_ImplementationV2_18_t::contextCreateFromBinary__QnnContext_CreateFromBinaryFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1aeb8510af4a0236a43d8846c2dd08172d"></span><a class="reference internal" href="typedef_QnnInterface_8h_1aa740a1b35494a0f4806ca4ad5919d1f3.html#_CPPv431QnnContext_CreateFromBinaryFn_t" title="QnnContext_CreateFromBinaryFn_t"><span class="n"><span class="pre">QnnContext_CreateFromBinaryFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contextCreateFromBinary</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t23contextCreateFromBinaryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t11contextFreeE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t11contextFreeE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t11contextFreeE"></span><span id="QnnInterface_ImplementationV2_18_t::contextFree__QnnContext_FreeFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a6c5840d48609c20e9ef34db91cdb76de"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a88db0fa0e35d422dbba61e87d0931835.html#_CPPv419QnnContext_FreeFn_t" title="QnnContext_FreeFn_t"><span class="n"><span class="pre">QnnContext_FreeFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contextFree</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t11contextFreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t11graphCreateE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t11graphCreateE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t11graphCreateE"></span><span id="QnnInterface_ImplementationV2_18_t::graphCreate__QnnGraph_CreateFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1aef0f4f761d7c24517e06655d4dff1a30"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a1d92b7dcdad541f166811873dec628a1.html#_CPPv419QnnGraph_CreateFn_t" title="QnnGraph_CreateFn_t"><span class="n"><span class="pre">QnnGraph_CreateFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">graphCreate</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t11graphCreateE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t19graphCreateSubgraphE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t19graphCreateSubgraphE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t19graphCreateSubgraphE"></span><span id="QnnInterface_ImplementationV2_18_t::graphCreateSubgraph__QnnGraph_CreateSubgraphFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a09083efbc146871d32293fea3ca321ed"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a503edfe6d08142c843a92aef31eac6c6.html#_CPPv427QnnGraph_CreateSubgraphFn_t" title="QnnGraph_CreateSubgraphFn_t"><span class="n"><span class="pre">QnnGraph_CreateSubgraphFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">graphCreateSubgraph</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t19graphCreateSubgraphE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t14graphSetConfigE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t14graphSetConfigE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t14graphSetConfigE"></span><span id="QnnInterface_ImplementationV2_18_t::graphSetConfig__QnnGraph_SetConfigFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a282a5cbdde2ff6f47693ab94c48f11d9"></span><a class="reference internal" href="typedef_QnnInterface_8h_1ac1663872b1e18a071a7b9b7c9820431c.html#_CPPv422QnnGraph_SetConfigFn_t" title="QnnGraph_SetConfigFn_t"><span class="n"><span class="pre">QnnGraph_SetConfigFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">graphSetConfig</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t14graphSetConfigE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t12graphAddNodeE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t12graphAddNodeE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t12graphAddNodeE"></span><span id="QnnInterface_ImplementationV2_18_t::graphAddNode__QnnGraph_AddNodeFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a35debeaab8b1f9c89481b6c8f2ecef06"></span><a class="reference internal" href="typedef_QnnInterface_8h_1aa8c2d0ac5627d45704bb0214f18666b9.html#_CPPv420QnnGraph_AddNodeFn_t" title="QnnGraph_AddNodeFn_t"><span class="n"><span class="pre">QnnGraph_AddNodeFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">graphAddNode</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t12graphAddNodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t13graphFinalizeE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t13graphFinalizeE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t13graphFinalizeE"></span><span id="QnnInterface_ImplementationV2_18_t::graphFinalize__QnnGraph_FinalizeFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a33cb5c35c034e5aeb4766ac18504bce1"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a45e0763d46850af78a5e3cca343429e2.html#_CPPv421QnnGraph_FinalizeFn_t" title="QnnGraph_FinalizeFn_t"><span class="n"><span class="pre">QnnGraph_FinalizeFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">graphFinalize</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t13graphFinalizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t13graphRetrieveE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t13graphRetrieveE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t13graphRetrieveE"></span><span id="QnnInterface_ImplementationV2_18_t::graphRetrieve__QnnGraph_RetrieveFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1ada5816e41d0b06d2f20bb28ab0b6f62c"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a82fb6023edc5367c1b26a906ed791c33.html#_CPPv421QnnGraph_RetrieveFn_t" title="QnnGraph_RetrieveFn_t"><span class="n"><span class="pre">QnnGraph_RetrieveFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">graphRetrieve</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t13graphRetrieveE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t12graphExecuteE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t12graphExecuteE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t12graphExecuteE"></span><span id="QnnInterface_ImplementationV2_18_t::graphExecute__QnnGraph_ExecuteFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a0de8e0cfc0a19cab5fd9caf43e817a5b"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a408e0820fdb2d9f78cf9f52c8befd588.html#_CPPv420QnnGraph_ExecuteFn_t" title="QnnGraph_ExecuteFn_t"><span class="n"><span class="pre">QnnGraph_ExecuteFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">graphExecute</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t12graphExecuteE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t17graphExecuteAsyncE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t17graphExecuteAsyncE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t17graphExecuteAsyncE"></span><span id="QnnInterface_ImplementationV2_18_t::graphExecuteAsync__QnnGraph_ExecuteAsyncFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1ad3e86dc7186ebe89c2f3869131f7b5cf"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a856c53c8dcd8baa61cfb8e882d5c84c7.html#_CPPv425QnnGraph_ExecuteAsyncFn_t" title="QnnGraph_ExecuteAsyncFn_t"><span class="n"><span class="pre">QnnGraph_ExecuteAsyncFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">graphExecuteAsync</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t17graphExecuteAsyncE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t25tensorCreateContextTensorE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t25tensorCreateContextTensorE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t25tensorCreateContextTensorE"></span><span id="QnnInterface_ImplementationV2_18_t::tensorCreateContextTensor__QnnTensor_CreateContextTensorFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1ad08e4bc888817120ef7bc636dc5df818"></span><a class="reference internal" href="typedef_QnnInterface_8h_1ac52c189023b8bfd7481624c1eabdc5f3.html#_CPPv433QnnTensor_CreateContextTensorFn_t" title="QnnTensor_CreateContextTensorFn_t"><span class="n"><span class="pre">QnnTensor_CreateContextTensorFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tensorCreateContextTensor</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t25tensorCreateContextTensorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t23tensorCreateGraphTensorE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t23tensorCreateGraphTensorE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t23tensorCreateGraphTensorE"></span><span id="QnnInterface_ImplementationV2_18_t::tensorCreateGraphTensor__QnnTensor_CreateGraphTensorFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a8e95d6b672ef008c533038ab9c790bf2"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a8e0c832002ed6d40331c71b4fecc04b3.html#_CPPv431QnnTensor_CreateGraphTensorFn_t" title="QnnTensor_CreateGraphTensorFn_t"><span class="n"><span class="pre">QnnTensor_CreateGraphTensorFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tensorCreateGraphTensor</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t23tensorCreateGraphTensorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t9logCreateE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t9logCreateE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t9logCreateE"></span><span id="QnnInterface_ImplementationV2_18_t::logCreate__QnnLog_CreateFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a3d82a112ff80cf5657bf2ea5a249d102"></span><a class="reference internal" href="typedef_QnnInterface_8h_1aeea2657216d607ef0449425385c1923f.html#_CPPv417QnnLog_CreateFn_t" title="QnnLog_CreateFn_t"><span class="n"><span class="pre">QnnLog_CreateFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">logCreate</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t9logCreateE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t14logSetLogLevelE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t14logSetLogLevelE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t14logSetLogLevelE"></span><span id="QnnInterface_ImplementationV2_18_t::logSetLogLevel__QnnLog_SetLogLevelFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a7948fc9d9ced05938c8e6c099dded352"></span><a class="reference internal" href="typedef_QnnInterface_8h_1abee6c6c333daa127fb91e6cab2f53e9e.html#_CPPv422QnnLog_SetLogLevelFn_t" title="QnnLog_SetLogLevelFn_t"><span class="n"><span class="pre">QnnLog_SetLogLevelFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">logSetLogLevel</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t14logSetLogLevelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t7logFreeE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t7logFreeE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t7logFreeE"></span><span id="QnnInterface_ImplementationV2_18_t::logFree__QnnLog_FreeFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a6a07db391fd1b7f1575016f4346357b2"></span><a class="reference internal" href="typedef_QnnInterface_8h_1ae7e5e6a82daef9bc5d239992019a799e.html#_CPPv415QnnLog_FreeFn_t" title="QnnLog_FreeFn_t"><span class="n"><span class="pre">QnnLog_FreeFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">logFree</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t7logFreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t13profileCreateE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t13profileCreateE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t13profileCreateE"></span><span id="QnnInterface_ImplementationV2_18_t::profileCreate__QnnProfile_CreateFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1ab95968ba9e83b2cf113acc991b57a479"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a37717624b785ba7f8e5f0b0dd0afb759.html#_CPPv421QnnProfile_CreateFn_t" title="QnnProfile_CreateFn_t"><span class="n"><span class="pre">QnnProfile_CreateFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">profileCreate</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t13profileCreateE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t16profileSetConfigE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t16profileSetConfigE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t16profileSetConfigE"></span><span id="QnnInterface_ImplementationV2_18_t::profileSetConfig__QnnProfile_SetConfigFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a4693f23d39dd4670d6cf98338754e552"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a6eaec8349a7c611e41e494c86253841b.html#_CPPv424QnnProfile_SetConfigFn_t" title="QnnProfile_SetConfigFn_t"><span class="n"><span class="pre">QnnProfile_SetConfigFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">profileSetConfig</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t16profileSetConfigE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t16profileGetEventsE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t16profileGetEventsE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t16profileGetEventsE"></span><span id="QnnInterface_ImplementationV2_18_t::profileGetEvents__QnnProfile_GetEventsFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a41823ff1a63b8632bce19a449c5dec05"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a45cdce5b99778237a05679b95f5324c8.html#_CPPv424QnnProfile_GetEventsFn_t" title="QnnProfile_GetEventsFn_t"><span class="n"><span class="pre">QnnProfile_GetEventsFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">profileGetEvents</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t16profileGetEventsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t19profileGetSubEventsE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t19profileGetSubEventsE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t19profileGetSubEventsE"></span><span id="QnnInterface_ImplementationV2_18_t::profileGetSubEvents__QnnProfile_GetSubEventsFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a93a78add04a19d83e360a0c4197e20be"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a19081f6f4d71d4e108f8d024c9547eab.html#_CPPv427QnnProfile_GetSubEventsFn_t" title="QnnProfile_GetSubEventsFn_t"><span class="n"><span class="pre">QnnProfile_GetSubEventsFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">profileGetSubEvents</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t19profileGetSubEventsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t19profileGetEventDataE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t19profileGetEventDataE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t19profileGetEventDataE"></span><span id="QnnInterface_ImplementationV2_18_t::profileGetEventData__QnnProfile_GetEventDataFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a76d014997b44ba7974e964a317fb23c0"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a1f5c54681a34aa16ff7aa08b92ba6752.html#_CPPv427QnnProfile_GetEventDataFn_t" title="QnnProfile_GetEventDataFn_t"><span class="n"><span class="pre">QnnProfile_GetEventDataFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">profileGetEventData</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t19profileGetEventDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t27profileGetExtendedEventDataE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t27profileGetExtendedEventDataE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t27profileGetExtendedEventDataE"></span><span id="QnnInterface_ImplementationV2_18_t::profileGetExtendedEventData__QnnProfile_GetExtendedEventDataFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a314b1c8d6804a518ff71602c499b9739"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a067ef35ef6dce4948171f2bd001297bb.html#_CPPv435QnnProfile_GetExtendedEventDataFn_t" title="QnnProfile_GetExtendedEventDataFn_t"><span class="n"><span class="pre">QnnProfile_GetExtendedEventDataFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">profileGetExtendedEventData</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t27profileGetExtendedEventDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t11profileFreeE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t11profileFreeE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t11profileFreeE"></span><span id="QnnInterface_ImplementationV2_18_t::profileFree__QnnProfile_FreeFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1ab5670f07620c33856639cc79b56d0f23"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a412c53e24e37a007d62e4c920a8fdc26.html#_CPPv419QnnProfile_FreeFn_t" title="QnnProfile_FreeFn_t"><span class="n"><span class="pre">QnnProfile_FreeFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">profileFree</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t11profileFreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t11memRegisterE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t11memRegisterE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t11memRegisterE"></span><span id="QnnInterface_ImplementationV2_18_t::memRegister__QnnMem_RegisterFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a1ac6fa2bfe3d5f428f6952d1073a5fd6"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a75f8e3f553dc674c67550224e5727587.html#_CPPv419QnnMem_RegisterFn_t" title="QnnMem_RegisterFn_t"><span class="n"><span class="pre">QnnMem_RegisterFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">memRegister</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t11memRegisterE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t13memDeRegisterE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t13memDeRegisterE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t13memDeRegisterE"></span><span id="QnnInterface_ImplementationV2_18_t::memDeRegister__QnnMem_DeRegisterFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a02068151eb81bfcf668d5c7982ee8cb5"></span><a class="reference internal" href="typedef_QnnInterface_8h_1ab914d9bcdddaa43873881d1bdc21fc55.html#_CPPv421QnnMem_DeRegisterFn_t" title="QnnMem_DeRegisterFn_t"><span class="n"><span class="pre">QnnMem_DeRegisterFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">memDeRegister</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t13memDeRegisterE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t21deviceGetPlatformInfoE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t21deviceGetPlatformInfoE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t21deviceGetPlatformInfoE"></span><span id="QnnInterface_ImplementationV2_18_t::deviceGetPlatformInfo__QnnDevice_GetPlatformInfoFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1ad9c5f4e8e04b9e98d7b7f14cc0f98001"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a424ff1b37f569e06258449936ba2a213.html#_CPPv429QnnDevice_GetPlatformInfoFn_t" title="QnnDevice_GetPlatformInfoFn_t"><span class="n"><span class="pre">QnnDevice_GetPlatformInfoFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deviceGetPlatformInfo</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t21deviceGetPlatformInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t22deviceFreePlatformInfoE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t22deviceFreePlatformInfoE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t22deviceFreePlatformInfoE"></span><span id="QnnInterface_ImplementationV2_18_t::deviceFreePlatformInfo__QnnDevice_FreePlatformInfoFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a305cd219f53822b71abf96d09a5070e9"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a782a263cbaa8a8f56452d110fc508e31.html#_CPPv430QnnDevice_FreePlatformInfoFn_t" title="QnnDevice_FreePlatformInfoFn_t"><span class="n"><span class="pre">QnnDevice_FreePlatformInfoFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deviceFreePlatformInfo</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t22deviceFreePlatformInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t23deviceGetInfrastructureE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t23deviceGetInfrastructureE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t23deviceGetInfrastructureE"></span><span id="QnnInterface_ImplementationV2_18_t::deviceGetInfrastructure__QnnDevice_GetInfrastructureFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1aee586ab12b5c04573f680ab3dab35f23"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a49841642c0855e147f3e47f2b312cb9d.html#_CPPv431QnnDevice_GetInfrastructureFn_t" title="QnnDevice_GetInfrastructureFn_t"><span class="n"><span class="pre">QnnDevice_GetInfrastructureFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deviceGetInfrastructure</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t23deviceGetInfrastructureE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t12deviceCreateE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t12deviceCreateE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t12deviceCreateE"></span><span id="QnnInterface_ImplementationV2_18_t::deviceCreate__QnnDevice_CreateFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a45a0c24c872779c9b44a3b777d39039d"></span><a class="reference internal" href="typedef_QnnInterface_8h_1ad1fa0bcd1feccf171463852e68dde23b.html#_CPPv420QnnDevice_CreateFn_t" title="QnnDevice_CreateFn_t"><span class="n"><span class="pre">QnnDevice_CreateFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deviceCreate</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t12deviceCreateE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t15deviceSetConfigE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t15deviceSetConfigE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t15deviceSetConfigE"></span><span id="QnnInterface_ImplementationV2_18_t::deviceSetConfig__QnnDevice_SetConfigFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a9e910dde1a0c24ed65079cc92769f454"></span><a class="reference internal" href="typedef_QnnInterface_8h_1ae030196b96d7ee454e3af035823a9d93.html#_CPPv423QnnDevice_SetConfigFn_t" title="QnnDevice_SetConfigFn_t"><span class="n"><span class="pre">QnnDevice_SetConfigFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deviceSetConfig</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t15deviceSetConfigE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t13deviceGetInfoE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t13deviceGetInfoE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t13deviceGetInfoE"></span><span id="QnnInterface_ImplementationV2_18_t::deviceGetInfo__QnnDevice_GetInfoFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a3cffc34f09ec5bb9a80fda034e4b0d21"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a3c09cce592d82bf12234509d15901167.html#_CPPv421QnnDevice_GetInfoFn_t" title="QnnDevice_GetInfoFn_t"><span class="n"><span class="pre">QnnDevice_GetInfoFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deviceGetInfo</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t13deviceGetInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t10deviceFreeE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t10deviceFreeE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t10deviceFreeE"></span><span id="QnnInterface_ImplementationV2_18_t::deviceFree__QnnDevice_FreeFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a42e863ba154f140095724010f954cfb0"></span><a class="reference internal" href="typedef_QnnInterface_8h_1afdd8ed9c142ca6ec91513b84b5cedec9.html#_CPPv418QnnDevice_FreeFn_t" title="QnnDevice_FreeFn_t"><span class="n"><span class="pre">QnnDevice_FreeFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deviceFree</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t10deviceFreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t12signalCreateE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t12signalCreateE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t12signalCreateE"></span><span id="QnnInterface_ImplementationV2_18_t::signalCreate__QnnSignal_CreateFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a0db7dc3f13c97eb278e2a943440d2daf"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a5c6cb38d49edc90bb78aa812420c0af5.html#_CPPv420QnnSignal_CreateFn_t" title="QnnSignal_CreateFn_t"><span class="n"><span class="pre">QnnSignal_CreateFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">signalCreate</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t12signalCreateE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t15signalSetConfigE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t15signalSetConfigE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t15signalSetConfigE"></span><span id="QnnInterface_ImplementationV2_18_t::signalSetConfig__QnnSignal_SetConfigFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a01b7c1c2bacbc537acf70da37c74458e"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a01a5053713ec84dcb23f23e1fc448cd5.html#_CPPv423QnnSignal_SetConfigFn_t" title="QnnSignal_SetConfigFn_t"><span class="n"><span class="pre">QnnSignal_SetConfigFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">signalSetConfig</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t15signalSetConfigE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t13signalTriggerE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t13signalTriggerE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t13signalTriggerE"></span><span id="QnnInterface_ImplementationV2_18_t::signalTrigger__QnnSignal_TriggerFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1af99d0472aaf00e92e92370304152b1b1"></span><a class="reference internal" href="typedef_QnnInterface_8h_1acc005f8fb46ceab7812636ccf4b11250.html#_CPPv421QnnSignal_TriggerFn_t" title="QnnSignal_TriggerFn_t"><span class="n"><span class="pre">QnnSignal_TriggerFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">signalTrigger</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t13signalTriggerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t10signalFreeE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t10signalFreeE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t10signalFreeE"></span><span id="QnnInterface_ImplementationV2_18_t::signalFree__QnnSignal_FreeFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a1411e73fa1641289e19b2d42439af9c0"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a0c0d9779cae0459285538de4465940b1.html#_CPPv418QnnSignal_FreeFn_t" title="QnnSignal_FreeFn_t"><span class="n"><span class="pre">QnnSignal_FreeFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">signalFree</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t10signalFreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t15errorGetMessageE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t15errorGetMessageE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t15errorGetMessageE"></span><span id="QnnInterface_ImplementationV2_18_t::errorGetMessage__QnnError_GetMessageFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1ab5c6bf8b65d3027fd68b052d418b9c3d"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a00e1621458571d5e913a2a401040923f.html#_CPPv423QnnError_GetMessageFn_t" title="QnnError_GetMessageFn_t"><span class="n"><span class="pre">QnnError_GetMessageFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">errorGetMessage</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t15errorGetMessageE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t22errorGetVerboseMessageE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t22errorGetVerboseMessageE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t22errorGetVerboseMessageE"></span><span id="QnnInterface_ImplementationV2_18_t::errorGetVerboseMessage__QnnError_GetVerboseMessageFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1afeac95603efffe0696b5668dda5b615d"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a50811648ddc4e46ec3244467557d2cfc.html#_CPPv430QnnError_GetVerboseMessageFn_t" title="QnnError_GetVerboseMessageFn_t"><span class="n"><span class="pre">QnnError_GetVerboseMessageFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">errorGetVerboseMessage</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t22errorGetVerboseMessageE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t23errorFreeVerboseMessageE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t23errorFreeVerboseMessageE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t23errorFreeVerboseMessageE"></span><span id="QnnInterface_ImplementationV2_18_t::errorFreeVerboseMessage__QnnError_FreeVerboseMessageFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a672162754fe315a568a62342baef8b62"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a25bfcc49bdbcf11ff8d722a8b15d8813.html#_CPPv431QnnError_FreeVerboseMessageFn_t" title="QnnError_FreeVerboseMessageFn_t"><span class="n"><span class="pre">QnnError_FreeVerboseMessageFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">errorFreeVerboseMessage</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t23errorFreeVerboseMessageE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t32graphPrepareExecutionEnvironmentE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t32graphPrepareExecutionEnvironmentE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t32graphPrepareExecutionEnvironmentE"></span><span id="QnnInterface_ImplementationV2_18_t::graphPrepareExecutionEnvironment__QnnGraph_PrepareExecutionEnvironmentFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a3a43f9137588a7287fe4ad433ccf3d5e"></span><a class="reference internal" href="typedef_QnnInterface_8h_1ac136d34f68c4ca1f9f97e51d76ffd351.html#_CPPv440QnnGraph_PrepareExecutionEnvironmentFn_t" title="QnnGraph_PrepareExecutionEnvironmentFn_t"><span class="n"><span class="pre">QnnGraph_PrepareExecutionEnvironmentFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">graphPrepareExecutionEnvironment</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t32graphPrepareExecutionEnvironmentE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t32graphReleaseExecutionEnvironmentE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t32graphReleaseExecutionEnvironmentE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t32graphReleaseExecutionEnvironmentE"></span><span id="QnnInterface_ImplementationV2_18_t::graphReleaseExecutionEnvironment__QnnGraph_ReleaseExecutionEnvironmentFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a7ba8a9616905cd4c8d467569d02d0aef"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a449fe23ac2663532d7c55139d4cae668.html#_CPPv440QnnGraph_ReleaseExecutionEnvironmentFn_t" title="QnnGraph_ReleaseExecutionEnvironmentFn_t"><span class="n"><span class="pre">QnnGraph_ReleaseExecutionEnvironmentFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">graphReleaseExecutionEnvironment</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t32graphReleaseExecutionEnvironmentE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t16graphGetPropertyE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t16graphGetPropertyE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t16graphGetPropertyE"></span><span id="QnnInterface_ImplementationV2_18_t::graphGetProperty__QnnGraph_GetPropertyFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a626ed3b9ca228184e648d857aa8f52a1"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a536243da91a27b56e271e04e09b32a41.html#_CPPv424QnnGraph_GetPropertyFn_t" title="QnnGraph_GetPropertyFn_t"><span class="n"><span class="pre">QnnGraph_GetPropertyFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">graphGetProperty</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t16graphGetPropertyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t21contextValidateBinaryE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t21contextValidateBinaryE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t21contextValidateBinaryE"></span><span id="QnnInterface_ImplementationV2_18_t::contextValidateBinary__QnnContext_ValidateBinaryFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a01e0c76ecddebb36dbbcfbd32dc3f877"></span><a class="reference internal" href="typedef_QnnInterface_8h_1af3ce6826b645dd710f9d0309424b23b9.html#_CPPv429QnnContext_ValidateBinaryFn_t" title="QnnContext_ValidateBinaryFn_t"><span class="n"><span class="pre">QnnContext_ValidateBinaryFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contextValidateBinary</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t21contextValidateBinaryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t33contextCreateFromBinaryWithSignalE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t33contextCreateFromBinaryWithSignalE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t33contextCreateFromBinaryWithSignalE"></span><span id="QnnInterface_ImplementationV2_18_t::contextCreateFromBinaryWithSignal__QnnContext_CreateFromBinaryWithSignalFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a4f41e5d9cba6d9c00da46a785d0e6505"></span><a class="reference internal" href="typedef_QnnInterface_8h_1aa717e25d5c032ffe5737937924cdebfc.html#_CPPv441QnnContext_CreateFromBinaryWithSignalFn_t" title="QnnContext_CreateFromBinaryWithSignalFn_t"><span class="n"><span class="pre">QnnContext_CreateFromBinaryWithSignalFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contextCreateFromBinaryWithSignal</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t33contextCreateFromBinaryWithSignalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t32contextCreateFromBinaryListAsyncE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t32contextCreateFromBinaryListAsyncE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t32contextCreateFromBinaryListAsyncE"></span><span id="QnnInterface_ImplementationV2_18_t::contextCreateFromBinaryListAsync__QnnContext_CreateFromBinaryListAsyncFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1adfcb29a991203743dc92451a6d82c8e7"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a47ed8d95952492f87e242b3e548996a6.html#_CPPv440QnnContext_CreateFromBinaryListAsyncFn_t" title="QnnContext_CreateFromBinaryListAsyncFn_t"><span class="n"><span class="pre">QnnContext_CreateFromBinaryListAsyncFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contextCreateFromBinaryListAsync</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t32contextCreateFromBinaryListAsyncE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t24tensorUpdateGraphTensorsE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t24tensorUpdateGraphTensorsE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t24tensorUpdateGraphTensorsE"></span><span id="QnnInterface_ImplementationV2_18_t::tensorUpdateGraphTensors__QnnTensor_UpdateGraphTensorsFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a8da306de2e64b5c6177ce7d5209f3c4b"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a010806d0d8070e7b56f773caa7c26ce1.html#_CPPv432QnnTensor_UpdateGraphTensorsFn_t" title="QnnTensor_UpdateGraphTensorsFn_t"><span class="n"><span class="pre">QnnTensor_UpdateGraphTensorsFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tensorUpdateGraphTensors</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t24tensorUpdateGraphTensorsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t26tensorUpdateContextTensorsE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t26tensorUpdateContextTensorsE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t26tensorUpdateContextTensorsE"></span><span id="QnnInterface_ImplementationV2_18_t::tensorUpdateContextTensors__QnnTensor_UpdateContextTensorsFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1ad7e69808aa5eadc24fb4b88e1e1b389b"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a6f69d7e013369f9ef038393ac17ad9c5.html#_CPPv434QnnTensor_UpdateContextTensorsFn_t" title="QnnTensor_UpdateContextTensorsFn_t"><span class="n"><span class="pre">QnnTensor_UpdateContextTensorsFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tensorUpdateContextTensors</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t26tensorUpdateContextTensorsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t27contextGetBinarySectionSizeE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t27contextGetBinarySectionSizeE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t27contextGetBinarySectionSizeE"></span><span id="QnnInterface_ImplementationV2_18_t::contextGetBinarySectionSize__QnnContext_GetBinarySectionSizeFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1aa7d3dc5c70cbd0bdb75f094b9bbb0f15"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a06b543c87c2bec298f4f8165247cf4a6.html#_CPPv435QnnContext_GetBinarySectionSizeFn_t" title="QnnContext_GetBinarySectionSizeFn_t"><span class="n"><span class="pre">QnnContext_GetBinarySectionSizeFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contextGetBinarySectionSize</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t27contextGetBinarySectionSizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t23contextGetBinarySectionE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t23contextGetBinarySectionE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t23contextGetBinarySectionE"></span><span id="QnnInterface_ImplementationV2_18_t::contextGetBinarySection__QnnContext_GetBinarySectionFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a0b0a1390bcc1d9cc0884b6892b5a9d42"></span><a class="reference internal" href="typedef_QnnInterface_8h_1a8ee8de4a21bcd5006f4f7bdb75829795.html#_CPPv431QnnContext_GetBinarySectionFn_t" title="QnnContext_GetBinarySectionFn_t"><span class="n"><span class="pre">QnnContext_GetBinarySectionFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contextGetBinarySection</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t23contextGetBinarySectionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N34QnnInterface_ImplementationV2_18_t25contextApplyBinarySectionE">
+<span id="_CPPv3N34QnnInterface_ImplementationV2_18_t25contextApplyBinarySectionE"></span><span id="_CPPv2N34QnnInterface_ImplementationV2_18_t25contextApplyBinarySectionE"></span><span id="QnnInterface_ImplementationV2_18_t::contextApplyBinarySection__QnnContext_ApplyBinarySectionFn_t"></span><span class="target" id="structQnnInterface__ImplementationV2__18__t_1a41d3b0c079339f0a29c272ca218d65e6"></span><a class="reference internal" href="typedef_QnnInterface_8h_1ab9d8ebdbf2bb960046ea9fc94c3783bc.html#_CPPv433QnnContext_ApplyBinarySectionFn_t" title="QnnContext_ApplyBinarySectionFn_t"><span class="n"><span class="pre">QnnContext_ApplyBinarySectionFn_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contextApplyBinarySection</span></span></span><a class="headerlink" href="#_CPPv4N34QnnInterface_ImplementationV2_18_t25contextApplyBinarySectionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="structQnnInterface__t.html" class="btn btn-neutral float-right" title="Struct QnnInterface_t" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="structQnnHtpSystemContext__HwBlobInfoV1.html" class="btn btn-neutral float-left" title="Struct QnnHtpSystemContext_HwBlobInfoV1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020-2024, Qualcomm Technologies, Inc..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
